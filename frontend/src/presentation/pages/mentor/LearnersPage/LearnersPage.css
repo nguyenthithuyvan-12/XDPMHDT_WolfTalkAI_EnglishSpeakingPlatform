@@ -1,0 +1,155 @@
+/* src/presentation/pages/mentor/LearnersPage/LearnersPage.css */
+
+.learners-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 8px 32px;
+}
+
+/* Glass card base (dùng chung với dashboard) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+}
+
+/* Header */
+.learners-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+
+.learners-page__header-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.learners-page__header-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1d4ed8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.learners-page__title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.learners-page__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Actions */
+.learners-page__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.learners-page__icon-button {
+  border: none;
+  outline: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.12);
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.learners-page__icon-button:hover {
+  background: rgba(148, 163, 184, 0.2);
+  transform: translateY(-1px);
+}
+
+.learners-page__primary-button {
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.learners-page__primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.42);
+}
+
+/* Content */
+.learners-page__content {
+  padding: 32px 24px;
+}
+
+.learners-page__empty {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.learners-page__empty-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 0, #fee2e2, #fecaca);
+  color: #b91c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.learners-page__empty-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.learners-page__empty-text {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .learners-page__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .learners-page__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

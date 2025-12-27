@@ -1,33 +1,32 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { LoginPage } from '../pages/auth/LoginPage/LoginPage';
-import { DashboardPage } from '../pages/admin/DashboardPage/DashboardPage';
-import { UsersPage } from '../pages/admin/UsersPage/UsersPage';
-import { MentorsPage } from '../pages/admin/MentorsPage/MentorsPage';
-import { PlansPage } from '../pages/admin/PlansPage/PlansPage';
-import { TransactionsPage } from '../pages/admin/TransactionsPage/TransactionsPage';
-import { ModerationPage } from '../pages/admin/ModerationPage/ModerationPage';
-import { SupportPage } from '../pages/admin/SupportPage/SupportPage';
-import { PolicyPage } from '../pages/admin/PolicyPage/PolicyPage';
-import { AdminLayout } from '../components/templates/AdminLayout/AdminLayout';
-import { LearnersPage } from '../pages/mentor/LearnersPage/LearnersPage';
-import { AssessmentPage } from '../pages/mentor/AssessmentPage/AssessmentPage';
-import { FeedbackPage } from '../pages/mentor/FeedbackPage/FeedbackPage';
-import { MaterialsPage } from '../pages/mentor/MaterialsPage/MaterialsPage';
-import { SharedExperiencePage } from '../pages/mentor/SharedExperiencePage/SharedExperiencePage';
-import { PrivateRoute } from './PrivateRoute';
-import { MentorLayout } from '../components/templates/MentorLayout/MentorLayout';
-import { MentorDashboardPage } from '../pages/mentor/MentorDashboardPage/MentorDashboardPage';
-
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { LoginPage } from "../pages/auth/LoginPage/LoginPage";
+import { DashboardPage } from "../pages/admin/DashboardPage/DashboardPage";
+import { UsersPage } from "../pages/admin/UsersPage/UsersPage";
+import { MentorsPage } from "../pages/admin/MentorsPage/MentorsPage";
+import { PlansPage } from "../pages/admin/PlansPage/PlansPage";
+import { TransactionsPage } from "../pages/admin/TransactionsPage/TransactionsPage";
+import { ModerationPage } from "../pages/admin/ModerationPage/ModerationPage";
+import { SupportPage } from "../pages/admin/SupportPage/SupportPage";
+import { PolicyPage } from "../pages/admin/PolicyPage/PolicyPage";
+import { AdminLayout } from "../components/templates/AdminLayout/AdminLayout";
+import { LearnersPage } from "../pages/mentor/LearnersPage/LearnersPage";
+import { AssessmentPage } from "../pages/mentor/AssessmentPage/AssessmentPage";
+import { FeedbackPage } from "../pages/mentor/FeedbackPage/FeedbackPage";
+import { MaterialsPage } from "../pages/mentor/MaterialsPage/MaterialsPage";
+import { SharedExperiencePage } from "../pages/mentor/SharedExperiencePage/SharedExperiencePage";
+import { PrivateRoute } from "./PrivateRoute";
+import { MentorLayout } from "../components/templates/MentorLayout/MentorLayout";
+import { MentorDashboardPage } from "../pages/mentor/MentorDashboardPage/MentorDashboardPage";
+import { HealthCheckPage } from "../../pages/HealthCheckPage";
 
 export const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Public Route */}
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
+      {/* Public Routes */}
+      <Route path="/connect" element={<HealthCheckPage />} />
+
+      <Route path="/login" element={<LoginPage />} />
 
       {/* Admin Routes */}
       <Route

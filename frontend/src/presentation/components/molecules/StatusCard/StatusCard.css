@@ -1,0 +1,90 @@
+.status-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.status-card--primary {
+  border-color: #667eea;
+}
+
+.status-card--success {
+  border-color: #28a745;
+}
+
+.status-card--danger {
+  border-color: #dc3545;
+}
+
+.status-card--warning {
+  border-color: #ffc107;
+}
+
+.status-card--info {
+  border-color: #17a2b8;
+}
+
+.status-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.status-card__title {
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-card__icon {
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.status-card__value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.status-card__trend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.trend {
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.trend--up {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.trend--down {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.trend__text {
+  color: #6c757d;
+}

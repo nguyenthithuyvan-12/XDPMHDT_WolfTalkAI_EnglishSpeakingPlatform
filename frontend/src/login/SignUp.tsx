@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/AgeSelectionPage.css";
 import logoWolf from "../assets/wolftalk/logo_wolf.png";
+import { apiClient } from "../services/api";
 
 type Language = "vi" | "en" | "fr" | "es";
 
@@ -85,14 +86,55 @@ const SignUp: React.FC<SignUpProps> = ({
   onSignUp,
   onNext,
 }) => {
+  const [step, setStep] = useState<number>(1);
   const [age, setAge] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const content = translations[displayLanguage];
 
-  const handleNext = (e: React.FormEvent) => {
+  const handleAgeNext = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Next with age:", age);
-    onNext();
+    if (!age || Number(age) < 1) {
+      alert("Vui lòng nhập tuổi hợp lệ");
+      return;
+    }
+    setStep(2);
+  };
+
+  const validateAccount = () => {
+    if (!email) {
+      alert("Vui lòng nhập email");
+      return false;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      alert("Email không hợp lệ");
+      return false;
+    }
+    if (!password || password.length < 6) {
+      alert("Mật khẩu phải ít nhất 6 ký tự");
+      return false;
+    }
+    return true;
+  };
+
+  const handleCreateAccount = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateAccount()) return;
+    const payload: any = { email, password, firstName, lastName, age };
+    apiClient
+      .post<{ token: string }>("/auth/register", payload)
+      .then((res) => {
+        localStorage.setItem("accessToken", res.token);
+        setStep(3);
+        setTimeout(() => onNext(), 800);
+      })
+      .catch((err) => {
+        console.error("Register failed", err);
+        alert("Đăng ký thất bại: " + err.message);
+      });
   };
 
   const handleGoogleSignUp = () => {
@@ -126,32 +168,87 @@ const SignUp: React.FC<SignUpProps> = ({
         <div className="age-form-container">
           <h1 className="age-title">{content.title}</h1>
 
-          <form onSubmit={handleNext} className="age-form">
-            <div className="age-form-group">
-              <input
-                type="number"
-                placeholder={content.ageInputPlaceholder}
-                className="age-input"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                min="1"
-                max="120"
-                required
-              />
+          {step === 1 && (
+            <form onSubmit={handleAgeNext} className="age-form">
+              <div className="age-form-group">
+                <input
+                  type="number"
+                  placeholder={content.ageInputPlaceholder}
+                  className="age-input"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  min="1"
+                  max="120"
+                  required
+                />
+              </div>
+
+              <p className="age-description">
+                {content.description.split(content.privacyText)[0]}
+                <a href="#" className="privacy-link">
+                  {content.privacyText}
+                </a>
+                {content.description.split(content.privacyText)[1]}
+              </p>
+
+              <button type="submit" className="age-next-button">
+                {content.nextButton}
+              </button>
+            </form>
+          )}
+
+          {step === 2 && (
+            <form onSubmit={handleCreateAccount} className="age-form">
+              <div className="age-form-group">
+                <input
+                  className="age-input"
+                  type="text"
+                  placeholder="First name (optional)"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <input
+                  className="age-input"
+                  type="text"
+                  placeholder="Last name (optional)"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  style={{ marginTop: 8 }}
+                />
+                <input
+                  id="su-email"
+                  className="age-input"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{ marginTop: 8 }}
+                  required
+                />
+                <input
+                  id="su-password"
+                  className="age-input"
+                  type="password"
+                  placeholder="Password (min 6 chars)"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{ marginTop: 8 }}
+                  required
+                />
+              </div>
+
+              <button type="submit" className="age-next-button">
+                {"TẠO TÀI KHOẢN"}
+              </button>
+            </form>
+          )}
+
+          {step === 3 && (
+            <div className="age-form success">
+              <h3>Đăng ký thành công!</h3>
+              <p>Bạn sẽ được chuyển hướng trong giây lát...</p>
             </div>
-
-            <p className="age-description">
-              {content.description.split(content.privacyText)[0]}
-              <a href="#" className="privacy-link">
-                {content.privacyText}
-              </a>
-              {content.description.split(content.privacyText)[1]}
-            </p>
-
-            <button type="submit" className="age-next-button">
-              {content.nextButton}
-            </button>
-          </form>
+          )}
 
           <div className="age-divider">
             <span>{content.orText}</span>

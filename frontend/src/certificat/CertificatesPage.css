@@ -1,0 +1,23 @@
+:root {
+  --content-padding: 24px;
+}
+
+.certificates-main {
+  display: flex;
+}
+
+.certificates-content {
+  margin-left: 240px; /* match sidebar width */
+  padding: var(--content-padding);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.certificates-content h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.certificates-content p {
+  color: #4b5563;
+}

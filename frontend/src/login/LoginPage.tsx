@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/LoginPage.css";
 import logoWolf from "../assets/wolftalk/logo_wolf.png";
+import { apiClient } from "../services/api";
 
 type Language = "vi" | "en" | "fr" | "es";
 
@@ -97,8 +98,16 @@ const LoginPage: React.FC<LoginPageProps> = ({
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login attempt with:", { email, password });
-    onLoginSuccess();
+    apiClient
+      .post<{ token: string }>("/auth/login", { email, password })
+      .then((res) => {
+        localStorage.setItem("accessToken", res.token);
+        onLoginSuccess();
+      })
+      .catch((err) => {
+        console.error("Login failed", err);
+        alert("Đăng nhập thất bại: " + err.message);
+      });
   };
 
   const handleGoogleLogin = () => {

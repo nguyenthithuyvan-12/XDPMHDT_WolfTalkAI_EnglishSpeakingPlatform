@@ -4,6 +4,7 @@ import logoWolf from "../assets/wolftalk/logo_wolf.png";
 import LanguageSelectionPage from "./LanguageSelectionPage";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../login/SignUp";
+import { useNavigate } from "react-router-dom";
 
 type Language = "vi" | "en" | "fr" | "es";
 
@@ -21,6 +22,7 @@ const LandingPage: React.FC = () => {
   const [showLanguageSelection, setShowLanguageSelection] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showAgeModal, setShowAgeModal] = useState(false);
+  const navigate = useNavigate();
 
   const languages = [
     { name: "TIẾNG ANH", flag: "🇺🇸" },
@@ -116,13 +118,14 @@ const LandingPage: React.FC = () => {
   };
 
   const handleLoginSuccess = () => {
-    setShowAgeModal(true);
+    // Navigate to dashboard after successful login
+    navigate("/dashboard");
   };
 
   const handleAgeNext = () => {
     console.log("Age verification completed");
     setShowAgeModal(false);
-    // TODO: Navigate to learning platform
+    navigate("/dashboard");
   };
 
   if (showLanguageSelection) {

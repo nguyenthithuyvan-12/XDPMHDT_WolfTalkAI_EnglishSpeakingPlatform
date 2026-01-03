@@ -3,11 +3,14 @@ const API_BASE_URL =
 
 export const apiClient = {
   async get<T>(endpoint: string): Promise<T> {
+    const token = localStorage.getItem("accessToken");
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
     if (!response.ok) {
       throw new Error(`API Error: ${response.statusText}`);
@@ -16,11 +19,14 @@ export const apiClient = {
   },
 
   async post<T>(endpoint: string, data: unknown): Promise<T> {
+    const token = localStorage.getItem("accessToken");
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify(data),
     });
     if (!response.ok) {
@@ -30,11 +36,14 @@ export const apiClient = {
   },
 
   async put<T>(endpoint: string, data: unknown): Promise<T> {
+    const token = localStorage.getItem("accessToken");
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify(data),
     });
     if (!response.ok) {
@@ -44,11 +53,14 @@ export const apiClient = {
   },
 
   async delete<T>(endpoint: string): Promise<T> {
+    const token = localStorage.getItem("accessToken");
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
     if (!response.ok) {
       throw new Error(`API Error: ${response.statusText}`);

@@ -6,10 +6,10 @@ services:
     container_name: wolftalk-postgres
     environment:
       POSTGRES_USER: wolftalk
-      POSTGRES_PASSWORD: wolftalk@9999
+      POSTGRES_PASSWORD: wolftalk9999
       POSTGRES_DB: wolftalk_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -20,8 +20,24 @@ services:
       timeout: 5s
       retries: 5
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: wolftalk-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@wolftalk.com
+      PGADMIN_DEFAULT_PASSWORD: admin9999
+    ports:
+      - "5050:80"
+    networks:
+      - wolftalk-network
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
 volumes:
   postgres_data:
+  pgadmin_data:
 
 networks:
   wolftalk-network:

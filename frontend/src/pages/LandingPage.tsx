@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../styles/LandingPage.css";
 import logoWolf from "../assets/wolftalk/logo_wolf.png";
 import LanguageSelectionPage from "./LanguageSelectionPage";
+import WelcomeScreen1 from "./WelcomeScreen1";
+import WelcomeScreen2 from "./WelcomeScreen2";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../login/SignUp";
 import { useNavigate } from "react-router-dom";
@@ -20,8 +22,11 @@ const LandingPage: React.FC = () => {
   const [currentLanguageIndex, setCurrentLanguageIndex] = useState(0);
   const [displayLanguage, setDisplayLanguage] = useState<Language>("vi");
   const [showLanguageSelection, setShowLanguageSelection] = useState(false);
+  const [showWelcome1, setShowWelcome1] = useState(false);
+  const [showWelcome2, setShowWelcome2] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showAgeModal, setShowAgeModal] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("");
   const navigate = useNavigate();
 
   const languages = [
@@ -97,7 +102,19 @@ const LandingPage: React.FC = () => {
 
   const handleSelectLanguage = (languageId: string) => {
     console.log("Selected language:", languageId);
-    // TODO: Navigate to learning page or handle language selection
+    setSelectedLanguage(languageId);
+    setShowLanguageSelection(false);
+    setShowWelcome1(true);
+  };
+
+  const handleWelcome1Next = () => {
+    setShowWelcome1(false);
+    setShowWelcome2(true);
+  };
+
+  const handleWelcome2Next = () => {
+    setShowWelcome2(false);
+    setShowAgeModal(true);
   };
 
   const handleLoginClick = () => {
@@ -118,14 +135,15 @@ const LandingPage: React.FC = () => {
   };
 
   const handleLoginSuccess = () => {
-    // Navigate to dashboard after successful login
-    navigate("/dashboard");
+    // Navigate to placement test after successful login
+    window.location.href = "/placement-test";
   };
 
   const handleAgeNext = () => {
     console.log("Age verification completed");
     setShowAgeModal(false);
-    navigate("/dashboard");
+    // Navigate to placement test with page reload to update token state
+    window.location.href = "/placement-test";
   };
 
   if (showLanguageSelection) {
@@ -136,6 +154,14 @@ const LandingPage: React.FC = () => {
         onSelectLanguage={handleSelectLanguage}
       />
     );
+  }
+
+  if (showWelcome1) {
+    return <WelcomeScreen1 onNext={handleWelcome1Next} />;
+  }
+
+  if (showWelcome2) {
+    return <WelcomeScreen2 onNext={handleWelcome2Next} />;
   }
 
   if (showLoginModal) {
@@ -156,6 +182,7 @@ const LandingPage: React.FC = () => {
         onClose={handleCloseAge}
         onSignUp={handleSignUpClick}
         onNext={handleAgeNext}
+        learningLanguage={selectedLanguage}
       />
     );
   }
@@ -227,21 +254,73 @@ const LandingPage: React.FC = () => {
         </div>
       </main>
 
-      {/* Language Carousel */}
-      <footer className="language-carousel">
-        <button className="carousel-btn prev" onClick={handlePrevLanguage}>
-          ‹
-        </button>
-        <div className="carousel-content">
-          <span className="flag">{languages[currentLanguageIndex].flag}</span>
-          <span className="language-name">
-            {languages[currentLanguageIndex].name}
-          </span>
+      {/* Features Carousel Section */}
+      <section className="features-section">
+        <div className="features-carousel">
+          <button
+            className="features-nav-btn prev"
+            onClick={handlePrevLanguage}
+          >
+            ‹
+          </button>
+
+          <div className="features-content">
+            <div className="features-header">
+              <span className="features-flag">
+                {languages[currentLanguageIndex].flag}
+              </span>
+              <span className="features-language">
+                {languages[currentLanguageIndex].name}
+              </span>
+            </div>
+
+            <div className="features-main">
+              <div className="features-text">
+                <h2 className="features-title">
+                  miễn phí. vui nhộn. <br />
+                  hiệu quả
+                </h2>
+                <p className="features-description">
+                  Học cùng Duolingo rất vui nhộn,{" "}
+                  <strong className="features-highlight">
+                    các nghiên cứu đã chứng minh ứng dụng thực sự hiệu quả!
+                  </strong>{" "}
+                  Các bài học nhỏ gọn sẽ giúp bạn ghi điểm, mở khóa cấp độ mới
+                  và luyện tập kỹ năng giao tiếp hữu dụng.
+                </p>
+              </div>
+
+              <div className="features-illustration">
+                <div className="features-device">
+                  <div className="device-screen">
+                    <div className="device-progress">
+                      <div className="progress-bar-filled"></div>
+                    </div>
+                    <div className="device-avatars">
+                      <div className="avatar-item blue">🐱</div>
+                      <div className="avatar-item green">🦉</div>
+                      <div className="avatar-item orange">🧑</div>
+                      <div className="avatar-item brown">👨</div>
+                    </div>
+                  </div>
+                  <div className="device-badge">#1</div>
+                </div>
+                <div className="features-character">
+                  <div className="character-body"></div>
+                  <div className="character-ribbon"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            className="features-nav-btn next"
+            onClick={handleNextLanguage}
+          >
+            ›
+          </button>
         </div>
-        <button className="carousel-btn next" onClick={handleNextLanguage}>
-          ›
-        </button>
-      </footer>
+      </section>
     </div>
   );
 };

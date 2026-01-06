@@ -1,0 +1,179 @@
+.welcome-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #1f3540 0%, #2d4a57 50%, #1f3540 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-character {
+  margin-bottom: 40px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.welcome-speech-bubble {
+  background: #2c3e50;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 24px 32px;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid rgba(255, 255, 255, 0.2);
+}
+
+.welcome-speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #2c3e50;
+  margin-bottom: -1px;
+}
+
+.welcome-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.welcome-footer {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-button {
+  background: linear-gradient(135deg, #58cc02 0%, #46a302 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 80px;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(88, 204, 2, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.welcome-button:hover::before {
+  left: 100%;
+}
+
+.welcome-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(88, 204, 2, 0.5);
+  background: linear-gradient(135deg, #46a302 0%, #58cc02 100%);
+}
+
+.welcome-button:active {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .welcome-character {
+    margin-bottom: 30px;
+  }
+
+  .welcome-speech-bubble {
+    padding: 20px 24px;
+    max-width: 90%;
+  }
+
+  .welcome-text {
+    font-size: 18px;
+  }
+
+  .welcome-button {
+    padding: 16px 60px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-character dotlottie-wc {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .welcome-speech-bubble {
+    padding: 16px 20px;
+  }
+
+  .welcome-text {
+    font-size: 16px;
+  }
+
+  .welcome-button {
+    padding: 14px 50px;
+    font-size: 13px;
+  }
+}

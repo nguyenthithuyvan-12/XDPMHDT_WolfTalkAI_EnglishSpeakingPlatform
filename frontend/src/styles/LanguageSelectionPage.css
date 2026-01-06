@@ -8,6 +8,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  position: relative;
 }
 
 /* ===== HEADER ===== */
@@ -101,23 +102,27 @@
 /* ===== LANGUAGE GRID ===== */
 .language-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  max-width: 900px;
+  margin: 0 0 0 auto;
+  justify-items: center;
 }
 
 .language-card {
   background: #fff;
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 16px;
+  padding: 32px;
   border: 1px solid #e8e8e8;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-width: 240px;
 }
 
 .language-card:hover {
@@ -131,25 +136,25 @@
 }
 
 .flag-container {
-  font-size: 48px;
+  font-size: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  background: #f5f5f5;
-  border-radius: 8px;
+  width: 96px;
+  height: 96px;
+  background: transparent;
+  border-radius: 10px;
 }
 
 .card-language-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #333;
   margin: 0;
 }
 
 .card-learners {
-  font-size: 13px;
+  font-size: 14px;
   color: #999;
   margin: 0;
   font-weight: 500;
@@ -244,5 +249,148 @@
 
   .card-language-name {
     font-size: 13px;
+  }
+}
+
+/* ===== CITY ANIMATION ===== */
+.city-animation {
+  position: fixed;
+  bottom: -80px;
+  right: -20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .city-animation {
+    width: 250px !important;
+    height: 250px !important;
+    bottom: -60px;
+    right: -15px;
+  }
+
+  .city-animation dotlottie-wc {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .city-animation {
+    width: 180px !important;
+    height: 180px !important;
+    bottom: -40px;
+    right: -10px;
+  }
+
+  .city-animation dotlottie-wc {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+
+/* ===== LEFT BOTTOM ANIMATION ===== */
+.left-animation {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .left-animation {
+    width: 250px !important;
+    height: 250px !important;
+    bottom: 30px;
+    left: 30px;
+  }
+
+  .left-animation dotlottie-wc {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-animation {
+    width: 180px !important;
+    height: 180px !important;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .left-animation dotlottie-wc {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+
+/* ===== FIREWORK ANIMATION ===== */
+.firework-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.firework-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  pointer-events: none;
+  animation: fireworkUp 3s ease-out forwards;
+}
+
+@keyframes fireworkUp {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .firework-animation {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .firework-animation dotlottie-wc {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .firework-animation {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .firework-animation dotlottie-wc {
+    width: 300px !important;
+    height: 300px !important;
   }
 }

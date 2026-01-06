@@ -1,16 +1,17 @@
 package com.wolftalk.backend.service;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.wolftalk.backend.auth.dto.AuthResponse;
 import com.wolftalk.backend.auth.dto.LoginRequest;
 import com.wolftalk.backend.auth.dto.RegisterRequest;
 import com.wolftalk.backend.entity.User;
 import com.wolftalk.backend.repository.UserRepository;
 import com.wolftalk.backend.security.JwtUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -33,6 +34,7 @@ public class AuthService {
         u.setPassword(passwordEncoder.encode(req.getPassword()));
         u.setFirstName(req.getFirstName());
         u.setLastName(req.getLastName());
+        u.setLearningLanguage(req.getLearningLanguage());
         u.setRoles("ROLE_USER");
         userRepository.save(u);
         String token = jwtUtil.generateToken(u.getEmail());

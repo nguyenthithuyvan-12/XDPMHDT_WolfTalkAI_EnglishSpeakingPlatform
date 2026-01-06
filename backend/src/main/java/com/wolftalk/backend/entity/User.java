@@ -35,6 +35,8 @@ public class User {
 
     private String roles; // comma separated roles
 
+    private String learningLanguage; // en, ja, zh
+
     private Instant createdAt = Instant.now();
 
 }

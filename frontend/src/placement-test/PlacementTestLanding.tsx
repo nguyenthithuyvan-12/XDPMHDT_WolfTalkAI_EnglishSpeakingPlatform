@@ -1,0 +1,73 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { placementTestService } from "./api";
+import "./PlacementTest.css";
+
+const PlacementTestLanding: React.FC = () => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleStart = async () => {
+    setIsLoading(true);
+    try {
+      const test = await placementTestService.startTest();
+      // Navigate to step 1: Language selection
+      navigate(`/placement-test/${test.id}/step/1`);
+    } catch (error) {
+      console.error("Failed to start test:", error);
+      alert("Không thể bắt đầu bài kiểm tra. Vui lòng thử lại!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="placement-test-container">
+      <div className="placement-test-landing">
+        <div className="wolf-mascot-large">
+          <div className="wolf-circle">
+            <span className="wolf-emoji">🐺</span>
+          </div>
+        </div>
+
+        <h1 className="landing-title">Chào mừng đến với WolfTalk!</h1>
+
+        <p className="landing-subtitle">
+          Hãy làm bài kiểm tra nhanh để chúng tôi hiểu rõ trình độ của bạn và
+          <br />
+          tạo lộ trình học phù hợp nhất!
+        </p>
+
+        <div className="landing-features">
+          <div className="feature-item">
+            <span className="feature-icon">⏱️</span>
+            <span className="feature-text">Chỉ mất 5-10 phút</span>
+          </div>
+          <div className="feature-item">
+            <span className="feature-icon">🎯</span>
+            <span className="feature-text">Xác định trình độ chính xác</span>
+          </div>
+          <div className="feature-item">
+            <span className="feature-icon">📚</span>
+            <span className="feature-text">Lộ trình học cá nhân hóa</span>
+          </div>
+        </div>
+
+        <button
+          className="btn-start-test"
+          onClick={handleStart}
+          disabled={isLoading}
+        >
+          {isLoading ? "Đang tải..." : "BẮT ĐẦU"}
+        </button>
+
+        <p className="landing-note">
+          💡 Đừng lo lắng! Không có đúng hay sai, chỉ cần trả lời thật tự nhiên
+          nhé
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default PlacementTestLanding;

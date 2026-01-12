@@ -92,6 +92,10 @@ public class PlacementTestService {
                 // Test is completed after this step
                 test.setIsCompleted(true);
                 calculateInitialResults(test);
+                // Mark user as having completed placement test
+                User user = test.getUser();
+                user.setHasCompletedPlacementTest(true);
+                userRepository.save(user);
                 break;
         }
         
@@ -221,6 +225,12 @@ public class PlacementTestService {
         User user = userRepository.findByEmail(userEmail)
             .orElseThrow(() -> new RuntimeException("User not found"));
         
+        // Check user flag first (faster)
+        if (user.getHasCompletedPlacementTest() != null && user.getHasCompletedPlacementTest()) {
+            return true;
+        }
+        
+        // Fallback to checking placement test table
         return placementTestRepository.existsByUserAndIsCompletedTrue(user);
     }
     

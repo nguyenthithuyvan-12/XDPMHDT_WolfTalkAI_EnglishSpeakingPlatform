@@ -84,6 +84,7 @@ public class PlacementTest {
     // Status
     private Boolean isCompleted = false;
     private Integer currentStep = 1; // Track progress
+    private Integer currentQuestionIndex = 0; // Track question progress during quiz
     
     // Recommended Learning Path
     @Column(columnDefinition = "TEXT")

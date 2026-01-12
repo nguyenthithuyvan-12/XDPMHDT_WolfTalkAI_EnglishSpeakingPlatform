@@ -37,6 +37,8 @@ public class User {
 
     private String learningLanguage; // en, ja, zh
 
+    private Boolean hasCompletedPlacementTest = false;
+
     private Instant createdAt = Instant.now();
 
 }

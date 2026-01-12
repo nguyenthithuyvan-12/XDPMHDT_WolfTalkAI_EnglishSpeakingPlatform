@@ -1,20 +1,25 @@
 package com.wolftalk.backend.controller;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wolftalk.backend.dto.AnswerSubmissionRequest;
+import com.wolftalk.backend.dto.PlacementQuestionDTO;
 import com.wolftalk.backend.dto.PlacementTestDTO;
 import com.wolftalk.backend.dto.PlacementTestStepRequest;
 import com.wolftalk.backend.service.PlacementTestService;
+import com.wolftalk.backend.service.QuestionService;
 
 @RestController
 @RequestMapping("/api/placement-test")
@@ -22,6 +27,9 @@ public class PlacementTestController {
     
     @Autowired
     private PlacementTestService placementTestService;
+    
+    @Autowired
+    private QuestionService questionService;
     
     @PostMapping("/start")
     public ResponseEntity<?> startTest(Principal principal) {
@@ -76,6 +84,62 @@ public class PlacementTestController {
             return ResponseEntity.ok(Map.of("hasCompleted", hasCompleted));
         } catch (Exception e) {
             return ResponseEntity.ok(Map.of("hasCompleted", false));
+        }
+    }
+    
+    @GetMapping("/{testId}/questions")
+    public ResponseEntity<?> getQuestions(@PathVariable Long testId, Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body(Map.of("error", "Unauthenticated"));
+        }
+        
+        try {
+            List<PlacementQuestionDTO> questions = questionService.getQuestionsForTest(testId);
+            return ResponseEntity.ok(questions);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+    
+    @PostMapping("/submit-answer")
+    public ResponseEntity<?> submitAnswer(@RequestBody AnswerSubmissionRequest request, Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body(Map.of("error", "Unauthenticated"));
+        }
+        
+        try {
+            Map<String, Object> result = questionService.submitAnswer(request);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+    
+    @GetMapping("/{testId}/final-level")
+    public ResponseEntity<?> getFinalLevel(@PathVariable Long testId, Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body(Map.of("error", "Unauthenticated"));
+        }
+        
+        try {
+            String finalLevel = questionService.calculateFinalLevel(testId);
+            return ResponseEntity.ok(Map.of("finalLevel", finalLevel));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+        }
+    }
+    
+    @GetMapping("/{testId}/progress")
+    public ResponseEntity<?> getTestProgress(@PathVariable Long testId, Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body(Map.of("error", "Unauthenticated"));
+        }
+        
+        try {
+            Map<String, Object> progress = questionService.getTestProgress(testId);
+            return ResponseEntity.ok(progress);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }
 }

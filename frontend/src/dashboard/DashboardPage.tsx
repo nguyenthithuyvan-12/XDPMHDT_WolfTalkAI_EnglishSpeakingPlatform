@@ -1,199 +1,155 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./DashboardPage.css";
 
 const DashboardPage: React.FC = () => {
-  const [hoveredNode, setHoveredNode] = React.useState<number | null>(null);
+  const navigate = useNavigate();
+  const [streak, setStreak] = useState(0);
+  const [todayGoal, setTodayGoal] = useState(0);
+  const [todayProgress, setTodayProgress] = useState(0);
+  const userName = localStorage.getItem("userName") || "Học viên";
+
+  useEffect(() => {
+    // Load user stats from API
+    loadUserStats();
+  }, []);
+
+  const loadUserStats = async () => {
+    // TODO: Call API to get user stats
+    setStreak(3);
+    setTodayGoal(20); // minutes
+    setTodayProgress(8); // minutes completed
+  };
 
   return (
     <div className="duolingo-dashboard">
-      {/* Main Learning Path */}
+      {/* Main Content Area */}
       <div className="learning-path-container">
-        <div className="unit-header">
-          <button className="back-btn">← PHẦN 1, CỬA 1</button>
-          <div className="unit-title">Mời khách xơi nước</div>
-          <button className="guide-btn">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
-              <path d="M3 4h14v2H3V4zm0 5h14v2H3V9zm0 5h14v2H3v-2z" />
-            </svg>
-            HƯỚNG DẪN
-          </button>
+        {/* Welcome Header */}
+        <div className="welcome-header">
+          <div className="greeting">
+            <h1>Chào {userName}! 👋</h1>
+            <p className="welcome-subtitle">
+              Hãy tiếp tục hành trình học tiếng Anh của bạn
+            </p>
+          </div>
         </div>
 
-        <div className="learning-path">
-          {/* Level 1 - Start */}
-          <div className="path-level">
-            <div className="level-label">BẮT ĐẦU</div>
-            <div
-              className={`lesson-node active ${
-                hoveredNode === 1 ? "hovered" : ""
-              }`}
-              onMouseEnter={() => setHoveredNode(1)}
-              onMouseLeave={() => setHoveredNode(null)}
-            >
-              <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle
-                  cx="30"
-                  cy="30"
-                  r="28"
-                  fill="#58cc02"
-                  stroke="#46a302"
-                  strokeWidth="3"
-                />
-                <path
-                  d="M30 15 L35 25 L45 26 L37 34 L39 44 L30 39 L21 44 L23 34 L15 26 L25 25 Z"
-                  fill="white"
-                />
-              </svg>
+        {/* Today's Progress */}
+        <div className="today-progress-card">
+          <div className="progress-header">
+            <h2>🎯 Mục tiêu hôm nay</h2>
+            <span className="progress-time">
+              {todayProgress}/{todayGoal} phút
+            </span>
+          </div>
+          <div className="progress-bar-container">
+            <div className="progress-bar-bg">
+              <div
+                className="progress-bar-fill"
+                style={{ width: `${(todayProgress / todayGoal) * 100}%` }}
+              />
+            </div>
+          </div>
+          <p className="progress-message">
+            {todayProgress >= todayGoal
+              ? "🎉 Xuất sắc! Bạn đã hoàn thành mục tiêu hôm nay!"
+              : `Còn ${
+                  todayGoal - todayProgress
+                } phút nữa để hoàn thành mục tiêu!`}
+          </p>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="quick-actions">
+          <div className="action-card" onClick={() => navigate("/practice")}>
+            <div className="action-icon">📚</div>
+            <h3>Bài học mới</h3>
+            <p>Học từ vựng và ngữ pháp</p>
+            <button className="action-btn">BẮT ĐẦU</button>
+          </div>
+
+          <div className="action-card" onClick={() => navigate("/speaking")}>
+            <div className="action-icon">🎤</div>
+            <h3>Luyện nói</h3>
+            <p>Cải thiện phát âm</p>
+            <button className="action-btn">LUYỆN TẬP</button>
+          </div>
+
+          <div className="action-card" onClick={() => navigate("/progress")}>
+            <div className="action-icon">📊</div>
+            <h3>Tiến độ</h3>
+            <p>Xem thống kê của bạn</p>
+            <button className="action-btn secondary">XEM</button>
+          </div>
+        </div>
+
+        {/* Learning Stats */}
+        <div className="stats-grid">
+          <div className="stat-card">
+            <div className="stat-icon-large">🔥</div>
+            <div className="stat-content">
+              <h3 className="stat-number">{streak}</h3>
+              <p className="stat-label">Ngày liên tiếp</p>
             </div>
           </div>
 
-          {/* Connector */}
-          <div className="path-connector"></div>
-
-          {/* Level 2 - Locked */}
-          <div className="path-level">
-            <div
-              className={`lesson-node locked ${
-                hoveredNode === 2 ? "hovered" : ""
-              }`}
-              onMouseEnter={() => setHoveredNode(2)}
-              onMouseLeave={() => setHoveredNode(null)}
-            >
-              <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle
-                  cx="30"
-                  cy="30"
-                  r="28"
-                  fill="#37464f"
-                  stroke="#2b353b"
-                  strokeWidth="3"
-                />
-                <path
-                  d="M30 15 L35 25 L45 26 L37 34 L39 44 L30 39 L21 44 L23 34 L15 26 L25 25 Z"
-                  fill="#4b5c69"
-                />
-              </svg>
+          <div className="stat-card">
+            <div className="stat-icon-large">⭐</div>
+            <div className="stat-content">
+              <h3 className="stat-number">128</h3>
+              <p className="stat-label">Từ đã học</p>
             </div>
           </div>
 
-          {/* Connector */}
-          <div className="path-connector"></div>
-
-          {/* Treasure chest */}
-          <div className="path-level">
-            <div className="treasure-chest">
-              <svg width="80" height="60" viewBox="0 0 80 60">
-                <rect
-                  x="10"
-                  y="20"
-                  width="60"
-                  height="35"
-                  rx="5"
-                  fill="#5a6978"
-                />
-                <rect
-                  x="10"
-                  y="20"
-                  width="60"
-                  height="15"
-                  rx="5"
-                  fill="#4a5968"
-                />
-                <rect x="35" y="25" width="10" height="20" fill="#3a4958" />
-                <circle cx="40" cy="35" r="3" fill="#7a8998" />
-              </svg>
+          <div className="stat-card">
+            <div className="stat-icon-large">🏆</div>
+            <div className="stat-content">
+              <h3 className="stat-number">12</h3>
+              <p className="stat-label">Bài hoàn thành</p>
             </div>
           </div>
 
-          {/* Connector */}
-          <div className="path-connector"></div>
+          <div className="stat-card">
+            <div className="stat-icon-large">💎</div>
+            <div className="stat-content">
+              <h3 className="stat-number">500</h3>
+              <p className="stat-label">Điểm thưởng</p>
+            </div>
+          </div>
+        </div>
 
-          {/* Wolf mascot */}
-          <div className="path-level">
-            <div className="mascot-container">
-              <div className="mascot-wolf">
-                <div className="wolf-face">
-                  <div className="wolf-ear left"></div>
-                  <div className="wolf-ear right"></div>
-                  <div className="wolf-head">
-                    <div className="wolf-eyes">
-                      <div className="wolf-eye left">
-                        <div className="pupil"></div>
-                      </div>
-                      <div className="wolf-eye right">
-                        <div className="pupil"></div>
-                      </div>
-                    </div>
-                    <div className="wolf-snout">
-                      <div className="wolf-nose"></div>
-                    </div>
-                  </div>
-                </div>
+        {/* Suggested Lessons */}
+        <div className="suggested-section">
+          <h2 className="section-title">📖 Bài học đề xuất</h2>
+          <div className="lesson-list">
+            <div className="lesson-item">
+              <div className="lesson-icon">🗣️</div>
+              <div className="lesson-info">
+                <h4>Giao tiếp cơ bản</h4>
+                <p className="lesson-meta">10 bài học • Beginner</p>
               </div>
+              <button className="lesson-start-btn">Học ngay</button>
+            </div>
+
+            <div className="lesson-item">
+              <div className="lesson-icon">✈️</div>
+              <div className="lesson-info">
+                <h4>Tiếng Anh du lịch</h4>
+                <p className="lesson-meta">8 bài học • Intermediate</p>
+              </div>
+              <button className="lesson-start-btn">Học ngay</button>
+            </div>
+
+            <div className="lesson-item">
+              <div className="lesson-icon">💼</div>
+              <div className="lesson-info">
+                <h4>Tiếng Anh công sở</h4>
+                <p className="lesson-meta">12 bài học • Advanced</p>
+              </div>
+              <button className="lesson-start-btn">Học ngay</button>
             </div>
           </div>
-
-          {/* Connector */}
-          <div className="path-connector"></div>
-
-          {/* Level 3 - Locked */}
-          <div className="path-level">
-            <div
-              className={`lesson-node locked ${
-                hoveredNode === 3 ? "hovered" : ""
-              }`}
-              onMouseEnter={() => setHoveredNode(3)}
-              onMouseLeave={() => setHoveredNode(null)}
-            >
-              <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle
-                  cx="30"
-                  cy="30"
-                  r="28"
-                  fill="#37464f"
-                  stroke="#2b353b"
-                  strokeWidth="3"
-                />
-                <path
-                  d="M30 15 L35 25 L45 26 L37 34 L39 44 L30 39 L21 44 L23 34 L15 26 L25 25 Z"
-                  fill="#4b5c69"
-                />
-              </svg>
-            </div>
-          </div>
-
-          {/* Connector */}
-          <div className="path-connector"></div>
-
-          {/* Level 4 - Review */}
-          <div className="path-level">
-            <div
-              className={`lesson-node review ${
-                hoveredNode === 4 ? "hovered" : ""
-              }`}
-              onMouseEnter={() => setHoveredNode(4)}
-              onMouseLeave={() => setHoveredNode(null)}
-            >
-              <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle
-                  cx="30"
-                  cy="30"
-                  r="28"
-                  fill="#37464f"
-                  stroke="#2b353b"
-                  strokeWidth="3"
-                />
-                <path
-                  d="M25 20 L30 15 L35 20 L40 15 L45 25 L40 35 L35 45 L30 40 L25 45 L20 35 L15 25 L20 15 Z"
-                  fill="#4b5c69"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div className="unit-description">
-          <p className="unit-intro">Giới thiệu gốc gác</p>
         </div>
       </div>
 

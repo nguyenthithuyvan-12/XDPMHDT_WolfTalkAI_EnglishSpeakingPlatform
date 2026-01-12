@@ -6,6 +6,26 @@ import "./PlacementTest.css";
 const PlacementTestLanding: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isChecking, setIsChecking] = React.useState(true);
+
+  // Check if user has already completed the test
+  React.useEffect(() => {
+    const checkTestCompletion = async () => {
+      try {
+        const hasCompleted = await placementTestService.hasCompletedTest();
+        if (hasCompleted) {
+          // User has already completed the test, redirect to dashboard
+          navigate("/dashboard", { replace: true });
+        }
+      } catch (error) {
+        console.error("Failed to check test completion:", error);
+      } finally {
+        setIsChecking(false);
+      }
+    };
+
+    checkTestCompletion();
+  }, [navigate]);
 
   const handleStart = async () => {
     setIsLoading(true);
@@ -21,9 +41,25 @@ const PlacementTestLanding: React.FC = () => {
     }
   };
 
+  // Show loading while checking if test is completed
+  if (isChecking) {
+    return (
+      <div className="placement-test-container-dark">
+        <div className="placement-test-card placement-test-landing">
+          <div className="wolf-mascot-large">
+            <div className="wolf-circle">
+              <span className="wolf-emoji">🐺</span>
+            </div>
+          </div>
+          <p className="landing-subtitle">Đang kiểm tra...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="placement-test-container">
-      <div className="placement-test-landing">
+    <div className="placement-test-container-dark">
+      <div className="placement-test-card placement-test-landing">
         <div className="wolf-mascot-large">
           <div className="wolf-circle">
             <span className="wolf-emoji">🐺</span>

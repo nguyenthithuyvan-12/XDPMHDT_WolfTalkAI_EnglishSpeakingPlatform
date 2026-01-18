@@ -2,9 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
-// Import icon library - chọn 1 trong 3 options sau:
-
-// Option 1: Lucide React (Recommended - clean & modern)
 import { 
   LayoutDashboard,
   Users,
@@ -17,77 +14,62 @@ import {
   ClipboardList,
   MessageSquare,
   BookOpen,
-  Sparkles
+  Sparkles,
+  Video
 } from 'lucide-react';
-
-// Option 2: React Icons (nếu dùng)
-// import { 
-//   RiDashboardLine,
-//   RiUserLine,
-//   RiGraduationCapLine,
-//   RiBankCardLine,
-//   RiMoneyDollarCircleLine,
-//   RiShieldCheckLine,
-//   RiCustomerService2Line,
-//   RiUserFollowLine,
-//   RiFileList3Line,
-//   RiChatSmile3Line,
-//   RiBookOpenLine
-// } from 'react-icons/ri';
 
 interface MenuItem {
   path: string;
   label: string;
-  icon: React.ReactNode; // Changed from string to ReactNode
+  icon: React.ReactNode;
 }
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  role: 'Admin' | 'Mentor';
+  role: 'Admin' | 'Mentors';
 }
 
-// Admin Menu với Lucide Icons
 const adminMenuItems: MenuItem[] = [
   { 
     path: '/admin/dashboard', 
-    label: 'Dashboard', 
+    label: 'Tổng quan', 
     icon: <LayoutDashboard size={20} strokeWidth={2} />
   },
   { 
     path: '/admin/users', 
-    label: 'Users', 
+    label: 'Người dùng', 
     icon: <Users size={20} strokeWidth={2} />
   },
   { 
     path: '/admin/mentors', 
-    label: 'Mentors', 
+    label: 'Giảng viên', 
     icon: <GraduationCap size={20} strokeWidth={2} />
   },
   { 
     path: '/admin/plans', 
-    label: 'Plans', 
+    label: 'Gói đăng ký', 
     icon: <CreditCard size={20} strokeWidth={2} />
   },
   { 
     path: '/admin/transactions', 
-    label: 'Transactions', 
+    label: 'Giao dịch', 
     icon: <Receipt size={20} strokeWidth={2} />
   },
   { 
     path: '/admin/moderation', 
-    label: 'Moderation', 
+    label: 'Kiểm duyệt', 
     icon: <ShieldCheck size={20} strokeWidth={2} />
   },
   { 
     path: '/admin/support', 
-    label: 'Support', 
+    label: 'Hỗ trợ', 
     icon: <MessageCircle size={20} strokeWidth={2} />
   },
 
   {
     path: '/admin/policys',
-    label: 'Policies',
+    label: 'Chính sách',
     icon: <ShieldCheck size={20} strokeWidth={2} />
   }
 ];
@@ -95,34 +77,59 @@ const adminMenuItems: MenuItem[] = [
 const mentorMenuItems: MenuItem[] = [
   { 
     path: '/mentor/dashboard', 
-    label: 'Dashboard', 
+    label: 'Tổng quan', 
     icon: <LayoutDashboard size={20} strokeWidth={2} />
   },
   { 
     path: '/mentor/learners', 
-    label: 'My Learners', 
+    label: 'Học viên', 
     icon: <UserCircle size={20} strokeWidth={2} />
   },
   { 
     path: '/mentor/assessment', 
-    label: 'Assessment', 
+    label: 'Đánh giá', 
     icon: <ClipboardList size={20} strokeWidth={2} />
   },
   { 
     path: '/mentor/feedback', 
-    label: 'Feedback', 
+    label: 'Phản hồi', 
     icon: <MessageSquare size={20} strokeWidth={2} />
   },
   { 
     path: '/mentor/materials', 
-    label: 'Materials', 
+    label: 'Tài liệu', 
     icon: <BookOpen size={20} strokeWidth={2} />
   },
 
   {
     path: '/mentor/sharedexperience',
-    label: 'Shared Experience',
+    label: 'Kinh nghiệm chia sẻ',
     icon: <Sparkles size={20} strokeWidth={2} />
+  },
+  {
+    path: '/mentor/conversationpractice',
+    label: 'Luyện hội thoại',
+    icon: <MessageCircle size={20} strokeWidth={2} />
+  },
+  {
+    path: '/mentor/livesession',
+    label: 'Buổi học trực tiếp',
+    icon: <Video size={20} strokeWidth={2} />
+  },
+  {
+    path: '/mentor/progresstracking',
+    label: 'Theo dõi tiến độ',
+    icon: <CreditCard size={20} strokeWidth={2} />
+  },
+  {
+    path: '/mentor/pronunciationanalysis',
+    label: 'Phân tích phát âm',
+    icon: <Receipt size={20} strokeWidth={2} />
+  },
+  {
+    path: '/mentor/vocabularymanagement',
+    label: 'Quản lý từ vựng',
+    icon: <ShieldCheck size={20} strokeWidth={2} />
   }
 ];
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, role }) => {
@@ -165,11 +172,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, role }) => {
           <div className="sidebar__role-badge">
             {role === 'Admin' ? (
               <>
-                <ShieldCheck size={16} strokeWidth={2.5} /> Admin
+                <ShieldCheck size={16} strokeWidth={2.5} /> Quản trị viên
               </>
             ) : (
               <>
-                <GraduationCap size={16} strokeWidth={2.5} /> Mentor
+                <GraduationCap size={16} strokeWidth={2.5} /> Giảng viên
               </>
             )}
           </div>

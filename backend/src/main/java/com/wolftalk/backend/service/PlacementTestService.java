@@ -93,7 +93,6 @@ public class PlacementTestService {
                 test.setIsCompleted(true);
                 calculateInitialResults(test);
                 // Mark user as having completed placement test
-                User user = test.getUser();
                 user.setHasCompletedPlacementTest(true);
                 userRepository.save(user);
                 break;

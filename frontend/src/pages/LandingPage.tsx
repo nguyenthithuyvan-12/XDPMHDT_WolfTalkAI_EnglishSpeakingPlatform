@@ -71,7 +71,7 @@ const LandingPage: React.FC = () => {
     setCurrentLanguageIndex(
       currentLanguageIndex === 0
         ? languages.length - 1
-        : currentLanguageIndex - 1
+        : currentLanguageIndex - 1,
     );
   };
 
@@ -79,12 +79,12 @@ const LandingPage: React.FC = () => {
     setCurrentLanguageIndex(
       currentLanguageIndex === languages.length - 1
         ? 0
-        : currentLanguageIndex + 1
+        : currentLanguageIndex + 1,
     );
   };
 
   const handleDisplayLanguageChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
+    e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const selectedLanguage = e.target.value as Language;
     setDisplayLanguage(selectedLanguage);
@@ -135,15 +135,17 @@ const LandingPage: React.FC = () => {
   };
 
   const handleLoginSuccess = () => {
-    // Navigate to placement test after successful login
-    window.location.href = "/placement-test";
+    // Navigate to dashboard after successful login
+    // RequirePlacementTest will check if user needs to take the test
+    window.location.href = "/dashboard";
   };
 
   const handleAgeNext = () => {
     console.log("Age verification completed");
     setShowAgeModal(false);
-    // Navigate to placement test with page reload to update token state
-    window.location.href = "/placement-test";
+    // Navigate to dashboard with page reload to update token state
+    // RequirePlacementTest will check if user needs to take the test
+    window.location.href = "/dashboard";
   };
 
   if (showLanguageSelection) {

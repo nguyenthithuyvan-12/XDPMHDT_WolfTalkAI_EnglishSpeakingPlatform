@@ -28,7 +28,7 @@ export const placementTestService = {
   },
 
   updateStep: async (
-    request: PlacementTestStepRequest
+    request: PlacementTestStepRequest,
   ): Promise<PlacementTest> => {
     const response = await api.put("/api/placement-test/update", request);
     return response.data;

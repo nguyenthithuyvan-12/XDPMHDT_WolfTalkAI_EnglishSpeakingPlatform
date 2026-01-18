@@ -18,7 +18,7 @@ export const apiClient = {
         .json()
         .catch(() => ({ message: response.statusText }));
       const error: any = new Error(
-        errorData.message || `API Error: ${response.statusText}`
+        errorData.message || `API Error: ${response.statusText}`,
       );
       error.response = { data: errorData, status: response.status };
       throw error;
@@ -43,7 +43,7 @@ export const apiClient = {
         .json()
         .catch(() => ({ message: response.statusText }));
       const error: any = new Error(
-        errorData.message || `API Error: ${response.statusText}`
+        errorData.message || `API Error: ${response.statusText}`,
       );
       error.response = { data: errorData, status: response.status };
       throw error;
@@ -67,7 +67,7 @@ export const apiClient = {
         .json()
         .catch(() => ({ message: response.statusText }));
       const error: any = new Error(
-        errorData.message || `API Error: ${response.statusText}`
+        errorData.message || `API Error: ${response.statusText}`,
       );
       error.response = { data: errorData, status: response.status };
       throw error;
@@ -90,7 +90,7 @@ export const apiClient = {
         .json()
         .catch(() => ({ message: response.statusText }));
       const error: any = new Error(
-        errorData.message || `API Error: ${response.statusText}`
+        errorData.message || `API Error: ${response.statusText}`,
       );
       error.response = { data: errorData, status: response.status };
       throw error;

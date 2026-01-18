@@ -21,16 +21,50 @@ import {
   PlacementTestComplete,
 } from "./placement-test";
 import PlacementTestQuestions from "./placement-test/PlacementTestQuestions";
+import { AuthProvider, useAuth } from "./presentation/contexts/AuthContext";
 
-function App() {
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
+function AuthenticatedApp() {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          background: "#1a1a2e",
+          color: "#fff",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <div
+            style={{
+              width: "80px",
+              height: "80px",
+              margin: "0 auto 20px",
+              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "40px",
+            }}
+          >
+            🐺
+          </div>
+          <p>Đang tải...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <Router>
-      {token ? (
-        <Routes>
-          {/* Placement Test Routes - Full Screen without Sidebar */}
+    <Routes>
+      {isAuthenticated ? (
+        <>
+          {/* Placement Test Routes - Full Screen without Sidebar - Requires Authentication */}
           <Route path="/placement-test" element={<PlacementTestLanding />} />
           <Route
             path="/placement-test/:testId/step/:stepNumber"
@@ -45,7 +79,7 @@ function App() {
             element={<PlacementTestComplete />}
           />
 
-          {/* Alphabet Quiz - Full Screen without Sidebar */}
+          {/* Alphabet Quiz - Full Screen without Sidebar - Requires Authentication */}
           <Route path="/alphabet/quiz" element={<AlphabetQuiz />} />
 
           {/* Dashboard Routes - With Sidebar - Protected by Placement Test */}
@@ -79,13 +113,24 @@ function App() {
               </RequirePlacementTest>
             }
           />
-        </Routes>
+        </>
       ) : (
-        <Routes>
+        <>
+          {/* Public Routes - Not Authenticated */}
           <Route path="/" element={<LandingPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        </>
       )}
+    </Routes>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AuthProvider>
+        <AuthenticatedApp />
+      </AuthProvider>
     </Router>
   );
 }

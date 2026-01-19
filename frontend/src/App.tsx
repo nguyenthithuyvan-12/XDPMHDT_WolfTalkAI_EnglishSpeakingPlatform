@@ -8,6 +8,7 @@ import {
 import Sidebar from "./components/Sidebar";
 import RequirePlacementTest from "./components/RequirePlacementTest";
 import ProfilePage from "./profile/ProfilePage";
+import ProfileSettings from "./profile/ProfileSettings";
 import CertificatesPage from "./certificat/CertificatesPage";
 import ProgressPage from "./progress/ProgressPage";
 import AlphabetPage from "./alphabet/AlphabetPage";
@@ -61,6 +62,19 @@ function App() {
                     <Sidebar />
                     <main className="main-content">
                       <ProfilePage />
+                    </main>
+                  </div>
+                </RequirePlacementTest>
+              }
+            />
+            <Route
+              path="/profile/settings"
+              element={
+                <RequirePlacementTest>
+                  <div className="app-layout">
+                    <Sidebar />
+                    <main className="main-content">
+                      <ProfileSettings />
                     </main>
                   </div>
                 </RequirePlacementTest>

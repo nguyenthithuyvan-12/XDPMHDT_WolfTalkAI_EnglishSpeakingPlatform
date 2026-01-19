@@ -21,7 +21,7 @@ import { MentorDashboardPage } from "../pages/mentor/MentorDashboardPage/MentorD
 import { ConversationPracticePage } from "../pages/mentor/ConversationPracticePage/ConversationPracticePage";
 import { LiveSessionPage } from "../pages/mentor/LiveSessionPage/LiveSessionPage";
 import { ProgressTrackingPage } from "../pages/mentor/ProgressTrackingPage/ProgressTrackingPage";
-import { PronunciationAnalysisPage } from "../pages/mentor/PronunciationAnalysisPage/PronunciationAnalysisPage"
+import { PronunciationAnalysisPage } from "../pages/mentor/PronunciationAnalysisPage/PronunciationAnalysisPage";
 import { VocabularyManagementPage } from "../pages/mentor/VocabularyManagementPage/VocabularyManagementPage";
 export const AppRoutes: React.FC = () => {
   return (

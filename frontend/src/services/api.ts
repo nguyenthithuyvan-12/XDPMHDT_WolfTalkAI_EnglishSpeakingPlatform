@@ -75,6 +75,30 @@ export const apiClient = {
     return response.json();
   },
 
+  async patch<T>(endpoint: string, data?: unknown): Promise<T> {
+    const token = localStorage.getItem("accessToken");
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      method: "PATCH",
+      headers,
+      body: data ? JSON.stringify(data) : undefined,
+    });
+    if (!response.ok) {
+      const errorData = await response
+        .json()
+        .catch(() => ({ message: response.statusText }));
+      const error: any = new Error(
+        errorData.message || `API Error: ${response.statusText}`,
+      );
+      error.response = { data: errorData, status: response.status };
+      throw error;
+    }
+    return response.json();
+  },
+
   async delete<T>(endpoint: string): Promise<T> {
     const token = localStorage.getItem("accessToken");
     const headers: Record<string, string> = {

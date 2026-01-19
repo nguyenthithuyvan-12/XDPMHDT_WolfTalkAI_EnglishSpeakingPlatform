@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ProfilePage.css";
 import { apiClient } from "../services/api";
 
@@ -12,6 +13,7 @@ interface UserProfile {
 }
 
 const ProfilePage: React.FC = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<UserProfile>({
     email: "",
     firstName: "",
@@ -19,7 +21,7 @@ const ProfilePage: React.FC = () => {
   });
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"following" | "followers">(
-    "following"
+    "following",
   );
 
   useEffect(() => {
@@ -75,164 +77,215 @@ const ProfilePage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="profile-page-duo">
-        <div className="loading">Đang tải...</div>
+      <div className="duolingo-dashboard">
+        <div className="learning-path-container">
+          <div className="loading">Đang tải...</div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="profile-page-duo">
-      <div className="profile-duo-container">
-        {/* Left Main Content */}
-        <div className="profile-main-content">
-          {/* Profile Header Card */}
-          <div className="profile-header-card">
-            <div className="profile-avatar-large">
-              <div className="avatar-placeholder">{getInitials()}</div>
-              <button className="avatar-edit-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                  <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                </svg>
+    <div className="duolingo-dashboard">
+      {/* Main Content Area */}
+      <div className="learning-path-container">
+        {/* Profile Header Card */}
+        <div className="profile-header-card">
+          <div className="profile-avatar-large">
+            <div className="avatar-placeholder-new">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <path
+                  d="M40 40L40 20M40 40L20 40M40 40L60 40"
+                  stroke="currentColor"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <button className="avatar-edit-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="profile-header-info">
+            <h1 className="profile-display-name">
+              {user.firstName} {user.lastName}
+            </h1>
+            <p className="profile-username">{getUsername()}</p>
+            <p className="profile-join-date">
+              {formatJoinDate(user.createdAt)}
+            </p>
+
+            <div className="profile-follow-stats">
+              <button className="follow-stat-btn">
+                <span className="follow-link">Đang theo dõi</span>{" "}
+                <strong>0</strong>
+              </button>
+              <button className="follow-stat-btn">
+                <strong>0</strong>{" "}
+                <span className="follow-link">Người theo dõi</span>
               </button>
             </div>
 
-            <div className="profile-header-info">
-              <h1 className="profile-display-name">
-                {user.firstName} {user.lastName}
-              </h1>
-              <p className="profile-username">{getUsername()}</p>
-              <p className="profile-join-date">
-                {formatJoinDate(user.createdAt)}
-              </p>
-
-              <div className="profile-follow-stats">
-                <button className="follow-stat-btn active">
-                  Đang theo dõi <strong>0</strong>
-                </button>
-                <button className="follow-stat-btn">
-                  <strong>0</strong> Người theo dõi
-                </button>
-              </div>
-
-              <div className="profile-country-flag">🇺🇸</div>
-            </div>
-          </div>
-
-          {/* Follow Tabs */}
-          <div className="profile-tabs">
-            <button
-              className={`profile-tab ${
-                activeTab === "following" ? "active" : ""
-              }`}
-              onClick={() => setActiveTab("following")}
-            >
-              ĐANG THEO DÕI
-            </button>
-            <button
-              className={`profile-tab ${
-                activeTab === "followers" ? "active" : ""
-              }`}
-              onClick={() => setActiveTab("followers")}
-            >
-              NGƯỜI THEO DÕI
-            </button>
-          </div>
-
-          {/* Tab Content */}
-          <div className="profile-tab-content">
-            <div className="empty-follow-state">
+            <div className="profile-country-flag">
               <img
-                src="https://d35aaqx5ub95lt.cloudfront.net/images/profile/4338922b73f6dc43e5f0f34e3cb904dd.svg"
-                alt="Empty"
-                className="empty-illustration"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23b22234'/%3E%3Cpath d='M0,3.46h60M0,6.92h60M0,10.38h60M0,13.84h60M0,17.3h60M0,20.76h60M0,24.22h60M0,27.68h60' stroke='%23fff' stroke-width='3.46'/%3E%3Crect width='24' height='17.3' fill='%233c3b6e'/%3E%3C/svg%3E"
+                alt="US Flag"
+                width="40"
               />
-              <p>Kết nối bạn bè giúp học vui và hiệu quả hơn.</p>
             </div>
-          </div>
-
-          {/* Statistics Section */}
-          <div className="profile-statistics">
-            <h2 className="section-title">Thống kê</h2>
-            <div className="stats-grid">
-              <div className="stat-box">
-                <div className="stat-icon">🔥</div>
-                <div className="stat-info">
-                  <div className="stat-value">0</div>
-                  <div className="stat-label">Ngày streak</div>
-                </div>
-              </div>
-
-              <div className="stat-box">
-                <div className="stat-icon">💎</div>
-                <div className="stat-info">
-                  <div className="stat-value">0</div>
-                  <div className="stat-label">Tổng điểm KN</div>
-                </div>
-              </div>
-
-              <div className="stat-box">
-                <div className="stat-icon">🛡️</div>
-                <div className="stat-info">
-                  <div className="stat-value">Chưa có xếp hạng</div>
-                  <div className="stat-label">Giải đấu hiện tại</div>
-                </div>
-              </div>
-
-              <div className="stat-box">
-                <div className="stat-icon">🏅</div>
-                <div className="stat-info">
-                  <div className="stat-value">0</div>
-                  <div className="stat-label">Số lần đạt top 3</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Achievements Section */}
-          <div className="profile-achievements">
-            <div className="achievements-header">
-              <h2 className="section-title">Thành tích</h2>
-              <a href="#" className="view-all-link">
-                XEM TẤT CẢ
-              </a>
-            </div>
-            <div className="achievements-placeholder">
-              <p>Chưa có thành tích nào</p>
-            </div>
-          </div>
-
-          {/* Footer Links */}
-          <div className="profile-footer-links">
-            <a href="#">GIỚI THIỆU</a>
-            <a href="#">CỬA HÀNG</a>
-            <a href="#">TÍNH HIỆU QUẢ</a>
-            <a href="#">CÔNG VIỆC</a>
-            <a href="#">NHÀ ĐẦU TƯ</a>
-            <a href="#">ĐIỀU KHOẢN</a>
-            <a href="#">BẢO MẬT</a>
           </div>
         </div>
 
-        {/* Right Sidebar */}
-        <div className="profile-right-sidebar">
-          <div className="add-friends-card">
-            <h3>Thêm bạn bè</h3>
-            <div className="friend-option">
-              <div className="friend-icon">🔍</div>
-              <div className="friend-info">
-                <div className="friend-title">Tìm bạn bè</div>
+        {/* Statistics Section */}
+        <div className="profile-statistics">
+          <div className="section-header-with-action">
+            <h2 className="section-title">Thống kê</h2>
+            <button
+              className="btn-settings"
+              onClick={() => navigate("/profile/settings")}
+            >
+              ⚙️ Cài Đặt Hồ Sơ
+            </button>
+          </div>
+          <div className="stats-grid">
+            <div className="stat-box">
+              <div className="stat-icon flame">🔥</div>
+              <div className="stat-info">
+                <div className="stat-value">0</div>
+                <div className="stat-label">Ngày streak</div>
               </div>
-              <button className="friend-action-btn">›</button>
             </div>
-            <div className="friend-option">
-              <div className="friend-icon duolingo-green">🦉</div>
-              <div className="friend-info">
-                <div className="friend-title">Mời bạn bè</div>
+
+            <div className="stat-box">
+              <div className="stat-icon gem">⚡</div>
+              <div className="stat-info">
+                <div className="stat-value">0</div>
+                <div className="stat-label">Tổng điểm KN</div>
               </div>
-              <button className="friend-action-btn">›</button>
+            </div>
+
+            <div className="stat-box">
+              <div className="stat-icon shield">🛡️</div>
+              <div className="stat-info">
+                <div className="stat-value">Chưa có xếp hạng</div>
+                <div className="stat-label">Giải đấu hiện tại</div>
+              </div>
+            </div>
+
+            <div className="stat-box">
+              <div className="stat-icon trophy">🏆</div>
+              <div className="stat-info">
+                <div className="stat-value">0</div>
+                <div className="stat-label">Số lần đạt top 3</div>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Achievements Section */}
+        <div className="profile-achievements">
+          <div className="achievements-header">
+            <h2 className="section-title">Thành tích</h2>
+            <a href="#" className="view-all-link">
+              XEM TẤT CẢ
+            </a>
+          </div>
+          <div className="achievements-placeholder">
+            <p>Chưa có thành tích nào</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Sidebar */}
+      <div className="right-sidebar">
+        {/* Stats Header */}
+        <div className="stats-header">
+          <div className="stat-item">
+            <div className="stat-icon flag">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23b22234'/%3E%3Cpath d='M0,3.46h60M0,6.92h60M0,10.38h60M0,13.84h60M0,17.3h60M0,20.76h60M0,24.22h60M0,27.68h60' stroke='%23fff' stroke-width='3.46'/%3E%3Crect width='24' height='17.3' fill='%233c3b6e'/%3E%3C/svg%3E"
+                alt="US Flag"
+                width="32"
+              />
+            </div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-icon flame">🔥</div>
+            <span className="stat-value">0</span>
+          </div>
+          <div className="stat-item">
+            <div className="stat-icon gem">💎</div>
+            <span className="stat-value">500</span>
+          </div>
+          <div className="stat-item">
+            <div className="stat-icon heart">❤️</div>
+            <span className="stat-value">5</span>
+          </div>
+        </div>
+
+        {/* Follow Tabs */}
+        <div className="profile-tabs-sidebar">
+          <button
+            className={`profile-tab-sidebar ${
+              activeTab === "following" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("following")}
+          >
+            ĐANG THEO DÕI
+          </button>
+          <button
+            className={`profile-tab-sidebar ${
+              activeTab === "followers" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("followers")}
+          >
+            NGƯỜI THEO DÕI
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        <div className="profile-tab-content-sidebar">
+          <div className="empty-follow-state">
+            <img
+              src="https://d35aaqx5ub95lt.cloudfront.net/images/profile/4338922b73f6dc43e5f0f34e3cb904dd.svg"
+              alt="Empty"
+              className="empty-illustration"
+            />
+            <p>Kết nối bạn bè giúp học vui và hiệu quả hơn.</p>
+          </div>
+        </div>
+
+        {/* Add Friends Card */}
+        <div className="side-card">
+          <h3>Thêm bạn bè</h3>
+          <div className="friend-option">
+            <div className="friend-icon search">🔍</div>
+            <div className="friend-info">
+              <div className="friend-title">Tìm bạn bè</div>
+            </div>
+            <button className="friend-action-btn">›</button>
+          </div>
+          <div className="friend-option">
+            <div className="friend-icon duolingo-green">🦉</div>
+            <div className="friend-info">
+              <div className="friend-title">Mời bạn bè</div>
+            </div>
+            <button className="friend-action-btn">›</button>
+          </div>
+        </div>
+
+        {/* Footer Links */}
+        <div className="footer-links">
+          <a href="#">GIỚI THIỆU</a>
+          <a href="#">CỬA HÀNG</a>
+          <a href="#">TÍNH HIỆU QUẢ</a>
+          <a href="#">CÔNG VIỆC</a>
+          <a href="#">NHÀ ĐẦU TƯ</a>
+          <a href="#">ĐIỀU KHOẢN</a>
+          <a href="#">BẢO MẬT</a>
         </div>
       </div>
     </div>

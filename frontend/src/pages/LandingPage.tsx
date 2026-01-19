@@ -6,7 +6,21 @@ import WelcomeScreen1 from "./WelcomeScreen1";
 import WelcomeScreen2 from "./WelcomeScreen2";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../login/SignUp";
-import { useNavigate } from "react-router-dom";
+
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'dotlottie-wc': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        src?: string;
+        speed?: string;
+        mode?: string;
+        loop?: boolean;
+        autoplay?: boolean;
+      };
+    }
+  }
+}
 
 type Language = "vi" | "en" | "fr" | "es";
 
@@ -27,7 +41,6 @@ const LandingPage: React.FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showAgeModal, setShowAgeModal] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
-  const navigate = useNavigate();
 
   const languages = [
     { name: "TIẾNG ANH", flag: "🇺🇸" },
@@ -133,6 +146,8 @@ const LandingPage: React.FC = () => {
   const handleCloseAge = () => {
     setShowAgeModal(false);
   };
+
+  // ... existing code ...
 
   const handleLoginSuccess = () => {
     // Navigate to dashboard after successful login

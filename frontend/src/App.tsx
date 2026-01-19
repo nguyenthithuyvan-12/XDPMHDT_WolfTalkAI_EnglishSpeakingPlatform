@@ -21,6 +21,7 @@ import {
   PlacementTestComplete,
 } from "./placement-test";
 import PlacementTestQuestions from "./placement-test/PlacementTestQuestions";
+import LearningPage from "./presentation/learning/pages/LearningPage";
 
 function App() {
   const token =
@@ -51,6 +52,19 @@ function App() {
 
             {/* Alphabet Quiz - Full Screen without Sidebar */}
             <Route path="/alphabet/quiz" element={<AlphabetQuiz />} />
+
+            {/* DIRECT ACCESS TO LEARNING (Bypassing Placement Test for Testing) */}
+            <Route
+              path="/learning/*"
+              element={
+                <div className="app-layout">
+                  <Sidebar />
+                  <main className="main-content">
+                    <LearningPage />
+                  </main>
+                </div>
+              }
+            />
 
             {/* Dashboard Routes - With Sidebar - Protected by Placement Test */}
             <Route
@@ -121,7 +135,10 @@ function App() {
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </>
         ) : (
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </>
         )}
       </Routes>
     </Router>

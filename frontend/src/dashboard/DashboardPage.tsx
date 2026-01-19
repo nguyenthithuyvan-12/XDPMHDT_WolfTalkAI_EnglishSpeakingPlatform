@@ -62,7 +62,7 @@ const DashboardPage: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="quick-actions">
-          <div className="action-card" onClick={() => navigate("/practice")}>
+          <div className="action-card" onClick={() => navigate("/learning")}> 
             <div className="action-icon">📚</div>
             <h3>Bài học mới</h3>
             <p>Học từ vựng và ngữ pháp</p>

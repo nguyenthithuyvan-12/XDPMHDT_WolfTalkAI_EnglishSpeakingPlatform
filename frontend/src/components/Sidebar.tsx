@@ -32,6 +32,11 @@ const defaultItems: MenuItem[] = [
     icon: "あ",
   },
   {
+    id: "plans",
+    label: "CÁC KHÓA HỌC",
+    icon: "📚",
+  },
+  {
     id: "leaderboard",
     label: "BẢNG XẾP HẠNG",
     icon: "🏆",
@@ -86,6 +91,7 @@ const Sidebar: React.FC<{ items?: MenuItem[] }> = ({
   const idToPath: Record<string, string> = {
     dashboard: "/dashboard",
     alphabet: "/alphabet",
+    plans: "/plans",
     leaderboard: "/leaderboard",
     quests: "/quests",
     shop: "/shop",

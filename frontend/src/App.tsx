@@ -25,7 +25,6 @@ import PlacementTestQuestions from "./placement-test/PlacementTestQuestions";
 import LearningPage from "./presentation/learning/pages/LearningPage";
 import PackageSelectionPage from "./pages/PackageSelectionPage";
 import SubscriptionPage from "./pages/SubscriptionPage";
-import DiagnosticTestPage from "./diagnostic-test/DiagnosticTestPage";
 
 function App() {
   const token =
@@ -56,9 +55,6 @@ function App() {
 
             {/* Alphabet Quiz - Full Screen without Sidebar */}
             <Route path="/alphabet/quiz" element={<AlphabetQuiz />} />
-
-            {/* Diagnostic Test - Full Screen without Sidebar */}
-            <Route path="/diagnostic-test" element={<DiagnosticTestPage />} />
 
             {/* DIRECT ACCESS TO LEARNING (Bypassing Placement Test for Testing) */}
             <Route

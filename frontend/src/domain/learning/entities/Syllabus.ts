@@ -25,6 +25,7 @@ export interface Unit {
 export interface Level {
     id: string; // 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'
     name: string; // e.g., 'Beginner', 'Elementary'
+    group: 'Basic' | 'Independent' | 'Proficient';
     description: string;
     totalUnits: number;
     completedUnits: number;

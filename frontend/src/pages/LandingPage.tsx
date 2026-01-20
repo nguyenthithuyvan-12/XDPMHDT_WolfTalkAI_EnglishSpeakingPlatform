@@ -8,19 +8,7 @@ import LoginPage from "../login/LoginPage";
 import SignUp from "../login/SignUp";
 
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'dotlottie-wc': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        src?: string;
-        speed?: string;
-        mode?: string;
-        loop?: boolean;
-        autoplay?: boolean;
-      };
-    }
-  }
-}
+
 
 type Language = "vi" | "en" | "fr" | "es";
 

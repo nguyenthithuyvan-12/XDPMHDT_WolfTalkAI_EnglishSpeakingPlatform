@@ -42,7 +42,7 @@ export const TopicSelector: React.FC<TopicSelectorProps> = ({
                                 {group.minLevel}
                             </span>
                         </div>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 8 }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 8 }}>
                             {group.topics.map((topic) => (
                                 <button
                                     key={topic}

@@ -31,7 +31,24 @@ export const expandedVocabulary: Record<string, Record<string, Vocabulary[]>> = 
             { word: "refund", phonetic: "/ˈriː.fʌnd/", meaning: "hoàn tiền", example: "I demand a refund.", usage: "Yêu cầu trả lại tiền.", level: 3 },
         ]
     },
-    // ... (Họp dự án, Gọi món ăn, Hỏi đường, Phỏng vấn xin việc, Làm quen, Đi siêu thị - kept or expanded)
+    "Sức khỏe": {
+        "A1": [
+            { word: "doctor", phonetic: "/ˈdɒk.tər/", meaning: "bác sĩ", example: "I need to see a doctor.", usage: "Nghề nghiệp.", level: 1 },
+            { word: "hospital", phonetic: "/ˈhɒs.pɪ.təl/", meaning: "bệnh viện", example: "Go to the hospital.", usage: "Địa điểm.", level: 1 },
+        ],
+        "A2": [
+            { word: "headache", phonetic: "/ˈhed.eɪk/", meaning: "đau đầu", example: "I have a headache.", usage: "Bệnh tật.", level: 2 },
+            { word: "fever", phonetic: "/ˈfiː.vər/", meaning: "sốt", example: "She has a high fever.", usage: "Triệu chứng.", level: 2 },
+            { word: "cough", phonetic: "/kɒf/", meaning: "ho", example: "He is coughing.", usage: "Triệu chứng.", level: 2 },
+            { word: "sore throat", phonetic: "/sɔː θrəʊt/", meaning: "đau họng", example: "Drink tea for a sore throat.", usage: "Bệnh tật.", level: 2 },
+            { word: "medicine", phonetic: "/ˈmed.ɪ.sən/", meaning: "thuốc", example: "Take this medicine.", usage: "Điều trị.", level: 2 },
+            { word: "stomach ache", phonetic: "/ˈstʌm.ək eɪk/", meaning: "đau bụng", example: "I ate too much and got a stomach ache.", usage: "Bệnh tật.", level: 2 },
+            { word: "healthy", phonetic: "/ˈhel.θi/", meaning: "lành mạnh", example: "Eat healthy food.", usage: "Tính từ.", level: 2 },
+            { word: "exercise", phonetic: "/ˈek.sə.saɪz/", meaning: "tập thể dục", example: "Exercise daily.", usage: "Thói quen.", level: 2 },
+            { word: "tired", phonetic: "/taɪəd/", meaning: "mệt mỏi", example: "I feel very tired.", usage: "Cảm giác.", level: 2 },
+            { word: "dentist", phonetic: "/ˈden.tɪst/", meaning: "nha sĩ", example: "Visit the dentist.", usage: "Nghề nghiệp.", level: 2 }
+        ]
+    },
     "Họp dự án": {
         "B2": [
             { word: "deadline", phonetic: "/ˈded.laɪn/", meaning: "hạn chót", example: "We have a strict deadline.", usage: "Thời điểm phải hoàn thành công việc.", level: 3 },
@@ -49,6 +66,19 @@ export const expandedVocabulary: Record<string, Record<string, Vocabulary[]>> = 
             { word: "order", phonetic: "/ˈɔː.dər/", meaning: "gọi món", example: "I would like to order now.", usage: "Hành động chọn món.", level: 1 },
             { word: "bill", phonetic: "/bɪl/", meaning: "hóa đơn", example: "Can I have the bill?", usage: "Yêu cầu tính tiền.", level: 1 },
         ],
+        "A2": [
+            { word: "delicious", phonetic: "/dɪˈlɪʃ.əs/", meaning: "ngon", example: "This meal is delicious.", usage: "Mô tả vị giác.", level: 2 },
+            { word: "spicy", phonetic: "/ˈspaɪ.si/", meaning: "cay", example: "I like spicy food.", usage: "Vị giác.", level: 2 },
+            { word: "salty", phonetic: "/ˈsuːl.ti/", meaning: "mặn", example: "The soup is too salty.", usage: "Vị giác.", level: 2 },
+            { word: "sweet", phonetic: "/swiːt/", meaning: "ngọt", example: "This cake is very sweet.", usage: "Vị giác.", level: 2 },
+            { word: "vegetarian", phonetic: "/ˌvedʒ.ɪˈteə.ri.ən/", meaning: "chay", example: "I am a vegetarian.", usage: "Chế độ ăn.", level: 2 },
+            { word: "dessert", phonetic: "/dɪˈzɜːt/", meaning: "tráng miệng", example: "Ice cream for dessert.", usage: "Loại món.", level: 2 },
+            { word: "main course", phonetic: "/ˌmeɪn ˈkɔːs/", meaning: "món chính", example: "The main course was steak.", usage: "Loại món.", level: 2 },
+            { word: "starter", phonetic: "/ˈstɑː.tər/", meaning: "món khai vị", example: "We ordered soup as a starter.", usage: "Loại món.", level: 2 },
+            { word: "waiter", phonetic: "/ˈweɪ.tər/", meaning: "bồi bàn (nam)", example: "The waiter brought the menu.", usage: "Nghề nghiệp.", level: 2 },
+            { word: "recommend", phonetic: "/ˌrek.əˈmend/", meaning: "gợi ý", example: "What do you recommend?", usage: "Hỏi ý kiến.", level: 2 }
+        ],
+
         "B2": [
             { word: "appetizer", phonetic: "/ˈæp.ə.taɪ.zər/", meaning: "món khai vị", example: "I'll start with an appetizer.", usage: "Món ăn nhẹ trước món chính.", level: 3 },
             { word: "recommend", phonetic: "/ˌrek.əˈmend/", meaning: "gợi ý, đề xuất", example: "What do you recommend?", usage: "Hỏi ý kiến nhân viên phục vụ.", level: 3 },
@@ -56,6 +86,62 @@ export const expandedVocabulary: Record<string, Record<string, Vocabulary[]>> = 
         "C1": [
             { word: "cuisine", phonetic: "/kwɪˈziːn/", meaning: "ẩm thực", example: "I love Italian cuisine.", usage: "Phong cách nấu ăn đặc trưng.", level: 5 },
             { word: "palate", phonetic: "/ˈpæl.ət/", meaning: "khẩu vị", example: "It suits my palate perfectly.", usage: "Khả năng cảm nhận hương vị.", level: 5 },
+        ]
+    },
+    "Dự định tương lai": {
+        "A2": [
+            { word: "tomorrow", phonetic: "/təˈmɒr.əʊ/", meaning: "ngày mai", example: "I will see you tomorrow.", usage: "Thời gian.", level: 2 },
+            { word: "weekend", phonetic: "/ˌwiːkˈend/", meaning: "cuối tuần", example: "What are you doing this weekend?", usage: "Thời gian.", level: 2 },
+            { word: "vacation", phonetic: "/veɪˈkeɪ.ʃən/", meaning: "kỳ nghỉ", example: "We are going on vacation.", usage: "Du lịch.", level: 2 },
+            { word: "flight", phonetic: "/flaɪt/", meaning: "chuyến bay", example: "My flight is at 9 PM.", usage: "Di chuyển.", level: 2 },
+            { word: "ticket", phonetic: "/ˈtɪk.ɪt/", meaning: "vé", example: "I booked a ticket.", usage: "Mua sắm/Du lịch.", level: 2 },
+            { word: "arrive", phonetic: "/əˈraɪv/", meaning: "đến nơi", example: "When do you arrive?", usage: "Di chuyển.", level: 2 },
+            { word: "leave", phonetic: "/liːv/", meaning: "rời đi", example: "The train leaves at 5.", usage: "Di chuyển.", level: 2 },
+            { word: "stay", phonetic: "/steɪ/", meaning: "ở lại/lưu trú", example: "We will stay at a hotel.", usage: "Du lịch.", level: 2 },
+            { word: "visit", phonetic: "/ˈvɪz.ɪt/", meaning: "thăm", example: "I am going to visit my grandma.", usage: "Hoạt động.", level: 2 },
+            { word: "picnic", phonetic: "/ˈpɪk.nɪk/", meaning: "dã ngoại", example: "Let's go for a picnic.", usage: "Hoạt động.", level: 2 }
+        ]
+    },
+    "Dịch vụ công cộng": {
+        "A2": [
+            { word: "bank", phonetic: "/bæŋk/", meaning: "ngân hàng", example: "I need to go to the bank.", usage: "Địa điểm.", level: 2 },
+            { word: "post office", phonetic: "/ˈpəʊst ˌɒf.ɪs/", meaning: "bưu điện", example: "Where is the post office?", usage: "Địa điểm.", level: 2 },
+            { word: "library", phonetic: "/ˈlaɪ.brər.i/", meaning: "thư viện", example: "Silence in the library.", usage: "Địa điểm.", level: 2 },
+            { word: "hospital", phonetic: "/ˈhɒs.pɪ.təl/", meaning: "bệnh viện", example: "He is in the hospital.", usage: "Địa điểm.", level: 2 },
+            { word: "pharmacy", phonetic: "/ˈfɑː.mə.si/", meaning: "hiệu thuốc", example: "Buy medicine at the pharmacy.", usage: "Địa điểm.", level: 2 },
+            { word: "account", phonetic: "/əˈkaʊnt/", meaning: "tài khoản", example: "I want to open an account.", usage: "Ngân hàng.", level: 2 },
+            { word: "parcel", phonetic: "/ˈpɑː.səl/", meaning: "bưu kiện", example: "I want to send a parcel.", usage: "Bưu điện.", level: 2 },
+            { word: "stamp", phonetic: "/stæmp/", meaning: "tem", example: "Put a stamp on the envelope.", usage: "Bưu điện.", level: 2 },
+            { word: "borrow", phonetic: "/ˈbɒr.əʊ/", meaning: "mượn", example: "Can I borrow this book?", usage: "Thư viện.", level: 2 },
+            { word: "police station", phonetic: "/pəˈliːs ˌsteɪ.ʃən/", meaning: "đồn cảnh sát", example: "Call the police station.", usage: "Địa điểm.", level: 2 }
+        ]
+    },
+    "Công nghệ & Truyền thông": {
+        "A2": [
+            { word: "computer", phonetic: "/kəmˈpjuː.tər/", meaning: "máy tính", example: "I work on my computer.", usage: "Thiết bị.", level: 2 },
+            { word: "smartphone", phonetic: "/ˈsmɑːt.fəʊn/", meaning: "điện thoại thông minh", example: "She has a new smartphone.", usage: "Thiết bị.", level: 2 },
+            { word: "laptop", phonetic: "/ˈlæp.tɒp/", meaning: "máy tính xách tay", example: "My laptop is light.", usage: "Thiết bị.", level: 2 },
+            { word: "internet", phonetic: "/ˈɪn.tə.net/", meaning: "mạng internet", example: "Connect to the internet.", usage: "Kết nối.", level: 2 },
+            { word: "website", phonetic: "/ˈweb.saɪt/", meaning: "trang web", example: "Visit our website.", usage: "Internet.", level: 2 },
+            { word: "wifi", phonetic: "/ˈwaɪ.faɪ/", meaning: "mạng không dây", example: "Is there free wifi?", usage: "Kết nối.", level: 2 },
+            { word: "app", phonetic: "/æp/", meaning: "ứng dụng", example: "Download this app.", usage: "Phần mềm.", level: 2 },
+            { word: "battery", phonetic: "/ˈbæt.ər.i/", meaning: "pin", example: "My battery is low.", usage: "Phần cứng.", level: 2 },
+            { word: "keyboard", phonetic: "/ˈkiː.bɔːd/", meaning: "bàn phím", example: "Type on the keyboard.", usage: "Phần cứng.", level: 2 },
+            { word: "mouse", phonetic: "/maʊs/", meaning: "con chuột", example: "Click the mouse.", usage: "Phần cứng.", level: 2 }
+        ]
+    },
+    "Thời tiết & Môi trường": {
+        "A2": [
+            { word: "sunny", phonetic: "/ˈsʌn.i/", meaning: "nắng", example: "It is sunny today.", usage: "Thời tiết.", level: 2 },
+            { word: "rainy", phonetic: "/ˈreɪ.ni/", meaning: "mưa", example: "I hate rainy days.", usage: "Thời tiết.", level: 2 },
+            { word: "cloudy", phonetic: "/ˈklaʊ.di/", meaning: "có mây", example: "It is cloudy.", usage: "Thời tiết.", level: 2 },
+            { word: "windy", phonetic: "/ˈwɪn.di/", meaning: "có gió", example: "It is very windy.", usage: "Thời tiết.", level: 2 },
+            { word: "storm", phonetic: "/stɔːm/", meaning: "bão", example: "A storm is coming.", usage: "Thời tiết.", level: 2 },
+            { word: "fog", phonetic: "/fɒɡ/", meaning: "sương mù", example: "Thick fog.", usage: "Thời tiết.", level: 2 },
+            { word: "hot", phonetic: "/hɒt/", meaning: "nóng", example: "It is hot in summer.", usage: "Nhiệt độ.", level: 2 },
+            { word: "cold", phonetic: "/kəʊld/", meaning: "lạnh", example: "It is cold in winter.", usage: "Nhiệt độ.", level: 2 },
+            { word: "environment", phonetic: "/ɪnˈvaɪ.rən.mənt/", meaning: "môi trường", example: "Protect the environment.", usage: "Tự nhiên.", level: 2 },
+            { word: "pollution", phonetic: "/pəˈluː.ʃən/", meaning: "ô nhiễm", example: "Air pollution is bad.", usage: "Vấn đề.", level: 2 }
         ]
     },
     "Hỏi đường": {
@@ -164,6 +250,18 @@ export const expandedVocabulary: Record<string, Record<string, Vocabulary[]>> = 
         "A1": [
             { word: "shop", phonetic: "/ʃɒp/", meaning: "cửa hàng", example: "The shop is open.", usage: "Nơi mua bán.", level: 1 },
             { word: "cheap", phonetic: "/tʃiːp/", meaning: "rẻ", example: "It is very cheap.", usage: "Giá cả.", level: 1 },
+        ],
+        "A2": [
+            { word: "clothes", phonetic: "/kləʊðz/", meaning: "quần áo", example: "I need new clothes.", usage: "Chung.", level: 2 },
+            { word: "shirt", phonetic: "/ʃɜːt/", meaning: "áo sơ mi", example: "A white shirt.", usage: "Trang phục.", level: 2 },
+            { word: "pants", phonetic: "/pænts/", meaning: "quần dài", example: "Black pants.", usage: "Trang phục.", level: 2 },
+            { word: "dress", phonetic: "/dres/", meaning: "váy liền", example: "She wears a red dress.", usage: "Trang phục.", level: 2 },
+            { word: "shoes", phonetic: "/ʃuːz/", meaning: "giày", example: "Running shoes.", usage: "Phụ kiện.", level: 2 },
+            { word: "size", phonetic: "/saɪz/", meaning: "kích cỡ", example: "What is your size?", usage: "Mua sắm.", level: 2 },
+            { word: "fit", phonetic: "/fɪt/", meaning: "vừa vặn", example: "It fits me well.", usage: "Mặc thử.", level: 2 },
+            { word: "try on", phonetic: "/traɪ ɒn/", meaning: "mặc thử", example: "Can I try it on?", usage: "Hành động.", level: 2 },
+            { word: "customer", phonetic: "/ˈkʌs.tə.mər/", meaning: "khách hàng", example: "The customer is always right.", usage: "Người mua.", level: 2 },
+            { word: "cashier", phonetic: "/kæˈʃɪər/", meaning: "thu ngân", example: "Pay at the cashier.", usage: "Thanh toán.", level: 2 }
         ]
     },
     "Mặc cả giá": {
@@ -302,14 +400,33 @@ export const expandedVocabulary: Record<string, Record<string, Vocabulary[]>> = 
         "A1": [
             { word: "city", phonetic: "/ˈsɪt.i/", meaning: "thành phố", example: "I live in the city.", usage: "Nơi chốn.", level: 1 },
             { word: "park", phonetic: "/pɑːk/", meaning: "công viên", example: "Let's go to the park.", usage: "Địa điểm.", level: 1 },
-            { word: "cinema", phonetic: "/ˈsɪn.ə.mə/", meaning: "rạp chiếu phim", example: "Watch a movie at the cinema.", usage: "Giải trí.", level: 1 },
-            { word: "museum", phonetic: "/mjuːˈziː.əm/", meaning: "bảo tàng", example: "Visit the museum.", usage: "Văn hóa.", level: 1 },
-            { word: "hospital", phonetic: "/ˈhɒs.pɪ.təl/", meaning: "bệnh viện", example: "He is in the hospital.", usage: "Y tế.", level: 1 },
-            { word: "street", phonetic: "/striːt/", meaning: "đường phố", example: "Walking on the street.", usage: "Giao thông.", level: 1 },
-            { word: "left", phonetic: "/left/", meaning: "trái", example: "Turn left.", usage: "Chỉ đường.", level: 1 },
-            { word: "right", phonetic: "/raɪt/", meaning: "phải", example: "Turn right.", usage: "Chỉ đường.", level: 1 },
-            { word: "straight", phonetic: "/streɪt/", meaning: "thẳng", example: "Go straight.", usage: "Chỉ đường.", level: 1 },
-            { word: "car", phonetic: "/kɑːr/", meaning: "ô tô", example: "Drive a car.", usage: "Phương tiện.", level: 1 }
+            { word: "cinema", phonetic: "/ˈsɪn.ə.mə/", meaning: "rạp chiếu phim", example: "Watch a movie at the cinema.", usage: "Giải trí.", level: 1 }
+        ],
+        "A2": [
+            { word: "ancient", phonetic: "/ˈeɪn.ʃənt/", meaning: "cổ kính", example: "Hanoi has an ancient quarter.", usage: "Mô tả lịch sử.", level: 2 },
+            { word: "modern", phonetic: "/ˈmɒd.ən/", meaning: "hiện đại", example: "This is a modern building.", usage: "Mô tả kiến trúc.", level: 2 },
+            { word: "peaceful", phonetic: "/ˈpiːs.fəl/", meaning: "yên bình", example: "The village is peaceful.", usage: "Mô tả không khí.", level: 2 },
+            { word: "noisy", phonetic: "/ˈnɔɪ.zi/", meaning: "ồn ào", example: "The street is very noisy.", usage: "Mô tả âm thanh.", level: 2 },
+            { word: "market", phonetic: "/ˈmɑː.kɪt/", meaning: "chợ truyền thống", example: "Buy food at the market.", usage: "Địa điểm.", level: 2 },
+            { word: "pagoda", phonetic: "/pəˈɡəʊ.də/", meaning: "chùa", example: "Visit the pagoda.", usage: "Tôn giáo.", level: 2 },
+            { word: "scenery", phonetic: "/ˈsiː.nər.i/", meaning: "phong cảnh", example: "The scenery is beautiful.", usage: "Thiên nhiên.", level: 2 },
+            { word: "atmosphere", phonetic: "/ˈæt.məs.fɪər/", meaning: "bầu không khí", example: "Fresh atmosphere.", usage: "Cảm giác.", level: 2 },
+            { word: "famous", phonetic: "/ˈfeɪ.məs/", meaning: "nổi tiếng", example: "Ha Long Bay is famous.", usage: "Đặc điểm.", level: 2 },
+            { word: "local", phonetic: "/ˈləʊ.kəl/", meaning: "địa phương", example: "Eat local food.", usage: "Đặc trưng.", level: 2 }
+        ]
+    },
+    "Giao thông & Đi lại": {
+        "A2": [
+            { word: "vehicle", phonetic: "/ˈviː.ə.kəl/", meaning: "phương tiện", example: "Motorbikes remain the most popular vehicle.", usage: "Chung.", level: 2 },
+            { word: "traffic jam", phonetic: "/ˈtræf.ɪk dʒæm/", meaning: "tắc đường", example: "I was stuck in a traffic jam.", usage: "Giao thông.", level: 2 },
+            { word: "public transport", phonetic: "/ˌpʌb.lɪk ˈtræn.spɔːt/", meaning: "giao thông công cộng", example: "I use public transport.", usage: "Di chuyển.", level: 2 },
+            { word: "fare", phonetic: "/feər/", meaning: "giá vé", example: "Bus fare is cheap.", usage: "Chi phí.", level: 2 },
+            { word: "passenger", phonetic: "/ˈpæs.ən.dʒər/", meaning: "hành khách", example: "The bus was full of passengers.", usage: "Người đi xe.", level: 2 },
+            { word: "station", phonetic: "/ˈsteɪ.ʃən/", meaning: "nhà ga/bến xe", example: "Meet me at the station.", usage: "Địa điểm.", level: 2 },
+            { word: "platform", phonetic: "/ˈplæt.fɔːm/", meaning: "sân ga", example: "The train departs from platform 3.", usage: "Tàu hỏa.", level: 2 },
+            { word: "depart", phonetic: "/dɪˈpɑːt/", meaning: "khởi hành", example: "The plane departs at 9 AM.", usage: "Lịch trình.", level: 2 },
+            { word: "arrive", phonetic: "/əˈraɪv/", meaning: "đến nơi", example: "We arrived late.", usage: "Lịch trình.", level: 2 },
+            { word: "helmet", phonetic: "/ˈhel.mət/", meaning: "mũ bảo hiểm", example: "Wear a helmet.", usage: "An toàn.", level: 2 }
         ]
     },
     "Công việc & Nghề nghiệp": {
@@ -379,6 +496,12 @@ const expandedGrammar: Record<string, Record<string, Grammar[]>> = {
         "B2": [{ name: "Thì hiện tại tiếp diễn (Future)", formula: "S + am/is/are + V-ing", explanation: "Nói về kế hoạch chắc chắn.", example: "We are releasing next week.", note: "Kế hoạch đã định." }]
     },
     "Gọi món ăn": {
+        "A2": [
+            { name: "Would like", formula: "S + would like + N/to V", explanation: "Diễn tả mong muốn lịch sự.", example: "I would like a menu, please.", note: "Lịch sự hơn 'want'." },
+            { name: "Countable / Uncountable Nouns", formula: "a/an/some + N", explanation: "Danh từ đếm được và không đếm được.", example: "Some water, an apple.", note: "Phân biệt danh từ." },
+            { name: "How much / How many", formula: "How much + Uncountable / How many + Countable", explanation: "Hỏi số lượng.", example: "How much is it? How many apples?", note: "Hỏi lượng." },
+            { name: "Any / Some", formula: "Some (+), Any (-/?)", explanation: "Dùng trong câu khẳng định/phủ định/nghi vấn.", example: "Do you have any sugar?", note: "Lượng từ." }
+        ],
         "A1": [{ name: "Câu yêu cầu (Can I have)", formula: "Can I have + N?", explanation: "Yêu cầu món ăn lịch sự.", example: "Can I have the menu?", note: "Dùng phổ biến." }],
         "B2": [{ name: "Động từ khuyết thiếu (Suggestions)", formula: "Could/Should + V", explanation: "Đưa ra gợi ý hoặc hỏi gợi ý.", example: "What would you recommend?", note: "Hỏi ý kiến." }]
     },
@@ -406,12 +529,39 @@ const expandedGrammar: Record<string, Record<string, Grammar[]>> = {
     },
 
 
-    // ... inside expandedGrammar ...
+    "Sức khỏe": {
+        "A2": [
+            { name: "Imperatives (Lời khuyên)", formula: "V / Don't V", explanation: "Đưa ra lời khuyên hoặc hướng dẫn.", example: "Drink more water. Don't eat fast food.", note: "Khuyên nhủ." },
+            { name: "Modal Verbs: Should / Shouldn't", formula: "S + should + V", explanation: "Khuyên ai đó nên/không nên làm gì.", example: "You should see a doctor.", note: "Lời khuyên." },
+            { name: "Have / Has + Illness", formula: "S + have/has + N (bệnh)", explanation: "Mô tả bệnh tật.", example: "I have a headache.", note: "Mô tả." },
+            { name: "Must / Mustn't", formula: "S + must + V", explanation: "Sự bắt buộc hoặc cần thiết.", example: "You must take this medicine.", note: "Bắt buộc." }
+        ]
+    },
     "Thói quen hàng ngày": {
         "A1": [
             { name: "Hiện tại đơn (Thói quen)", formula: "S + V(s/es)", explanation: "Diễn tả thói quen lặp đi lặp lại.", example: "I usually get up early.", note: "Thói quen." },
             { name: "Trạng từ tần suất", formula: "always, usually, often, sometimes, never", explanation: "Mức độ thường xuyên.", example: "I never smoke.", note: "Đứng trước động từ thường." },
             { name: "Giới từ thời gian (at)", formula: "at + time", explanation: "Chỉ giờ giấc cụ thể.", example: "I start at 8 AM.", note: "Giờ giấc." }
+        ]
+    },
+    "Dự định tương lai": {
+        "A2": [
+            { name: "Be going to", formula: "S + am/is/are + going to + V", explanation: "Diễn tả dự định hoặc kế hoạch trong tương lai gần.", example: "I am going to visit Paris.", note: "Dự định." },
+            { name: "Present Continuous (Future)", formula: "S + am/is/are + V-ing + time", explanation: "Diễn tả kế hoạch đã được sắp xếp cố định.", example: "We are meeting at 7 PM.", note: "Kế hoạch chắc chắn." },
+            { name: "Prepositions of Time", formula: "on + day, in + month/year, at + time", explanation: "Giới từ chỉ thời gian cho kế hoạch.", example: "On Monday, in 2024.", note: "Thời gian." }
+        ]
+    },
+    "Dịch vụ công cộng": {
+        "A2": [
+            { name: "Polite Requests", formula: "Could you / Would you / Can I + V?", explanation: "Cách yêu cầu lịch sự.", example: "Could you help me?", note: "Lịch sự." },
+            { name: "Prepositions of Place", formula: "Review: next to, between, opposite", explanation: "Ôn tập giới từ chỉ vị trí để tìm dịch vụ.", example: "The bank is next to the post office.", note: "Vị trí." },
+            { name: "May I", formula: "May I + V?", explanation: "Xin phép làm gì một cách trang trọng.", example: "May I sit here?", note: "Trang trọng." }
+        ]
+    },
+    "Công nghệ & Truyền thông": {
+        "A2": [
+            { name: "Zero Conditional", formula: "If + S + V(s/es), S + V(s/es)", explanation: "Diễn tả sự thật hiển nhiên hoặc hướng dẫn kỹ thuật.", example: "If you press this button, it starts.", note: "Sự thật/Hướng dẫn." },
+            { name: "Imperatives (Review)", formula: "V / Don't V", explanation: "Mệnh lệnh thức dùng để hướng dẫn sử dụng.", example: "Click on the icon.", note: "Hướng dẫn." }
         ]
     },
     "Kể về bạn thân": {
@@ -421,8 +571,14 @@ const expandedGrammar: Record<string, Record<string, Grammar[]>> = {
         "A1": [{ name: "Giới từ thời gian (on)", formula: "on + day", explanation: "Chỉ thời gian.", example: "On Sunday, I rest.", note: "Lịch trình." }]
     },
     "Mua sắm": {
-        "A1": [{ name: "Want + to V", formula: "S + want + to V", explanation: "Diễn tả mong muốn mua gì.", example: "I want to buy a hat.", note: "Mua bán." }]
+        "A1": [{ name: "Want + to V", formula: "S + want + to V", explanation: "Diễn tả mong muốn mua gì.", example: "I want to buy a hat.", note: "Mua bán." }],
+        "A2": [
+            { name: "Too / Enough", formula: "Too + Adj / Adj + enough", explanation: "Quá... / Đủ... để làm gì.", example: "It is too expensive. It isn't big enough.", note: "Diễn tả mức độ." },
+            { name: "Order of Adjectives", formula: "Opinion - Size - Age - Color - Origin - Material", explanation: "Trật tự tính từ trước danh từ.", example: "A beautiful new red dress.", note: "Op-S-A-C-O-M." },
+            { name: "Comparison of Price", formula: "Price + is + higher/lower than...", explanation: "So sánh giá cả.", example: "This shirt is cheaper than that one.", note: "So sánh." }
+        ]
     },
+
     "Mặc cả giá": {
         "B2": [{ name: "Câu điều kiện loại 1", formula: "If + S + V, S + will + V", explanation: "Thương lượng.", example: "If you lower the price, I will buy it.", note: "Đàm phán." }]
     },
@@ -442,7 +598,12 @@ const expandedGrammar: Record<string, Record<string, Grammar[]>> = {
         "A2": [{ name: "Imperatives (Directions)", formula: "V + prep", explanation: "Chỉ dẫn ở sân bay.", example: "Show your passport.", note: "Thủ tục." }]
     },
     "Mô tả địa điểm": {
-        "A2": [{ name: "There is/are", formula: "There is/are + N", explanation: "Mô tả sự tồn tại.", example: "There is a beautiful lake.", note: "Cảnh vật." }]
+        "A2": [
+            { name: "Comparative Adjectives", formula: "S + be + Adj-er / more Adj + than...", explanation: "So sánh hơn để mô tả sự khác biệt giữa hai địa điểm.", example: "Hanoi is older than Da Nang.", note: "Tính từ ngắn thêm -er, dài thêm more." },
+            { name: "Superlative Adjectives", formula: "S + be + the + Adj-est / most Adj...", explanation: "So sánh nhất để chỉ đặc điểm nổi bật.", example: "This is the most beautiful city.", note: "Dùng tính từ ngắn/dài." },
+            { name: "There is / There are (Quantifiers)", formula: "There is + a/an/some... There are + many...", explanation: "Mô tả những gì có ở địa điểm đó.", example: "There are many tall buildings.", note: "Số ít/nhiều." },
+            { name: "Prepositions of Place (Adv)", formula: "opposite, between, next to, in front of", explanation: "Giới từ chỉ vị trí chính xác.", example: "The bank is opposite the park.", note: "Chỉ đường." }
+        ]
     },
     "Hỏi thông tin du lịch": {
         "A2": [{ name: "Wh- questions", formula: "What/Where...", explanation: "Tìm kiếm thông tin.", example: "What is famous here?", note: "Du lịch." }]
@@ -468,6 +629,32 @@ const expandedGrammar: Record<string, Record<string, Grammar[]>> = {
     "Xin nghỉ phép": {
         "B1": [{ name: "Permission (May I)", formula: "May I + V?", explanation: "Xin phép.", example: "May I take a day off?", note: "Lịch sự." }]
     },
+
+    "Thể thao yêu thích": {
+        "A1": [{ name: "Present Simple", formula: "S + V(s/es)", explanation: "Nói về sở thích.", example: "I play soccer.", note: "Thói quen." }]
+    },
+    "Âm nhạc và phim ảnh": {
+        "A1": [{ name: "Like + Noun", formula: "S + like + N", explanation: "Thích cái gì.", example: "I like pop music.", note: "Sở thích." }]
+    },
+    "Danh lam thắng cảnh": {
+        "A1": [{ name: "There is/are", formula: "There is + a/an + N", explanation: "Mô tả cảnh vật.", example: "There is a mountain.", note: "Mô tả." }]
+    },
+    "Giao thông & Đi lại": {
+        "A1": [{ name: "By + vehicle", formula: "Go by + Car/Bus", explanation: "Đi bằng phương tiện gì.", example: "I go by bus.", note: "Phương tiện." }],
+        "A2": [
+            { name: "Should/Shouldn't", formula: "S + should + V", explanation: "Đưa ra lời khuyên về giao thông.", example: "You should take a taxi.", note: "Khuyên nhủ." },
+            { name: "Hỏi và chỉ đường (Chi tiết)", formula: "Could you tell me the way to...", explanation: "Hỏi đường lịch sự.", example: "Could you tell me the way to the station?", note: "Lịch sự." },
+            { name: "Giới từ chỉ chuyển động", formula: "along, across, through, past", explanation: "Mô tả hướng đi chi tiết.", example: "Go along the river and go through the park.", note: "Chỉ đường." }
+        ]
+    },
+    "Khách sạn": { "A1": [{ name: "I would like", formula: "I would like + to V", explanation: "Muốn làm gì.", example: "I would like to check in.", note: "Lịch sự." }] },
+    "Phỏng vấn & Xin việc": { "A1": [{ name: "Can", formula: "I can + V", explanation: "Nói về khả năng.", example: "I can use Office.", note: "Kỹ năng." }] },
+    "Họp hành & Thuyết trình": { "A1": [{ name: "Let's", formula: "Let's + V", explanation: "Rủ rê, đề nghị.", example: "Let's start.", note: "Gợi ý." }] },
+    "Giao tiếp văn phòng": { "A1": [{ name: "Have to", formula: "I have to + V", explanation: "Phải làm gì.", example: "I have to send email.", note: "Bắt buộc." }] },
+    "Nhà cửa & Đời sống": { "A1": [{ name: "Prepositions", formula: "In/On/At", explanation: "Giới từ chỉ nơi chốn.", example: "In the kitchen.", note: "Vị trí." }] },
+    "Mua sắm & Ăn uống": { "A1": [{ name: "How much", formula: "How much is + N?", explanation: "Hỏi giá.", example: "How much is it?", note: "Mua bán." }] },
+    "Tình huống khẩn cấp": { "A1": [{ name: "Imperatives", formula: "Call + N!", explanation: "Mệnh lệnh thức.", example: "Call the police!", note: "Khẩn cấp." }] },
+
 
     "Nói về sở thích": {
         "A1": [
@@ -535,6 +722,15 @@ const expandedConversations: Record<string, Record<string, ConversationTurn[]>> 
         ]
     },
     "Gọi món ăn": {
+        "A2": [
+            { en: "Waiter: Good evening. Are you ready to order?", vi: "PV: Chào buổi tối. Quý khách đã sẵn sàng gọi món chưa?" },
+            { en: "Customer: Yes, I would like the menu, please.", vi: "Khách: Vâng, làm ơn cho tôi xem thực đơn." },
+            { en: "Waiter: Here you are. Today's special is grilled steak.", vi: "PV: Của quý khách đây. Món đặc biệt hôm nay là bò bít tết nướng." },
+            { en: "Customer: Sounds delicious. I'll have the steak and a salad.", vi: "Khách: Nghe ngon đấy. Tôi sẽ ăn bít tết và sa lát." },
+            { en: "Waiter: Would you like anything to drink?", vi: "PV: Quý khách có muốn uống gì không?" },
+            { en: "Customer: Just some water, please. No ice.", vi: "Khách: Chỉ một chút nước thôi. Không đá." },
+            { en: "Waiter: Certainy. I'll be right back.", vi: "PV: Chắc chắn rồi. Tôi sẽ quay lại ngay." }
+        ],
         "A1": [{ en: "Guest: Menu please.", vi: "Khách: Cho xem menu." }, { en: "Waiter: Here you are.", vi: "PV: Đây ạ." }],
         "B2": [{ en: "Guest: What do you recommend?", vi: "Khách: Bạn gợi ý món gì?" }, { en: "Waiter: The steak is excellent.", vi: "PV: Món bít tết rất tuyệt." }]
     },
@@ -587,18 +783,115 @@ const expandedConversations: Record<string, Record<string, ConversationTurn[]>> 
         "A1": [{ en: "A: What do you do on Sunday?", vi: "A: Bạn làm gì chủ nhật?" }, { en: "B: I sleep.", vi: "B: Tôi ngủ." }]
     },
     "Mua sắm": {
-        "A1": [{ en: "A: Can I help you?", vi: "A: Tôi giúp gì được không?" }, { en: "B: Just looking.", vi: "B: Tôi chỉ xem thôi." }]
+        "A1": [{ en: "A: Can I help you?", vi: "A: Tôi giúp gì được không?" }, { en: "B: Just looking.", vi: "B: Tôi chỉ xem thôi." }],
+        "A2": [
+            { en: "Shop Assistant: Hello, can I help you find something?", vi: "NV: Xin chào, tôi có thể giúp bạn tìm gì không?" },
+            { en: "Customer: Yes, I'm looking for a white shirt.", vi: "Khách: Vâng, tôi đang tìm một chiếc áo sơ mi trắng." },
+            { en: "Shop Assistant: What is your size?", vi: "NV: Cỡ của bạn là gì?" },
+            { en: "Customer: I think I am a medium.", vi: "Khách: Tôi nghĩ tôi mặc cỡ vừa." },
+            { en: "Shop Assistant: Here is a nice one in medium. Would you like to try it on?", vi: "NV: Đây là một chiếc rất đẹp cỡ vừa. Bạn có muốn thử không?" },
+            { en: "Customer: Yes, please. Where is the fitting room?", vi: "Khách: Có ạ. Phòng thử đồ ở đâu?" },
+            { en: "Shop Assistant: It's over there, behind the mirror.", vi: "NV: Nó ở đằng kia, sau chiếc gương." },
+            { en: "Customer: It fits perfectly. How much is it?", vi: "Khách: Nó vừa in. Giá bao nhiêu vậy?" },
+            { en: "Shop Assistant: It's $25.", vi: "NV: 25 đô la ạ." },
+            { en: "Customer: Okay, I'll take it.", vi: "Khách: Được, tôi sẽ lấy nó." }
+        ]
     },
-    "Mặc cả giá": {
-        "B2": [{ en: "A: Too expensive.", vi: "A: Đắt quá." }, { en: "B: I can give a discount.", vi: "B: Tôi có thể giảm giá." }]
+    "Sức khỏe": {
+        "A2": [
+            { en: "Doctor: Good morning. What's the matter with you?", vi: "BS: Chào buổi sáng. Bạn bị sao vậy?" },
+            { en: "Patient: I have a terrible headache and a sore throat.", vi: "BN: Tôi bị đau đầu dữ dội và đau họng." },
+            { en: "Doctor: Let me check. Open your mouth, please.", vi: "BS: Để tôi kiểm tra. Hãy mở miệng ra." },
+            { en: "Patient: Ahhh...", vi: "BN: Ahhh..." },
+            { en: "Doctor: You have a bad cold. You should take this medicine and rest for 3 days.", vi: "BS: Bạn bị cảm nặng. Bạn nên uống thuốc này và nghỉ ngơi 3 ngày." },
+            { en: "Patient: Should I go to work tomorrow?", vi: "BN: Tôi có nên đi làm ngày mai không?" },
+            { en: "Doctor: No, you shouldn't. You must stay in bed.", vi: "BS: Không, bạn không nên. Bạn bắt buộc phải nằm nghỉ trên giường." },
+            { en: "Patient: Okay, thank you doctor.", vi: "BN: Vâng, cảm ơn bác sĩ." }
+        ]
     },
+
     "Việc nhà": {
         "A1": [{ en: "A: Did you clean the room?", vi: "A: Bạn dọn phòng chưa?" }, { en: "B: Not yet.", vi: "B: Chưa." }]
     },
     "Thuê nhà": {
         "B1": [{ en: "A: Is the room available?", vi: "A: Phòng còn trống không?" }, { en: "B: Yes, it is.", vi: "B: Còn." }]
     },
-    // Added Missing Conversations
+    // --- ADDED MISSING SCENARIOS ---
+    "Thể thao yêu thích": {
+        "A1": [
+            { en: "A: Do you like sports?", vi: "A: Bạn thích thể thao không?" },
+            { en: "B: Yes, I like soccer.", vi: "B: Có, tôi thích bóng đá." }
+        ]
+    },
+    "Âm nhạc và phim ảnh": {
+        "A1": [
+            { en: "A: What kind of music do you like?", vi: "A: Bạn thích loại nhạc nào?" },
+            { en: "B: I like pop music.", vi: "B: Tôi thích nhạc pop." }
+        ]
+    },
+    "Danh lam thắng cảnh": {
+        "A1": [
+            { en: "A: This temple is beautiful.", vi: "A: Ngôi đền này đẹp quá." },
+            { en: "B: Yes, it is very famous.", vi: "B: Đúng vậy, nó rất nổi tiếng." }
+        ]
+    },
+    "Giao thông & Đi lại": {
+        "A1": [
+            { en: "A: How do you go to work?", vi: "A: Bạn đi làm bằng gì?" },
+            { en: "B: I go by motorbike.", vi: "B: Tôi đi bằng xe máy." }
+        ],
+        "A2": [
+            { en: "A: Excuse me, which bus goes to the city center?", vi: "A: Xin lỗi, xe buýt nào đi vào trung tâm thành phố?" },
+            { en: "B: You should take number 32.", vi: "B: Bạn nên bắt xe số 32." },
+            { en: "A: How often does it run?", vi: "A: Bao lâu thì có một chuyến?" },
+            { en: "B: Every 15 minutes.", vi: "B: Mỗi 15 phút." },
+            { en: "A: Thank you. How much is the fare?", vi: "A: Cảm ơn. Giá vé bao nhiêu?" },
+            { en: "B: It's 7000 dong.", vi: "B: 7000 đồng." }
+        ]
+    },
+    "Khách sạn": {
+        "A1": [
+            { en: "A: I'd like to check in.", vi: "A: Tôi muốn nhận phòng." },
+            { en: "B: Certainly. May I have your ID?", vi: "B: Chắc chắn rồi. Cho tôi xem giấy tờ tùy thân được không?" }
+        ]
+    },
+    "Phỏng vấn & Xin việc": {
+        "A1": [
+            { en: "A: Tell me about yourself.", vi: "A: Hãy giới thiệu về bản thân bạn." },
+            { en: "B: I am hard-working.", vi: "B: Tôi là người chăm chỉ." }
+        ]
+    },
+    "Họp hành & Thuyết trình": {
+        "A1": [
+            { en: "A: Let's start the meeting.", vi: "A: Chúng ta bắt đầu cuộc họp nhé." },
+            { en: "B: I agree.", vi: "B: Tôi đồng ý." }
+        ]
+    },
+    "Giao tiếp văn phòng": {
+        "A1": [
+            { en: "A: Did you see the email?", vi: "A: Bạn đã xem email chưa?" },
+            { en: "B: No, not yet.", vi: "B: Chưa, tôi chưa xem." }
+        ]
+    },
+    "Nhà cửa & Đời sống": {
+        "A1": [
+            { en: "A: Where is the kitchen?", vi: "A: Nhà bếp ở đâu?" },
+            { en: "B: It's over there.", vi: "B: Nó ở đằng kia." }
+        ]
+    },
+    "Mua sắm & Ăn uống": {
+        "A1": [
+            { en: "A: How much is this?", vi: "A: Cái này bao nhiêu tiền?" },
+            { en: "B: It's 5 dollars.", vi: "B: Nó giá 5 đô la." }
+        ]
+    },
+    "Tình huống khẩn cấp": {
+        "A1": [
+            { en: "A: Help me!", vi: "A: Cứu tôi với!" },
+            { en: "B: I will call the police.", vi: "B: Tôi sẽ gọi cảnh sát." }
+        ]
+    },
+
     "Greetings & Introductions": {
         "A1": [
             { en: "A: Hello, I'm Nam.", vi: "A: Chào, tôi là Nam." },
@@ -665,7 +958,16 @@ const expandedConversations: Record<string, Record<string, ConversationTurn[]>> 
         "A2": [{ en: "A: Passport please.", vi: "A: Xin hộ chiếu." }, { en: "B: Here.", vi: "B: Đây." }]
     },
     "Mô tả địa điểm": {
-        "A2": [{ en: "A: Is it beautiful?", vi: "A: Nó đẹp không?" }, { en: "B: Very beautiful.", vi: "B: Rất đẹp." }]
+        "A2": [
+            { en: "Sarah: Excuse me, can you tell me the way to the Ho Chi Minh Museum?", vi: "Sarah: Xin lỗi, bạn có thể chỉ đường cho tôi đến Bảo tàng Hồ Chí Minh không?" },
+            { en: "Nam: Yes, of course. Go straight along this street, then turn left at the traffic light.", vi: "Nam: Vâng, tất nhiên. Đi thẳng dọc con phố này, sau đó rẽ trái ở đèn giao thông." },
+            { en: "Sarah: Is it far from here?", vi: "Sarah: Nó có xa đây không?" },
+            { en: "Nam: No, it's about 10 minutes on foot. It is next to the One Pillar Pagoda.", vi: "Nam: Không, đi bộ khoảng 10 phút. Nó nằm cạnh Chùa Một Cột." },
+            { en: "Sarah: Oh, I know that pagoda. It is very ancient and beautiful.", vi: "Sarah: Ồ, tôi biết chùa đó. Nó rất cổ kính và đẹp." },
+            { en: "Nam: Yes. There are also many nice cafes in that area.", vi: "Nam: Đúng vậy. Cũng có nhiều quán cà phê đẹp ở khu vực đó." },
+            { en: "Sarah: Thank you very much.", vi: "Sarah: Cảm ơn bạn rất nhiều." },
+            { en: "Nam: You're welcome. Enjoy your visit!", vi: "Nam: Không có chi. Chúc bạn tham quan vui vẻ!" }
+        ]
     },
     "Hỏi thông tin du lịch": {
         "A2": [{ en: "A: Where is the museum?", vi: "A: Bảo tàng ở đâu?" }, { en: "B: Near the park.", vi: "B: Gần công viên." }]
@@ -690,6 +992,47 @@ const expandedConversations: Record<string, Record<string, ConversationTurn[]>> 
         "B1": [{ en: "A: I need a day off.", vi: "A: Tôi cần nghỉ 1 ngày." }, { en: "B: Okay.", vi: "B: Được thôi." }]
     },
 
+
+    "Dự định tương lai": {
+        "A2": [
+            { en: "A: What are you going to do this weekend?", vi: "A: Bạn định làm gì cuối tuần này?" },
+            { en: "B: I am going to visit my grandparents.", vi: "B: Tôi định đi thăm ông bà." },
+            { en: "A: When are you leaving?", vi: "A: Khi nào bạn đi?" },
+            { en: "B: I'm leaving on Saturday morning.", vi: "B: Tôi đi vào sáng thứ Bảy." },
+            { en: "A: How are you getting there?", vi: "A: Bạn đến đó bằng gì?" },
+            { en: "B: We are going by car.", vi: "B: Chúng tôi đi bằng ô tô." }
+        ]
+    },
+    "Dịch vụ công cộng": {
+        "A2": [
+            { en: "A: Good morning. I'd like to send this parcel to Da Nang.", vi: "A: Chào buổi sáng. Tôi muốn gửi bưu kiện này đi Đà Nẵng." },
+            { en: "B: Certainly. Put it on the scale, please.", vi: "B: Chắc chắn rồi. Vui lòng đặt nó lên cân." },
+            { en: "A: How much is it?", vi: "A: Bao nhiêu tiền vậy?" },
+            { en: "B: It's 50,000 dong. Do you want express delivery?", vi: "B: 50,000 đồng. Bạn có muốn chuyển phát nhanh không?" },
+            { en: "A: Yes, please. When will it arrive?", vi: "A: Có. Khi nào nó sẽ đến nơi?" },
+            { en: "B: Tomorrow afternoon.", vi: "B: Chiều mai." }
+        ]
+    },
+    "Công nghệ & Truyền thông": {
+        "A2": [
+            { en: "A: My laptop is not working.", vi: "A: Laptop của tôi không hoạt động." },
+            { en: "B: What is the problem?", vi: "B: Vấn đề là gì?" },
+            { en: "A: The screen is black.", vi: "A: Màn hình bị đen." },
+            { en: "B: Have you tried restarting it?", vi: "B: Bạn đã thử khởi động lại chưa?" },
+            { en: "A: No, not yet.", vi: "A: Chưa, tôi chưa thử." },
+            { en: "B: Press the power button and hold it.", vi: "B: Nhấn nút nguồn và giữ nó." }
+        ]
+    },
+    "Thời tiết & Môi trường": {
+        "A2": [
+            { en: "A: What is the weather like today?", vi: "A: Thời tiết hôm nay thế nào?" },
+            { en: "B: It is sunny and hot.", vi: "B: Trời nắng và nóng." },
+            { en: "A: What will the weather be like tomorrow?", vi: "A: Thời tiết ngày mai sẽ thế nào?" },
+            { en: "B: The forecast says it will rain.", vi: "B: Dự báo nói trời sẽ mưa." },
+            { en: "A: Oh no, we planned a picnic.", vi: "A: Ôi không, chúng tôi đã lên kế hoạch dã ngoại." },
+            { en: "B: You should bring an umbrella.", vi: "B: Bạn nên mang theo ô." }
+        ]
+    }
 };
 
 
@@ -697,6 +1040,7 @@ import type { PracticeExercise } from "../../../domain/learning/entities/Practic
 
 export const getExpandedData = (scenario: string, level: string) => {
     let key = "A1";
+    if (level === "A2") key = "A2";
     if (["B1", "B2"].includes(level)) key = "B2";
     if (["C1", "C2"].includes(level)) key = "C1";
 
@@ -834,6 +1178,33 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Hãy nói: 'I love my family.'",
                     explanation: "Phát âm rõ ràng từ Family.",
                     correctAnswer: "I love my family"
+                },
+                // 5. Fill-blank
+                {
+                    id: "u2_q5",
+                    type: "fill-blank",
+                    question: "Điền từ còn thiếu: 'My father is a ______.' (Bác sĩ)",
+                    explanation: "Bác sĩ trong tiếng Anh là Doctor.",
+                    correctAnswer: "doctor",
+                    options: ["doctor", "teacher", "farmer", "nurse"]
+                },
+                // 6. Listening (Mock)
+                {
+                    id: "u2_q6",
+                    type: "listening",
+                    question: "Nghe và chọn thành viên gia đình: 'This is my sister.'",
+                    explanation: "Sister = Chị/Em gái.",
+                    options: ["Brother", "Mother", "Sister", "Father"],
+                    correctAnswer: "Sister",
+                    audioUrl: "mock_family_sister.mp3"
+                },
+                // 7. Writing
+                {
+                    id: "u2_q7",
+                    type: "writing",
+                    question: "Viết lại câu: 'in / How / person / family / many / your /?'",
+                    explanation: "Sắp xếp lại thành: How many person in your family?",
+                    correctAnswer: "How many person in your family?"
                 }
             ]
         };
@@ -894,6 +1265,24 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Hãy nói: 'I want to buy some fruit.'",
                     explanation: "Chú ý âm cuối của từ Fruit /fruːt/.",
                     correctAnswer: "I want to buy some fruit"
+                },
+                // 6. Listening (Mock)
+                {
+                    id: "u3_q6",
+                    type: "listening",
+                    question: "Nghe và điền giá tiền: 'It is 5 dollars.'",
+                    explanation: "5 dollars = 5 đô la.",
+                    options: ["1 dollar", "5 dollars", "10 dollars", "2 dollars"],
+                    correctAnswer: "5 dollars",
+                    audioUrl: "mock_price_5.mp3"
+                },
+                // 7. Writing
+                {
+                    id: "u3_q7",
+                    type: "writing",
+                    question: "Viết câu hỏi giá: 'is / How / much / this?'",
+                    explanation: "Cấu trúc: How much is this?",
+                    correctAnswer: "How much is this?"
                 }
             ]
         };
@@ -945,6 +1334,33 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Hãy nói: 'Welcome to my home.'",
                     explanation: "Chào mừng khách đến nhà.",
                     correctAnswer: "Welcome to my home"
+                },
+                // 5. Fill-blank
+                {
+                    id: "u4_q5",
+                    type: "fill-blank",
+                    question: "Điền từ còn thiếu: 'I sleep in the ______.'",
+                    explanation: "Nơi để ngủ là phòng ngủ (Bedroom).",
+                    correctAnswer: "bedroom",
+                    options: ["kitchen", "bedroom", "bathroom", "garden"]
+                },
+                // 6. Listening (Mock)
+                {
+                    id: "u4_q6",
+                    type: "listening",
+                    question: "Nghe và chọn phòng: 'I am cooking in the kitchen.'",
+                    explanation: "Kitchen = Nhà bếp.",
+                    options: ["Bedroom", "Living room", "Kitchen", "Bathroom"],
+                    correctAnswer: "Kitchen",
+                    audioUrl: "mock_kitchen.mp3"
+                },
+                // 7. Writing
+                {
+                    id: "u4_q7",
+                    type: "writing",
+                    question: "Viết câu mô tả: 'My / is / house / big.'",
+                    explanation: "Cấu trúc: S + be + Adj.",
+                    correctAnswer: "My house is big"
                 }
             ]
         };
@@ -1092,6 +1508,15 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Viết lại câu dùng 'like': 'I enjoy swimming.' (Tôi thích bơi)",
                     explanation: "Enjoy + V-ing = Like + V-ing.",
                     correctAnswer: "I like swimming"
+                },
+                // 7. Fill-blank
+                {
+                    id: "u6_q7",
+                    type: "fill-blank",
+                    question: "Điền từ còn thiếu: 'She ______ to music.' (Cô ấy nghe nhạc)",
+                    explanation: "Listen to music. Chia động từ số ít: listens.",
+                    correctAnswer: "listens",
+                    options: ["listen", "listens", "listening", "listened"]
                 }
             ]
         };
@@ -1161,6 +1586,15 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Viết câu hỏi: 'You / like / do / rice?' (Bạn có thích cơm không?)",
                     explanation: "Cấu trúc: Do + S + like + N?",
                     correctAnswer: "Do you like rice?"
+                },
+                // 7. Fill-blank
+                {
+                    id: "u7_q7",
+                    type: "fill-blank",
+                    question: "Điền từ còn thiếu: 'I am ______.' (Tôi đói)",
+                    explanation: "Đói bụng là 'hungry'.",
+                    correctAnswer: "hungry",
+                    options: ["hungry", "thirsty", "full", "happy"]
                 }
             ]
         };
@@ -1230,6 +1664,15 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Viết câu dùng 'There is': 'a park / near here.' (Có một công viên ở gần đây)",
                     explanation: "Cấu trúc: There is + a/an + N + Place.",
                     correctAnswer: "There is a park near here"
+                },
+                // 7. Fill-blank
+                {
+                    id: "u8_q7",
+                    type: "fill-blank",
+                    question: "Điền giới từ: 'The hotel is ______ the bank.' (Khách sạn ở cạnh ngân hàng)",
+                    explanation: "Next to = Ở cạnh.",
+                    correctAnswer: "next to",
+                    options: ["next to", "on", "in", "at"]
                 }
             ]
         };
@@ -1299,6 +1742,15 @@ export const getExpandedData = (scenario: string, level: string) => {
                     question: "Viết câu hỏi: 'do / What / do / you?' (Bạn làm nghề gì?)",
                     explanation: "Câu hỏi nghề nghiệp: What do you do?",
                     correctAnswer: "What do you do?"
+                },
+                // 7. Fill-blank
+                {
+                    id: "u9_q7",
+                    type: "fill-blank",
+                    question: "Điền từ còn thiếu: 'He is a ______.' (Cảnh sát)",
+                    explanation: "Cảnh sát là Police (officer).",
+                    correctAnswer: "police",
+                    options: ["police", "doctor", "teacher", "driver"]
                 }
             ]
         };
@@ -1310,64 +1762,1309 @@ export const getExpandedData = (scenario: string, level: string) => {
         const practice: PracticeExercise = {
             scenarioId: scenario,
             questions: [
-                // 1. Matching (Holiday)
+                // 1. Matching (Verbs)
                 {
                     id: "u10_q1",
                     type: "matching",
-                    question: "Nối từ vựng lễ hội:",
-                    explanation: "Từ vựng về lễ hội.",
+                    question: "Nối động từ quá khứ với hiện tại:",
+                    explanation: "Động từ bất quy tắc.",
                     pairs: [
-                        { id: "p1", left: "Holiday", right: "Kỳ nghỉ" },
-                        { id: "p2", left: "Festival", right: "Lễ hội" },
-                        { id: "p3", left: "Happy", right: "Vui vẻ" },
-                        { id: "p4", left: "Gift", right: "Quà tặng" },
-                        { id: "p5", left: "Party", right: "Bữa tiệc" }
+                        { id: "p1", left: "Go", right: "Went" },
+                        { id: "p2", left: "Have", right: "Had" },
+                        { id: "p3", left: "Eat", right: "Ate" },
+                        { id: "p4", left: "See", right: "Saw" },
+                        { id: "p5", left: "Buy", right: "Bought" }
                     ]
                 },
-                // 2. Multiple Choice (Past Simple)
+                // 2. Multiple Choice (Was/Were)
                 {
                     id: "u10_q2",
                     type: "multiple-choice",
-                    question: "Chọn từ đúng: 'I ______ my grandpa yesterday.' (Tôi đã thăm ông hôm qua)",
-                    options: ["visit", "visited", "visiting", "visits"],
-                    correctAnswer: "visited",
-                    explanation: "Quá khứ đơn của visit là visited (có quy tắc)."
+                    question: "Chọn từ đúng: 'The party ______ fun.'",
+                    options: ["was", "were", "is", "are"],
+                    correctAnswer: "was",
+                    explanation: "Party (số ít) dùng Was."
                 },
                 // 3. Ordering
                 {
                     id: "u10_q3",
                     type: "ordering",
-                    question: "Sắp xếp câu: 'It was fun.'",
-                    explanation: "Mô tả cảm xúc trong quá khứ.",
-                    segments: ["fun", "was", "It"],
-                    correctOrder: ["It", "was", "fun"],
-                    correctAnswer: "It was fun"
+                    question: "Sắp xếp câu: 'I visited my grandma yesterday.'",
+                    explanation: "Câu kể quá khứ.",
+                    segments: ["yesterday", "grandma", "my", "visited", "I"],
+                    correctOrder: ["I", "visited", "my", "grandma", "yesterday"],
+                    correctAnswer: "I visited my grandma yesterday"
                 },
                 // 4. Speaking
                 {
                     id: "u10_q4",
                     type: "speaking",
-                    question: "Hãy nói: 'Happy New Year!'",
-                    explanation: "Chúc mừng năm mới.",
-                    correctAnswer: "Happy New Year"
+                    question: "Hãy nói: 'It was a great holiday.'",
+                    explanation: "Kể về kỳ nghỉ.",
+                    correctAnswer: "It was a great holiday"
                 },
                 // 5. Listening (Mock)
                 {
                     id: "u10_q5",
                     type: "listening",
-                    question: "Nghe và chọn cảm xúc: 'The party was great!'",
-                    explanation: "Great -> Vui vẻ/Tuyệt vời.",
-                    options: ["Boring", "Sad", "Great", "Tired"],
-                    correctAnswer: "Great",
-                    audioUrl: "mock_holiday_feeling.mp3"
+                    question: "Nghe và chọn hoạt động: 'We went to the beach.'",
+                    explanation: "Từ khóa: Beach (bãi biển).",
+                    options: ["Mountain", "Beach", "City", "Park"],
+                    correctAnswer: "Beach",
+                    audioUrl: "mock_holiday.mp3"
                 },
-                // 6. Writing
+                // 6. Multiple Choice (Negative)
                 {
                     id: "u10_q6",
+                    type: "multiple-choice",
+                    question: "Chọn câu phủ định đúng quá khứ:",
+                    options: ["I didn't went.", "I didn't go.", "I not go.", "I don't go."],
+                    correctAnswer: "I didn't go.",
+                    explanation: "Did not + V (nguyên thể)."
+                },
+                // 7. Fill-blank
+                {
+                    id: "u10_q7",
+                    type: "fill-blank",
+                    question: "Điền từ còn thiếu: 'We ______ a party.' (Chúng tôi có một bữa tiệc)",
+                    explanation: "Have a party -> Quá khứ: Had a party.",
+                    correctAnswer: "had",
+                    options: ["have", "has", "had", "having"]
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // A2 Scenarios
+
+    // Specific logic for "Tại sân bay" (A2)
+    if (scenario === "Tại sân bay") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Airport terms)
+                {
+                    id: "a2_airport_1",
+                    type: "matching",
+                    question: "Nối từ vựng sân bay:",
+                    explanation: "Các thuật ngữ thường gặp ở sân bay.",
+                    pairs: [
+                        { id: "p1", left: "Passport", right: "Hộ chiếu" },
+                        { id: "p2", left: "Boarding pass", right: "Thẻ lên máy bay" },
+                        { id: "p3", left: "Gate", right: "Cổng ra máy bay" },
+                        { id: "p4", left: "Luggage", right: "Hành lý" },
+                        { id: "p5", left: "Delay", right: "Hoãn chuyến" }
+                    ]
+                },
+                // 2. Ordering
+                {
+                    id: "a2_airport_2",
+                    type: "ordering",
+                    question: "Sắp xếp câu: 'Please show me your passport.'",
+                    explanation: "Câu yêu cầu lịch sự.",
+                    segments: ["passport", "your", "me", "show", "Please"],
+                    correctOrder: ["Please", "show", "me", "your", "passport"],
+                    correctAnswer: "Please show me your passport"
+                },
+                // 3. Multiple Choice (Check-in)
+                {
+                    id: "a2_airport_3",
+                    type: "multiple-choice",
+                    question: "Chọn câu đúng khi muốn gửi hành lý:",
+                    options: ["I want to check in my bags.", "I want to buy bags.", "Where is the bag?", "My bag is heavy."],
+                    correctAnswer: "I want to check in my bags.",
+                    explanation: "Check in bags = Gửi hành lý ký gửi."
+                },
+                // 4. Speaking
+                {
+                    id: "a2_airport_4",
+                    type: "speaking",
+                    question: "Hãy nói: 'Where is Gate 5?'",
+                    explanation: "Hỏi đường đến cổng số 5.",
+                    correctAnswer: "Where is Gate 5"
+                },
+                // 5. Fill-blank
+                {
+                    id: "a2_airport_5",
+                    type: "fill-blank",
+                    question: "Điền từ: 'The flight is ______.' (Chuyến bay bị hoãn)",
+                    explanation: "Hoãn = Delayed.",
+                    correctAnswer: "delayed",
+                    options: ["delayed", "early", "on time", "cancelled"]
+                },
+                // 6. Listening (Mock)
+                {
+                    id: "a2_airport_6",
+                    type: "listening",
+                    question: "Nghe thông báo: 'Last call for flight VN123.'",
+                    explanation: "Last call = Lời kêu gọi cuối cùng.",
+                    options: ["Boarding now", "Last call", "Flight cancelled", "Gate open"],
+                    correctAnswer: "Last call",
+                    audioUrl: "mock_airport_announcement.mp3"
+                },
+                // 7. Writing
+                {
+                    id: "a2_airport_7",
                     type: "writing",
-                    question: "Viết câu quá khứ: 'I (go) to the festival yesterday.'",
-                    explanation: "Quá khứ của go là went.",
-                    correctAnswer: "I went to the festival yesterday"
+                    question: "Viết câu hỏi: 'time / boarding / is / What?' (Mấy giờ lên máy bay?)",
+                    explanation: "Boarding time = Giờ lên máy bay.",
+                    correctAnswer: "What time is boarding?"
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Mô tả địa điểm" (A2)
+    if (scenario === "Mô tả địa điểm") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Adjectives)
+                {
+                    id: "a2_place_1",
+                    type: "matching",
+                    question: "Nối tính từ mô tả:",
+                    explanation: "Tính từ dùng cho địa điểm.",
+                    pairs: [
+                        { id: "p1", left: "Crowded", right: "Đông đúc" },
+                        { id: "p2", left: "Quiet", right: "Yên tĩnh" },
+                        { id: "p3", left: "Modern", right: "Hiện đại" },
+                        { id: "p4", left: "Historic", right: "Mang tính lịch sử" },
+                        { id: "p5", left: "Beautiful", right: "Đẹp đẽ" }
+                    ]
+                },
+                // 2. Multiple Choice (This/That)
+                {
+                    id: "a2_place_2",
+                    type: "multiple-choice",
+                    question: "Chọn từ đúng: '______ is a very old building.' (Đó là)",
+                    options: ["That", "These", "Those", "Here"],
+                    correctAnswer: "That",
+                    explanation: "That dùng cho vật ở xa, số ít."
+                },
+                // 3. Ordering
+                {
+                    id: "a2_place_3",
+                    type: "ordering",
+                    question: "Sắp xếp câu: 'The park is near the river.'",
+                    explanation: "Mô tả vị trí.",
+                    segments: ["river", "the", "near", "is", "park", "The"],
+                    correctOrder: ["The", "park", "is", "near", "the", "river"],
+                    correctAnswer: "The park is near the river"
+                },
+                // 4. Speaking
+                {
+                    id: "a2_place_4",
+                    type: "speaking",
+                    question: "Hãy nói: 'It has a beautiful view.'",
+                    explanation: "Mô tả cảnh đẹp.",
+                    correctAnswer: "It has a beautiful view"
+                },
+                // 5. Fill-blank
+                {
+                    id: "a2_place_5",
+                    type: "fill-blank",
+                    question: "Điền từ: 'There ______ many shops here.'",
+                    explanation: "Many shops (số nhiều) -> Are.",
+                    correctAnswer: "are",
+                    options: ["is", "are", "be", "was"]
+                },
+                // 6. Listening (Mock)
+                {
+                    id: "a2_place_6",
+                    type: "listening",
+                    question: "Nghe mô tả: 'The streets are very busy.'",
+                    explanation: "Busy = Bận rộn, đông đúc.",
+                    options: ["Quiet", "Busy", "Clean", "Dirty"],
+                    correctAnswer: "Busy",
+                    audioUrl: "mock_place_desc.mp3"
+                },
+                // 7. Writing
+                {
+                    id: "a2_place_7",
+                    type: "writing",
+                    question: "Viết câu: 'This / famous / city / is / a.' (Đây là một thành phố nổi tiếng)",
+                    explanation: "S + V + Article + Adj + N.",
+                    correctAnswer: "This is a famous city"
+                },
+                // 8. Multiple Choice (Prepositions)
+                {
+                    id: "a2_place_8",
+                    type: "multiple-choice",
+                    question: "The cafe is ______ the bank and the post office.",
+                    options: ["between", "opposite", "next", "in"],
+                    correctAnswer: "between",
+                    explanation: "Between... and... = Ở giữa cái gì và cái gì."
+                },
+                // 9. Matching (Directions)
+                {
+                    id: "a2_place_9",
+                    type: "matching",
+                    question: "Nối hướng đi với ý nghĩa:",
+                    explanation: "Từ vựng chỉ đường.",
+                    pairs: [
+                        { id: "p6", left: "Go straight", right: "Đi thẳng" },
+                        { id: "p7", left: "Cross the street", right: "Qua đường" },
+                        { id: "p8", left: "At the corner", right: "Ở góc đường" },
+                        { id: "p9", left: "Turn back", right: "Quay lại" }
+                    ]
+                },
+                // 10. Ordering (Comparatives)
+                {
+                    id: "a2_place_10",
+                    type: "ordering",
+                    question: "Sắp xếp câu: 'smaller / Hanoi / than / is / HCMC.'",
+                    explanation: "So sánh hơn: S1 + is + Adj-er + than + S2.",
+                    segments: ["than", "HCMC", "smaller", "Hanoi", "is"],
+                    correctOrder: ["Hanoi", "is", "smaller", "than", "HCMC"],
+                    correctAnswer: "Hanoi is smaller than HCMC"
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Hỏi thông tin du lịch" (A2)
+    if (scenario === "Hỏi thông tin du lịch") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Questions)
+                {
+                    id: "a2_travel_1",
+                    type: "matching",
+                    question: "Nối câu hỏi và ý nghĩa:",
+                    explanation: "Các câu hỏi thường gặp khi du lịch.",
+                    pairs: [
+                        { id: "p1", left: "Where is...?", right: "...ở đâu?" },
+                        { id: "p2", left: "How far is...?", right: "...bao xa?" },
+                        { id: "p3", left: "How to get to...?", right: "Làm sao để đến...?" },
+                        { id: "p4", left: "When does it open?", right: "Khi nào mở cửa?" },
+                        { id: "p5", left: "How much is the ticket?", right: "Vé bao nhiêu tiền?" }
+                    ]
+                },
+                // 2. Multiple Choice (Ticket)
+                {
+                    id: "a2_travel_2",
+                    type: "multiple-choice",
+                    question: "Chọn câu hỏi giá vé:",
+                    options: ["How many tickets?", "How much is the ticket?", "Where is the ticket?", "Who has the ticket?"],
+                    correctAnswer: "How much is the ticket?",
+                    explanation: "How much = Hỏi giá."
+                },
+                // 3. Fill-blank
+                {
+                    id: "a2_travel_3",
+                    type: "fill-blank",
+                    question: "Điền từ: '______ way to the museum?' (Đường nào)",
+                    explanation: "Which way = Đường nào.",
+                    correctAnswer: "Which",
+                    options: ["Where", "What", "Which", "Who"]
+                },
+                // 4. Speaking
+                {
+                    id: "a2_travel_4",
+                    type: "speaking",
+                    question: "Hãy nói: 'Can you help me?'",
+                    explanation: "Yêu cầu giúp đỡ lịch sự.",
+                    correctAnswer: "Can you help me"
+                },
+                // 5. Ordering
+                {
+                    id: "a2_travel_5",
+                    type: "ordering",
+                    question: "Sắp xếp câu: 'Is it far from here?'",
+                    explanation: "Hỏi khoảng cách.",
+                    segments: ["here", "from", "far", "it", "Is"],
+                    correctOrder: ["Is", "it", "far", "from", "here"],
+                    correctAnswer: "Is it far from here"
+                },
+                // 6. Listening (Mock)
+                {
+                    id: "a2_travel_6",
+                    type: "listening",
+                    question: "Nghe giờ mở cửa: 'It opens at 9 AM.'",
+                    explanation: "9 AM = 9 giờ sáng.",
+                    options: ["8 AM", "9 AM", "10 AM", "9 PM"],
+                    correctAnswer: "9 AM",
+                    audioUrl: "mock_opening_hours.mp3"
+                },
+                // 7. Writing
+                {
+                    id: "a2_travel_7",
+                    type: "writing",
+                    question: "Viết câu hỏi: 'map / Do / a / have / you?' (Bạn có bản đồ không?)",
+                    explanation: "Do you have + N?",
+                    correctAnswer: "Do you have a map?"
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Sức khỏe" (A2)
+    if (scenario === "Sức khỏe") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Body Parts)
+                {
+                    id: "a2_health_1",
+                    type: "matching",
+                    question: "Nối từ vựng với nghĩa:",
+                    explanation: "Từ vựng bộ phận cơ thể.",
+                    pairs: [
+                        { id: "p1", left: "Head", right: "Đầu" },
+                        { id: "p2", left: "Stomach", right: "Bụng/Dạ dày" },
+                        { id: "p3", left: "Throat", right: "Họng" },
+                        { id: "p4", left: "Heart", right: "Tim" }
+                    ]
+                },
+                // 2. Multiple Choice (Illness)
+                {
+                    id: "a2_health_2",
+                    type: "multiple-choice",
+                    question: "I have a high temperature. I have a ______.",
+                    options: ["fever", "headache", "broken leg", "happy"],
+                    correctAnswer: "fever",
+                    explanation: "High temperature = Fever (Sốt)."
+                },
+                // 3. Fill-blank (Should advice)
+                {
+                    id: "a2_health_3",
+                    type: "fill-blank",
+                    question: "You ______ see a doctor.",
+                    options: ["should", "shouldn't", "can't", "won't"],
+                    correctAnswer: "should",
+                    explanation: "Lời khuyên: You should see a doctor."
+                },
+                // 4. Ordering (Imperative)
+                {
+                    id: "a2_health_4",
+                    type: "ordering",
+                    question: "Sắp xếp: 'more / Drink / water.'",
+                    explanation: "Câu mệnh lệnh.",
+                    segments: ["water", "Drink", "more"],
+                    correctOrder: ["Drink", "more", "water"],
+                    correctAnswer: "Drink more water"
+                },
+                // 5. Speaking
+                {
+                    id: "a2_health_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'I have a headache.'",
+                    explanation: "Mô tả triệu chứng.",
+                    correctAnswer: "I have a headache"
+                },
+                // 6. Multiple Choice (Doctor)
+                {
+                    id: "a2_health_6",
+                    type: "multiple-choice",
+                    question: "Where do you go when you are sick?",
+                    options: ["Hospital", "School", "Cinema", "Park"],
+                    correctAnswer: "Hospital",
+                    explanation: "Bệnh viện."
+                },
+                // 7. Listening (Mock)
+                {
+                    id: "a2_health_7",
+                    type: "listening",
+                    question: "Nghe lời khuyên: 'You must rest.'",
+                    explanation: "Must rest = Phải nghỉ ngơi.",
+                    options: ["Work hard", "Rest", "Run", "Eat"],
+                    correctAnswer: "Rest",
+                    audioUrl: "mock_rest.mp3"
+                },
+                // 8. Writing
+                {
+                    id: "a2_health_8",
+                    type: "writing",
+                    question: "Viết câu: 'well / feel / don't / I.' (Tôi cảm thấy không khỏe)",
+                    explanation: "S + don't + V + Adj.",
+                    correctAnswer: "I don't feel well"
+                },
+                // 9. Matching (Habits)
+                {
+                    id: "a2_health_9",
+                    type: "matching",
+                    question: "Nối thói quen:",
+                    explanation: "Thói quen sức khỏe.",
+                    pairs: [
+                        { id: "p5", left: "Exercise", right: "Tập thể dục" },
+                        { id: "p6", left: "Sleep early", right: "Ngủ sớm" },
+                        { id: "p7", left: "Eat fruit", right: "Ăn hoa quả" },
+                        { id: "p8", left: "Wash hands", right: "Rửa tay" }
+                    ]
+                },
+                // 10. Ordering (Advice)
+                {
+                    id: "a2_health_10",
+                    type: "ordering",
+                    question: "Sắp xếp: 'eat / fast food / Don't.'",
+                    explanation: "Câu mệnh lệnh phủ định.",
+                    segments: ["food", "fast", "Don't", "eat"],
+                    correctOrder: ["Don't", "eat", "fast", "food"],
+                    correctAnswer: "Don't eat fast food"
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Mua sắm" (A2)
+    if (scenario === "Mua sắm") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Clothes)
+                {
+                    id: "a2_shop_1",
+                    type: "matching",
+                    question: "Nối từ vựng với nghĩa:",
+                    explanation: "Từ vựng quần áo.",
+                    pairs: [
+                        { id: "p1", left: "Shirt", right: "Áo sơ mi" },
+                        { id: "p2", left: "Dress", right: "Váy liền" },
+                        { id: "p3", left: "Pants", right: "Quần dài" },
+                        { id: "p4", left: "Shoes", right: "Giày" }
+                    ]
+                },
+                // 2. Multiple Choice (Size)
+                {
+                    id: "a2_shop_2",
+                    type: "multiple-choice",
+                    question: "Choose the correct question for size:",
+                    options: ["What is your size?", "How many size?", "Where is size?", "Who is size?"],
+                    correctAnswer: "What is your size?",
+                    explanation: "Hỏi kích cỡ: What is your size?"
+                },
+                // 3. Fill-blank (Too/Enough)
+                {
+                    id: "a2_shop_3",
+                    type: "fill-blank",
+                    question: "This shirt is ______ big (quá).",
+                    options: ["too", "enough", "very", "much"],
+                    correctAnswer: "too",
+                    explanation: "Too + Adj = Quá..."
+                },
+                // 4. Ordering (Adjectives)
+                {
+                    id: "a2_shop_4",
+                    type: "ordering",
+                    question: "Sắp xếp: 'beautiful / dress / a / red.'",
+                    explanation: "Op-C: Beautiful (Op) -> Red (Color).",
+                    segments: ["dress", "red", "a", "beautiful"],
+                    correctOrder: ["a", "beautiful", "red", "dress"],
+                    correctAnswer: "a beautiful red dress"
+                },
+                // 5. Speaking
+                {
+                    id: "a2_shop_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'Can I try it on?' (Tôi có thể thử không?)",
+                    explanation: "Yêu cầu thử đồ.",
+                    correctAnswer: "Can I try it on"
+                },
+                // 6. Multiple Choice (Fitting room)
+                {
+                    id: "a2_shop_6",
+                    type: "multiple-choice",
+                    question: "Where do you try on clothes?",
+                    options: ["Fitting room", "Kitchen", "Garden", "Library"],
+                    correctAnswer: "Fitting room",
+                    explanation: "Phòng thử đồ."
+                },
+                // 7. Listening (Price - Mock)
+                {
+                    id: "a2_shop_7",
+                    type: "listening",
+                    question: "Nghe giá tiền: 'It costs 50 dollars.'",
+                    explanation: "50 dollars.",
+                    options: ["$15", "$50", "$5", "$500"],
+                    correctAnswer: "$50",
+                    audioUrl: "mock_price.mp3"
+                },
+                // 8. Writing
+                {
+                    id: "a2_shop_8",
+                    type: "writing",
+                    question: "Viết câu: 'is / expensive / This / too / hat.'",
+                    explanation: "S + be + too + Adj.",
+                    correctAnswer: "This hat is too expensive"
+                },
+                // 9. Matching (Verbs)
+                {
+                    id: "a2_shop_9",
+                    type: "matching",
+                    question: "Nối hành động:",
+                    explanation: "Động từ mua sắm.",
+                    pairs: [
+                        { id: "p5", left: "Pay", right: "Thanh toán" },
+                        { id: "p6", left: "Try on", right: "Mặc thử" },
+                        { id: "p7", left: "Buy", right: "Mua" },
+                        { id: "p8", left: "Sell", right: "Bán" }
+                    ]
+                },
+                // 10. Ordering (Conversation)
+                {
+                    id: "a2_shop_10",
+                    type: "ordering",
+                    question: "Sắp xếp: 'take / I / will / it.' (Tôi sẽ lấy nó)",
+                    explanation: "Quyết định mua.",
+                    segments: ["it", "will", "I", "take"],
+                    correctOrder: ["I", "will", "take", "it"],
+                    correctAnswer: "I will take it"
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Giao thông & Đi lại" (A2)
+    if (scenario === "Giao thông & Đi lại") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                {
+                    id: "a2_transport_1",
+                    type: "matching",
+                    question: "Nối từ vựng với nghĩa:",
+                    explanation: "Từ vựng về giao thông.",
+                    pairs: [
+                        { id: "p1", left: "Traffic jam", right: "Tắc đường" },
+                        { id: "p2", left: "Vehicle", right: "Phương tiện" },
+                        { id: "p3", left: "Helmet", right: "Mũ bảo hiểm" },
+                        { id: "p4", left: "Fare", right: "Giá vé" }
+                    ]
+                },
+                {
+                    id: "a2_transport_2",
+                    type: "multiple-choice",
+                    question: "What should you do when riding a motorbike?",
+                    options: ["Wear a helmet", "Sleep", "Read a book", "Eat"],
+                    correctAnswer: "Wear a helmet",
+                    explanation: "Luôn đội mũ bảo hiểm khi đi xe máy."
+                },
+                {
+                    id: "a2_transport_3",
+                    type: "fill-blank",
+                    question: "The bus ______ at 7 AM.",
+                    correctAnswer: "departs",
+                    options: ["departs", "depart", "departure", "departing"],
+                    explanation: "Động từ 'depart' chia ở ngôi thứ 3 số ít (The bus)."
+                },
+                {
+                    id: "a2_transport_4",
+                    type: "ordering",
+                    question: "Sắp xếp câu: 'should / take / You / taxi / a.'",
+                    explanation: "Lời khuyên: You should + V...",
+                    segments: ["a", "taxi", "You", "take", "should"],
+                    correctOrder: ["You", "should", "take", "a", "taxi"],
+                    correctAnswer: "You should take a taxi"
+                },
+                {
+                    id: "a2_transport_5",
+                    type: "multiple-choice", // Mock listening as multiple choice for now or specific type if supported
+                    question: "Chọn đáp án đúng (Nghe): 'The fare is 5 dollars.'",
+                    options: ["$5", "$15", "$50", "$500"],
+                    correctAnswer: "$5",
+                    explanation: "Fare là giá vé."
+                },
+                {
+                    id: "a2_transport_6",
+                    type: "matching",
+                    question: "Nối biển báo với ý nghĩa:",
+                    explanation: "Biển báo giao thông.",
+                    pairs: [
+                        { id: "p5", left: "Stop sign", right: "Dừng lại" },
+                        { id: "p6", left: "No parking", right: "Cấm đỗ xe" },
+                        { id: "p7", left: "Turn left", right: "Rẽ trái" },
+                        { id: "p8", left: "One way", right: "Đường một chiều" }
+                    ]
+                },
+                {
+                    id: "a2_transport_7",
+                    type: "fill-blank",
+                    question: "Go ______ the bridge.",
+                    options: ["over", "under", "in", "at"],
+                    correctAnswer: "over",
+                    explanation: "Go over the bridge = Đi qua cầu."
+                },
+                {
+                    id: "a2_transport_8",
+                    type: "ordering",
+                    question: "Sắp xếp câu: 'lost / I / am / help / me / please.'",
+                    explanation: "Xin giúp đỡ khi lạc đường.",
+                    segments: ["me", "please", "help", "am", "I", "lost"],
+                    correctOrder: ["I", "am", "lost", "please", "help", "me"],
+                    correctAnswer: "I am lost please help me"
+                },
+                {
+                    id: "a2_transport_9",
+                    type: "multiple-choice",
+                    question: "Where do you buy a train ticket?",
+                    options: ["At the cinema", "At the station", "At the library", "At the park"],
+                    correctAnswer: "At the station",
+                    explanation: "Vé tàu mua ở nhà ga."
+                },
+                {
+                    id: "a2_transport_10",
+                    type: "multiple-choice",
+                    question: "Which vehicle has 2 wheels?",
+                    options: ["Car", "Bus", "Motorbike", "Train"],
+                    correctAnswer: "Motorbike",
+                    explanation: "Xe máy có 2 bánh."
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Gọi món ăn" (A2)
+    if (scenario === "Gọi món ăn") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Food)
+                {
+                    id: "a2_food_1",
+                    type: "matching",
+                    question: "Nối món ăn với nghĩa:",
+                    explanation: "Từ vựng đồ ăn.",
+                    pairs: [
+                        { id: "p1", left: "Steak", right: "Bít tết" },
+                        { id: "p2", left: "Salad", right: "Rau trộn" },
+                        { id: "p3", left: "Soup", right: "Súp" },
+                        { id: "p4", left: "Rice", right: "Cơm" }
+                    ]
+                },
+                // 2. Multiple Choice (Taste)
+                {
+                    id: "a2_food_2",
+                    type: "multiple-choice",
+                    question: "This candy is very ______.",
+                    options: ["sweet", "salty", "spicy", "bitter"],
+                    correctAnswer: "sweet",
+                    explanation: "Kẹo thì ngọt (sweet)."
+                },
+                // 3. Fill-blank (Would like)
+                {
+                    id: "a2_food_3",
+                    type: "fill-blank",
+                    question: "I ______ like a menu, please.",
+                    options: ["would", "will", "can", "do"],
+                    correctAnswer: "would",
+                    explanation: "Cấu trúc lịch sự: I would like..."
+                },
+                // 4. Ordering (Conversation)
+                {
+                    id: "a2_food_4",
+                    type: "ordering",
+                    question: "Sắp xếp: 'to / ready / order / Are / you?'",
+                    explanation: "Câu hỏi của bồi bàn.",
+                    segments: ["you", "Are", "ready", "order", "to"],
+                    correctOrder: ["Are", "you", "ready", "to", "order"],
+                    correctAnswer: "Are you ready to order"
+                },
+                // 5. Speaking
+                {
+                    id: "a2_food_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'The bill, please.'",
+                    explanation: "Yêu cầu tính tiền.",
+                    correctAnswer: "The bill please"
+                },
+                // 6. Multiple Choice (Countable)
+                {
+                    id: "a2_food_6",
+                    type: "multiple-choice",
+                    question: "Choose the countable noun:",
+                    options: ["Apple", "Water", "Rice", "Milk"],
+                    correctAnswer: "Apple",
+                    explanation: "Apple đếm được (an apple)."
+                },
+                // 7. Listening (Order - Mock)
+                {
+                    id: "a2_food_7",
+                    type: "listening",
+                    question: "Nghe gọi món: 'I'll have the fish.'",
+                    explanation: "Fish = Cá.",
+                    options: ["Beef", "Chicken", "Fish", "Pork"],
+                    correctAnswer: "Fish",
+                    audioUrl: "mock_order_fish.mp3"
+                },
+                // 8. Writing
+                {
+                    id: "a2_food_8",
+                    type: "writing",
+                    question: "Viết câu: 'delicious / is / food / This.'",
+                    explanation: "S + be + Adj.",
+                    correctAnswer: "This food is delicious"
+                },
+                // 9. Matching (Drink)
+                {
+                    id: "a2_food_9",
+                    type: "matching",
+                    question: "Nối đồ uống:",
+                    explanation: "Từ vựng đồ uống.",
+                    pairs: [
+                        { id: "p5", left: "Water", right: "Nước lọc" },
+                        { id: "p6", left: "Juice", right: "Nước ép" },
+                        { id: "p7", left: "Beer", right: "Bia" },
+                        { id: "p8", left: "Tea", right: "Trà" }
+                    ]
+                },
+                // 10. Ordering (Request)
+                {
+                    id: "a2_food_10",
+                    type: "ordering",
+                    question: "Sắp xếp: 'some / like / I / would / water.'",
+                    explanation: "Yêu cầu lịch sự.",
+                    segments: ["water", "would", "I", "like", "some"],
+                    correctOrder: ["I", "would", "like", "some", "water"],
+                    correctAnswer: "I would like some water"
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Dự định tương lai" (A2)
+    if (scenario === "Dự định tương lai") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Verbs)
+                {
+                    id: "a2_plans_1",
+                    type: "matching",
+                    question: "Nối động từ với nghĩa:",
+                    explanation: "Từ vựng kế hoạch.",
+                    pairs: [
+                        { id: "p1", left: "Visit", right: "Thăm" },
+                        { id: "p2", left: "Stay", right: "Ở lại" },
+                        { id: "p3", left: "Leave", right: "Rời đi" },
+                        { id: "p4", left: "Arrive", right: "Đến nơi" }
+                    ]
+                },
+                // 2. Multiple Choice (Be going to)
+                {
+                    id: "a2_plans_2",
+                    type: "multiple-choice",
+                    question: "I ______ visit my aunt tomorrow.",
+                    options: ["am going to", "going to", "go to", "will going"],
+                    correctAnswer: "am going to",
+                    explanation: "Cấu trúc: Be going to + V."
+                },
+                // 3. Unscramble (Sentence)
+                {
+                    id: "a2_plans_3",
+                    type: "ordering",
+                    question: "Sắp xếp: 'to / going / They / cover / are / soccer.'",
+                    explanation: "Dự định làm gì.",
+                    segments: ["soccer", "play", "They", "are", "going", "to"],
+                    correctOrder: ["They", "are", "going", "to", "play", "soccer"],
+                    correctAnswer: "They are going to play soccer"
+                },
+                // 4. Fill-blank (Preposition)
+                {
+                    id: "a2_plans_4",
+                    type: "fill-blank",
+                    question: "We are meeting ______ 7 PM.",
+                    options: ["at", "on", "in", "to"],
+                    correctAnswer: "at",
+                    explanation: "Dùng 'at' với giờ cụ thể."
+                },
+                // 5. Speaking (Plan)
+                {
+                    id: "a2_plans_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'I am going to travel.'",
+                    explanation: "Nói về dự định du lịch.",
+                    correctAnswer: "I am going to travel"
+                },
+                // 6. Multiple Choice (Time)
+                {
+                    id: "a2_plans_6",
+                    type: "multiple-choice",
+                    question: "See you ______ Monday.",
+                    options: ["on", "at", "in", "by"],
+                    correctAnswer: "on",
+                    explanation: "Dùng 'on' với thứ trong tuần."
+                },
+                // 7. Listening (Schedule - Mock)
+                {
+                    id: "a2_plans_7",
+                    type: "listening",
+                    question: "Nghe lịch trình: 'The meeting is at 10.'",
+                    explanation: "Thời gian gặp mặt.",
+                    options: ["9 AM", "10 AM", "2 PM", "10 PM"],
+                    correctAnswer: "10 AM",
+                    audioUrl: "mock_schedule_10.mp3"
+                },
+                // 8. Writing (Intentions)
+                {
+                    id: "a2_plans_8",
+                    type: "writing",
+                    question: "Viết câu: 'going / is / She / buy / to / a car.'",
+                    explanation: "Cấu trúc Be going to.",
+                    correctAnswer: "She is going to buy a car"
+                },
+                // 9. Matching (Vocabulary)
+                {
+                    id: "a2_plans_9",
+                    type: "matching",
+                    question: "Nối từ vựng:",
+                    explanation: "Từ vựng du lịch.",
+                    pairs: [
+                        { id: "p5", left: "Ticket", right: "Vé" },
+                        { id: "p6", left: "Flight", right: "Chuyến bay" },
+                        { id: "p7", left: "Hotel", right: "Khách sạn" },
+                        { id: "p8", left: "Luggage", right: "Hành lý" }
+                    ]
+                },
+                // 10. Multiple Choice (Continuous)
+                {
+                    id: "a2_plans_10",
+                    type: "multiple-choice",
+                    question: "She ______ (fly) to Paris next week.",
+                    options: ["is flying", "flies", "flown", "fly"],
+                    correctAnswer: "is flying",
+                    explanation: "Hiện tại tiếp diễn diễn tả kế hoạch tương lai."
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Dịch vụ công cộng" (A2)
+    if (scenario === "Dịch vụ công cộng") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Places)
+                {
+                    id: "a2_services_1",
+                    type: "matching",
+                    question: "Nối địa điểm với chức năng:",
+                    explanation: "Từ vựng dịch vụ.",
+                    pairs: [
+                        { id: "p1", left: "Bank", right: "Gửi tiền" },
+                        { id: "p2", left: "Post Office", right: "Gửi thư" },
+                        { id: "p3", left: "Library", right: "Mượn sách" },
+                        { id: "p4", left: "Hospital", right: "Khám bệnh" }
+                    ]
+                },
+                // 2. Multiple Choice (Request)
+                {
+                    id: "a2_services_2",
+                    type: "multiple-choice",
+                    question: "______ you help me with this form?",
+                    options: ["Could", "Do", "Are", "Have"],
+                    correctAnswer: "Could",
+                    explanation: "Câu yêu cầu lịch sự: Could you..."
+                },
+                // 3. Fill-blank (Preposition)
+                {
+                    id: "a2_services_3",
+                    type: "fill-blank",
+                    question: "The bank is ______ the park.",
+                    options: ["next to", "on", "at", "to"],
+                    correctAnswer: "next to",
+                    explanation: "Chỉ vị trí: bên cạnh."
+                },
+                // 4. Ordering (Request)
+                {
+                    id: "a2_services_4",
+                    type: "ordering",
+                    question: "Sắp xếp: 'send / like / I / replace / would / to / a letter.'",
+                    explanation: "Gửi thư.",
+                    segments: ["to", "would", "I", "like", "send", "a letter"],
+                    correctOrder: ["I", "would", "like", "to", "send", "a letter"],
+                    correctAnswer: "I would like to send a letter"
+                },
+                // 5. Speaking (May I)
+                {
+                    id: "a2_services_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'May I come in?'",
+                    explanation: "Xin phép vào.",
+                    correctAnswer: "May I come in"
+                },
+                // 6. Multiple Choice (Vocabulary)
+                {
+                    id: "a2_services_6",
+                    type: "multiple-choice",
+                    question: "I want to buy some medicine. I go to the ______.",
+                    options: ["pharmacy", "bank", "cinema", "school"],
+                    correctAnswer: "pharmacy",
+                    explanation: "Mua thuốc ở hiệu thuốc."
+                },
+                // 7. Listening (Service)
+                {
+                    id: "a2_services_7",
+                    type: "listening",
+                    question: "Nghe yêu cầu: 'I'd like to open an account.'",
+                    explanation: "Mở tài khoản ngân hàng.",
+                    options: ["Close account", "Open account", "Withdraw money", "Send money"],
+                    correctAnswer: "Open account",
+                    audioUrl: "mock_bank_account.mp3"
+                },
+                // 8. Writing
+                {
+                    id: "a2_services_8",
+                    type: "writing",
+                    question: "Viết câu: 'post / Where / the / office / is?'",
+                    explanation: "Hỏi đường.",
+                    correctAnswer: "Where is the post office"
+                },
+                // 9. Matching (Actions)
+                {
+                    id: "a2_services_9",
+                    type: "matching",
+                    question: "Nối hành động:",
+                    explanation: "Hoạt động tại dịch vụ.",
+                    pairs: [
+                        { id: "p5", left: "Borrow", right: "Mượn" },
+                        { id: "p6", left: "Send", right: "Gửi" },
+                        { id: "p7", left: "Save", right: "Tiết kiệm" },
+                        { id: "p8", left: "Buy", right: "Mua" }
+                    ]
+                },
+                // 10. Multiple Choice (Polite)
+                {
+                    id: "a2_services_10",
+                    type: "multiple-choice",
+                    question: "______ I use your pen?",
+                    options: ["May", "Am", "Do", "Have"],
+                    correctAnswer: "May",
+                    explanation: "Xin phép: May I..."
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Công nghệ & Truyền thông" (A2)
+    if (scenario === "Công nghệ & Truyền thông") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Devices)
+                {
+                    id: "a2_tech_1",
+                    type: "matching",
+                    question: "Nối thiết bị với tên gọi:",
+                    explanation: "Từ vựng công nghệ.",
+                    pairs: [
+                        { id: "p1", left: "Computer", right: "Máy tính bàn" },
+                        { id: "p2", left: "Laptop", right: "Máy tính xách tay" },
+                        { id: "p3", left: "Smartphone", right: "Điện thoại thông minh" },
+                        { id: "p4", left: "Mouse", right: "Chuột máy tính" }
+                    ]
+                },
+                // 2. Multiple Choice (Zero Conditional)
+                {
+                    id: "a2_tech_2",
+                    type: "multiple-choice",
+                    question: "If you ______ this button, the computer turns on.",
+                    options: ["press", "pressed", "pressing", "will press"],
+                    correctAnswer: "press",
+                    explanation: "Câu điều kiện loại 0: If + H.T.Đ, H.T.Đ."
+                },
+                // 3. Fill-blank (Imperative)
+                {
+                    id: "a2_tech_3",
+                    type: "fill-blank",
+                    question: "______ on the link to open the website.",
+                    options: ["Click", "Type", "See", "Go"],
+                    correctAnswer: "Click",
+                    explanation: "Click on = Nhấp vào."
+                },
+                // 4. Ordering (Instruction)
+                {
+                    id: "a2_tech_4",
+                    type: "ordering",
+                    question: "Sắp xếp: 'password / your / enter / Please.'",
+                    explanation: "Yêu cầu nhập mật khẩu.",
+                    segments: ["your", "Please", "password", "enter"],
+                    correctOrder: ["Please", "enter", "your", "password"],
+                    correctAnswer: "Please enter your password"
+                },
+                // 5. Speaking (Problem)
+                {
+                    id: "a2_tech_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'My internet is slow.'",
+                    explanation: "Mô tả vấn đề mạng.",
+                    correctAnswer: "My internet is slow"
+                },
+                // 6. Multiple Choice (Vocabulary)
+                {
+                    id: "a2_tech_6",
+                    type: "multiple-choice",
+                    question: "I need to charge my phone. The ______ is low.",
+                    options: ["battery", "screen", "wifi", "mouse"],
+                    correctAnswer: "battery",
+                    explanation: "Battery = Pin."
+                },
+                // 7. Listening (Tech Support)
+                {
+                    id: "a2_tech_7",
+                    type: "listening",
+                    question: "Nghe hướng dẫn: 'Restart your computer.'",
+                    explanation: "Khởi động lại máy.",
+                    options: ["Turn off", "Restart", "Buy new", "Clean"],
+                    correctAnswer: "Restart",
+                    audioUrl: "mock_restart.mp3"
+                },
+                // 8. Writing (Conditional)
+                {
+                    id: "a2_tech_8",
+                    type: "writing",
+                    question: "Viết câu: 'rain / wet / gets / If / it / grass / the.'",
+                    explanation: "Sự thật hiển nhiên.",
+                    correctAnswer: "If it rains the grass gets wet"
+                },
+                // 9. Matching (Actions)
+                {
+                    id: "a2_tech_9",
+                    type: "matching",
+                    question: "Nối hành động:",
+                    explanation: "Hoạt động công nghệ.",
+                    pairs: [
+                        { id: "p5", left: "Download", right: "Tải xuống" },
+                        { id: "p6", left: "Upload", right: "Tải lên" },
+                        { id: "p7", left: "Connect", right: "Kết nối" },
+                        { id: "p8", left: "Install", right: "Cài đặt" }
+                    ]
+                },
+                // 10. Multiple Choice (Zero Conditional)
+                {
+                    id: "a2_tech_10",
+                    type: "multiple-choice",
+                    question: "If ice melts, it ______ water.",
+                    options: ["becomes", "become", "became", "will become"],
+                    correctAnswer: "becomes",
+                    explanation: "Sự thật hiển nhiên: becomes."
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Thời tiết & Môi trường" (A2)
+    if (scenario === "Thời tiết & Môi trường") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Matching (Symbols)
+                {
+                    id: "a2_weather_1",
+                    type: "matching",
+                    question: "Nối biểu tượng thời tiết:",
+                    explanation: "Từ vựng thời tiết.",
+                    pairs: [
+                        { id: "p1", left: "Sun", right: "Nắng" },
+                        { id: "p2", left: "Cloud", right: "Mây" },
+                        { id: "p3", left: "Rain", right: "Mưa" },
+                        { id: "p4", left: "Snow", right: "Tuyết" }
+                    ]
+                },
+                // 2. Multiple Choice (Prediction)
+                {
+                    id: "a2_weather_2",
+                    type: "multiple-choice",
+                    question: "I think it ______ rain tomorrow.",
+                    options: ["will", "is", "did", "does"],
+                    correctAnswer: "will",
+                    explanation: "Tiên đoán tương lai: Will."
+                },
+                // 3. Unscramble (Sentence)
+                {
+                    id: "a2_weather_3",
+                    type: "ordering",
+                    question: "Sắp xếp: 'sunny / is / It / today.'",
+                    explanation: "Mô tả thời tiết.",
+                    segments: ["today", "It", "is", "sunny"],
+                    correctOrder: ["It", "is", "sunny", "today"],
+                    correctAnswer: "It is sunny today"
+                },
+                // 4. Fill-blank (Conditional)
+                {
+                    id: "a2_weather_4",
+                    type: "fill-blank",
+                    question: "If it rains, we ______ stay inside.",
+                    options: ["will", "do", "are", "have"],
+                    correctAnswer: "will",
+                    explanation: "Câu điều kiện loại 1."
+                },
+                // 5. Speaking (Weather)
+                {
+                    id: "a2_weather_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'It is very cold.'",
+                    explanation: "Mô tả nhiệt độ.",
+                    correctAnswer: "It is very cold"
+                },
+                // 6. Multiple Choice (Vocabulary)
+                {
+                    id: "a2_weather_6",
+                    type: "multiple-choice",
+                    question: "You can't see anything. It is ______.",
+                    options: ["foggy", "sunny", "hot", "dry"],
+                    correctAnswer: "foggy",
+                    explanation: "Foggy = Sương mù."
+                },
+                // 7. Listening (Forecast)
+                {
+                    id: "a2_weather_7",
+                    type: "listening",
+                    question: "Nghe dự báo: 'It will be windy.'",
+                    explanation: "Dự báo gió.",
+                    options: ["Windy", "Rainy", "Sunny", "Cloudy"],
+                    correctAnswer: "Windy",
+                    audioUrl: "mock_windy.mp3"
+                },
+                // 8. Writing (Prediction)
+                {
+                    id: "a2_weather_8",
+                    type: "writing",
+                    question: "Viết câu: 'snow / It / might / tonight.'",
+                    explanation: "Khả năng xảy ra.",
+                    correctAnswer: "It might snow tonight"
+                },
+                // 9. Matching (Temperature)
+                {
+                    id: "a2_weather_9",
+                    type: "matching",
+                    question: "Nối nhiệt độ:",
+                    explanation: "Từ vựng nhiệt độ.",
+                    pairs: [
+                        { id: "p5", left: "Hot", right: "Nóng" },
+                        { id: "p6", left: "Cold", right: "Lạnh" },
+                        { id: "p7", left: "Warm", right: "Ấm" },
+                        { id: "p8", left: "Cool", right: "Mát" }
+                    ]
+                },
+                // 10. Multiple Choice (Possibility)
+                {
+                    id: "a2_weather_10",
+                    type: "multiple-choice",
+                    question: "Look at those clouds. It ______ rain.",
+                    options: ["is going to", "will", "does", "is"],
+                    correctAnswer: "is going to",
+                    explanation: "Dự đoán có căn cứ: Be going to." // Adjusted explanation slightly
+                }
+            ]
+        };
+        return { vocab, grammar, conversation, practice };
+    }
+
+    // Specific logic for "Tổng ôn tập A2"
+    if (scenario === "Tổng ôn tập A2") {
+        const practice: PracticeExercise = {
+            scenarioId: scenario,
+            questions: [
+                // 1. Multiple Choice (Mixed Grammar - Past)
+                {
+                    id: "a2_review_1",
+                    type: "multiple-choice",
+                    question: "Yesterday, I ______ to the cinema.",
+                    options: ["went", "go", "going", "will go"],
+                    correctAnswer: "went",
+                    explanation: "Quá khứ đơn."
+                },
+                // 2. Fill-blank (Mixed Vocabulary - Health)
+                {
+                    id: "a2_review_2",
+                    type: "fill-blank",
+                    question: "I have a headache. I should take some ______.",
+                    options: ["medicine", "cake", "shoe", "ticket"],
+                    correctAnswer: "medicine",
+                    explanation: "Từ vựng sức khỏe."
+                },
+                // 3. Ordering (Future Plan)
+                {
+                    id: "a2_review_3",
+                    type: "ordering",
+                    question: "Sắp xếp: 'going / am / I / visit / to / Mom.'",
+                    explanation: "Cấu trúc Be going to.",
+                    segments: ["Mom", "visit", "to", "I", "am", "going"],
+                    correctOrder: ["I", "am", "going", "to", "visit", "Mom"],
+                    correctAnswer: "I am going to visit Mom"
+                },
+                // 4. Matching (Mixed Topics)
+                {
+                    id: "a2_review_4",
+                    type: "matching",
+                    question: "Nối từ với chủ đề:",
+                    explanation: "Ôn tập tổng hợp.",
+                    pairs: [
+                        { id: "p1", left: "Nurse", right: "Job" },
+                        { id: "p2", left: "Beefsteak", right: "Food" },
+                        { id: "p3", left: "Boots", right: "Fashion" },
+                        { id: "p4", left: "Rainy", right: "Weather" }
+                    ]
+                },
+                // 5. Speaking (Self Intro Review)
+                {
+                    id: "a2_review_5",
+                    type: "speaking",
+                    question: "Hãy nói: 'I like playing soccer.'",
+                    explanation: "Nói về sở thích.",
+                    correctAnswer: "I like playing soccer"
+                },
+                // 6. Multiple Choice (Comparisons)
+                {
+                    id: "a2_review_6",
+                    type: "multiple-choice",
+                    question: "This car is ______ than that one.",
+                    options: ["more expensive", "expensive", "expensiver", "most expensive"],
+                    correctAnswer: "more expensive",
+                    explanation: "So sánh hơn tính từ dài."
+                },
+                // 7. Listening (Mixed)
+                {
+                    id: "a2_review_7",
+                    type: "listening",
+                    question: "Nghe câu hỏi: 'Where are you from?'",
+                    explanation: "Thông tin cá nhân.",
+                    options: ["I am from Vietnam", "I am 10", "I like blue", "I am a student"],
+                    correctAnswer: "I am from Vietnam",
+                    audioUrl: "mock_from.mp3"
+                },
+                // 8. Writing (Modal)
+                {
+                    id: "a2_review_8",
+                    type: "writing",
+                    question: "Viết câu: 'should / go / You / doctor / the / to.'",
+                    explanation: "Lời khuyên.",
+                    correctAnswer: "You should go to the doctor"
+                },
+                // 9. Matching (Antonyms)
+                {
+                    id: "a2_review_9",
+                    type: "matching",
+                    question: "Nối từ trái nghĩa:",
+                    explanation: "Từ vựng.",
+                    pairs: [
+                        { id: "p5", left: "Hot", right: "Cold" },
+                        { id: "p6", left: "Big", right: "Small" },
+                        { id: "p7", left: "Happy", right: "Sad" },
+                        { id: "p8", left: "Fast", right: "Slow" }
+                    ]
+                },
+                // 10. Multiple Choice (Conditional)
+                {
+                    id: "a2_review_10",
+                    type: "multiple-choice",
+                    question: "If you study hard, you ______ pass the exam.",
+                    options: ["will", "do", "did", "are"],
+                    correctAnswer: "will",
+                    explanation: "Câu điều kiện loại 1."
                 }
             ]
         };

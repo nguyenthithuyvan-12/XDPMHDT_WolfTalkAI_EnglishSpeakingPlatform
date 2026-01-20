@@ -57,11 +57,40 @@
   box-sizing: border-box;
 }
 
+
 html,
 body {
-  background: #1c2333 !important;
+  margin: 0;
+  padding: 0;
+  background: #1c2333;
   min-height: 100vh;
-  height: 100%;
+}
+
+/* New Layout with Sidebar */
+.learning-page-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  background: #1c2333;
+}
+
+.learning-main-content {
+  flex: 1;
+  margin-left: 260px;
+  /* Width of sidebar */
+  padding: 0;
+  min-height: 100vh;
+  color: #fff;
+  background: #1c2333;
+  width: calc(100% - 260px);
+  position: relative;
+}
+
+.learning-container {
+  padding: 2rem 3rem;
+  max-width: 1600px;
+  margin: 0;
+  /* Align left */
 }
 
 .learning-title {
@@ -182,27 +211,37 @@ body {
 .learning-mode-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  /* Align left horizontally */
   justify-content: center;
-  padding: 40px;
+  /* Keep vertical centering */
+  padding: 40px 40px 40px 0;
+  /* Zero left padding to be "sát" sidebar */
   width: 100%;
   box-sizing: border-box;
+  min-height: 100vh;
+  /* Ensure full height for vertical centering */
 }
 
 .mode-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  /* Force 3 columns of 300px */
+  /* justify-content: center; Removed horizontal centering */
   gap: 32px;
-  flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
+  /* max-width: 1200px; Remove max-width constraint or increase it? Keeping for sanity but layout is left-aligned now */
+  margin: 0;
+  /* Remove auto margins */
 }
 
 .mode-card {
   background: #232a3d;
   border-radius: 20px;
   padding: 32px 24px;
-  width: 300px;
+  width: 100%;
+  /* Fill the 300px column */
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
@@ -342,43 +381,43 @@ body {
 }
 
 .match-item {
-  background: white;
-  border: 2px solid #e0e0e0;
+  background: #232a3d;
+  border: 2px solid #28304a;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.2s;
-  color: #333;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .match-item:hover {
-  border-color: #667eea;
+  border-color: #58cc02;
+  background: #28304a;
+  transform: translateY(-2px);
 }
 
 .match-item.selected {
-  background-color: #e3f2fd;
-  border-color: #2196f3;
+  background-color: #28304a;
+  border-color: #58cc02;
+  color: #58cc02;
+  box-shadow: 0 0 15px rgba(88, 204, 2, 0.2);
 }
 
 .match-item.matched {
-  background-color: #e8f5e9;
-  border-color: #4caf50;
-  color: #2e7d32;
+  background-color: rgba(88, 204, 2, 0.1);
+  border-color: #58cc02;
+  color: #58cc02;
   cursor: default;
+  opacity: 0.8;
 }
 
 .match-item.error {
-  background-color: #ffebee;
-  border-color: #ef5350;
-  color: #c62828;
-}
-
-.match-item.selected {
-  background-color: #e3f2fd;
-  border-color: #2196f3;
-  color: #0d47a1;
+  background-color: rgba(255, 75, 75, 0.1);
+  border-color: #ff4b4b;
+  color: #ff4b4b;
 }
 
 @keyframes shake {
@@ -760,111 +799,50 @@ body {
   border-color: #58cc02;
 }
 
-.option-btn.selected {
-  border-color: #58cc02;
-  background: #232a3d;
-}
-
-.option-btn.correct {
-  background: #58cc02;
-  border-color: #58cc02;
-  color: #fff;
-}
-
-.option-btn.wrong {
-  background: #ff4b4b;
-  border-color: #ff4b4b;
-  color: #fff;
-}
-
-.feedback-box {
-  padding: 20px;
-  border-radius: 12px;
+/* --- Session Progress Tabs (Top Bar) --- */
+.session-progress {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 24px;
-  animation: slideUp 0.3s ease;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  background: rgba(35, 42, 61, 0.6);
+  padding: 6px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.feedback-box.success {
-  background: #dff0d8;
-  color: #3c763d;
-}
-
-.feedback-box.success h4 {
-  color: #3c763d;
-  margin: 0 0 4px 0;
-}
-
-.feedback-box.success p {
-  color: #3c763d;
-  margin: 0;
-}
-
-.feedback-box.error {
-  background: #f2dede;
-  color: #a94442;
-}
-
-.feedback-box.error h4 {
-  color: #a94442;
-  margin: 0 0 4px 0;
-}
-
-.feedback-box.error p {
-  color: #a94442;
-  margin: 0;
-}
-
-.check-btn {
-  width: 100%;
-  padding: 16px;
-  background: #58cc02;
-  color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
+.step-btn {
+  background: transparent;
   border: none;
+  color: #9ca3af;
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 0 #46a302;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.check-btn:disabled {
-  background: #3c445c;
-  color: #52656d;
-  box-shadow: none;
-  cursor: not-allowed;
+.step-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
 }
 
-.next-question-btn {
+.step-btn.active {
   background: #58cc02;
   color: #fff;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 2px 0 #46a302;
+  box-shadow: 0 4px 12px rgba(88, 204, 2, 0.3);
+  transform: translateY(-1px);
 }
 
-/* Keep existing necessary styles */
-.topic-btn,
-
-.scenario-btn,
-.learning-btn {
-  /* Legacy buttons if still used */
-  cursor: pointer;
+.step-btn:active {
+  transform: translateY(1px);
 }

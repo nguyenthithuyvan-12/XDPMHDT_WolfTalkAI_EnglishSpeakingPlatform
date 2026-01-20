@@ -1,204 +1,478 @@
 /* Learning Path Dashboard */
 .learning-path-dashboard {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    background: #f8f9fa;
-    min-height: 80vh;
+    margin: 0;
+    background: transparent;
+    min-height: 100vh;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Level Selector Strip */
+/* Group Selector (Basic | Independent | Proficient) */
+.group-selector {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 2rem;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(28, 35, 51, 0.95);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 101;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.group-tab {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a0aec0;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.group-tab:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.group-tab.active {
+    background: #58cc02;
+    color: #fff;
+    border-color: #58cc02;
+    box-shadow: 0 4px 10px rgba(88, 204, 2, 0.3);
+}
+
+/* Level Selector Header */
 .level-selector-strip {
     display: flex;
     gap: 1rem;
-    padding: 1rem 1rem 0 1rem;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem 0 2rem;
+    background: rgba(28, 35, 51, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     overflow-x: auto;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(88, 204, 2, 0.1);
+    position: sticky;
+    top: 73px;
+    /* Below group selector */
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    justify-content: flex-start;
+    padding-left: 2rem;
+    /* Center levels */
 }
 
 .level-tab {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     background: none;
     border: none;
     border-bottom: 4px solid transparent;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     opacity: 0.6;
+    min-width: 120px;
+}
+
+.level-tab:hover {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .level-tab.active {
     opacity: 1;
-    background: #f0f7ff;
+    background: rgba(88, 204, 2, 0.1);
+    border-bottom-color: #58cc02 !important;
+    /* Force green override if needed */
 }
 
 .level-tab:disabled {
     cursor: not-allowed;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .level-id {
     font-weight: 800;
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.level-tab.active .level-id {
+    color: #58cc02;
+    text-shadow: 0 0 10px rgba(88, 204, 2, 0.3);
 }
 
 .level-name {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    font-weight: 500;
 }
 
 /* Path Content */
+/* Path Content */
+
+/* Path Content */
 .path-content-area {
-    padding: 3rem 1rem;
-    padding-top: 20rem;
-    /* Massive padding to clear any fixed headers */
+    padding: 50px 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    /* Brighter gradient bg */
+    overflow: hidden;
+    /* Prevent body scroll if we want horizontal mainly */
 }
 
 .path-header {
-    text-align: center;
-    margin-bottom: 4rem;
-    color: #444;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    border: 2px solid transparent;
+    margin-bottom: 2rem;
 }
 
-.path-header h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.5rem;
-}
-
+/* Horizontal List Container */
 .units-path-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    /* HORIZONTAL SCROLL */
     gap: 0;
+    /* Gap handled by margin/connectors */
+    overflow-x: auto;
+    padding-bottom: 3rem;
+    /* Space for scrollbar and shadows */
+    width: 100%;
+    align-items: center;
+    scroll-behavior: smooth;
+    /* Hide scrollbar for cleaner look if desired, or style it */
+    cursor: grab;
+    /* Mặc định là grab */
 }
 
+.units-path-list:active {
+    cursor: grabbing;
+    /* Khi nhấn chuột là grabbing */
+    scroll-behavior: auto;
+    /* Tắt smooth scroll khi kéo để mượt hơn */
+}
+
+/* Each step contains Unit + Connector */
 .path-step {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* Horizontal alignment of unit and connector */
     align-items: center;
-    position: relative;
-    width: 100%;
+    flex-shrink: 0;
 }
 
-/* Connector Line */
-.path-connector {
-    width: 4px;
-    height: 40px;
-    background: #ddd;
-    margin: -10px 0;
-    /* Overlap slightly */
-    z-index: 0;
-}
-
-/* Unit Node */
 .unit-node-container {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    background: white;
     padding: 1.5rem;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 600px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    background: rgba(255, 255, 255, 0.9);
+    /* BRIGHT BACKGROUND */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin-bottom: 0;
+    width: 380px;
+    /* Reduced width for horizontal flow */
+    height: 220px;
+    /* Fixed height for uniformity */
     position: relative;
-    /* Ensure z-index works */
-    z-index: 1;
-    /* Above connector */
-    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    /* Vertical layout inside the card for horizontal scroll aesthetics? Or keep row? */
+    /* Let's keep row layout inside card but maybe compact it */
+    flex-direction: row;
 }
 
 .unit-node-container:hover:not(.locked) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-color: rgba(88, 204, 2, 0.5);
 }
 
 .unit-node-container.active {
-    /* Style handled by inline JS */
+    background: #fff;
+    border-color: #58cc02;
+    box-shadow: 0 10px 30px rgba(88, 204, 2, 0.2);
 }
 
 .unit-node-container.completed {
-    /* Style handled by inline JS */
+    /* border-color handled by inline style for level consistency */
+    background: rgba(255, 255, 255, 0.95);
+    /* Keep bright background */
 }
 
 .unit-node-container.locked {
-    opacity: 0.7;
+    opacity: 0.8;
     filter: grayscale(1);
     cursor: not-allowed;
-    background: #fdfdfd;
+    background: #f0f2f5;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/* Horizontal Connector */
+.path-connector {
+    width: 60px;
+    /* Length of connection */
+    height: 4px;
+    /* Thickness */
+    background: rgba(255, 255, 255, 0.3);
+    /* Default line color usually on dark bg, but now light? */
+    background: #e2e8f0;
+    /* Light grey for bright theme */
+    margin: 0;
 }
 
 .unit-node-visual {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background: #eee;
+    background: #f7fafc;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     flex-shrink: 0;
-    transition: background-color 0.3s, color 0.3s;
-    color: #666;
+    transition: all 0.3s ease;
+    color: #cbd5e0;
+    margin-right: 1.5rem;
+    position: relative;
+    z-index: 2;
+    border: 2px solid #edf2f7;
 }
 
 .unit-node-container.completed .unit-node-visual {
     color: white;
+    /* background & border handled by inline style */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .unit-node-container.active .unit-node-visual {
     background: #fff;
-    /* Color handled by inline style */
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.2);
+    color: #58cc02;
+    transform: scale(1.1);
+    border-color: #58cc02;
 }
 
 .unit-info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .unit-label {
     font-size: 0.75rem;
-    font-weight: 700;
-    color: #999;
+    font-weight: 800;
+    color: #a0aec0;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
 }
 
 .unit-title {
-    margin: 0.2rem 0;
-    font-size: 1.1rem;
-    color: #333;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2d3748;
+    /* Dark text for bright theme */
 }
 
 .unit-desc {
     margin: 0;
     font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
+    color: #718096;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limit text lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
+
 .start-btn {
-    margin-top: 0.8rem;
-    padding: 0.5rem 1.2rem;
-    background: #4CAF50;
+    margin-top: 1.2rem;
+    padding: 0.8rem 2.5rem;
+    background: linear-gradient(135deg, #58cc02 0%, #46a302 100%);
     color: white;
     border: none;
-    border-radius: 20px;
-    font-weight: 600;
+    border-radius: 99px;
+    font-weight: 800;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    align-self: flex-start;
+    box-shadow: 0 6px 15px rgba(88, 204, 2, 0.4);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
 }
 
 .start-btn:hover {
-    background: #43a047;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(88, 204, 2, 0.6);
+}
+
+.start-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(88, 204, 2, 0.4);
+}
+
+/* Checkpoint Test Styles */
+.checkpoint-test-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    background: #1c2333;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.timer {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #ff9800;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #2d3748;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #58cc02;
+    transition: width 0.3s ease;
+}
+
+.question-card {
+    background: #232a3d;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.question-number {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.option-btn {
+    padding: 1rem;
+    background: #2d3748;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.option-btn:hover {
+    background: #4a5568;
+}
+
+.option-btn.selected {
+    border-color: #58cc02;
+    background: rgba(88, 204, 2, 0.1);
+}
+
+.test-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.primary-btn {
+    padding: 0.8rem 2rem;
+    background: #58cc02;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: #a0aec0;
+    border: none;
+    cursor: pointer;
+}
+
+/* Result Card */
+.checkpoint-result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.result-card {
+    background: #1c2333;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 8px solid #58cc02;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 2rem auto;
+    color: #58cc02;
 }

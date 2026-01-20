@@ -8,14 +8,6 @@ interface UnitNodeProps {
     levelColor: string;
 }
 
-// Helper to create transparent background from hex
-const hexToRgba = (hex: string, alpha: number) => {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-};
-
 export const UnitNode: React.FC<UnitNodeProps> = ({ unit, onClick, levelColor }) => {
     const isLocked = unit.status === 'locked';
     const isCompleted = unit.status === 'completed';
@@ -27,7 +19,7 @@ export const UnitNode: React.FC<UnitNodeProps> = ({ unit, onClick, levelColor })
         }
     };
 
-    // Medal colors
+    // Medal colors (kept for reference if needed later, or utilized via class logic)
     const MEDAL_GOLD = '#FFD700';
     const MEDAL_SILVER = '#C0C0C0';
     const MEDAL_BRONZE = '#CD7F32';
@@ -39,30 +31,25 @@ export const UnitNode: React.FC<UnitNodeProps> = ({ unit, onClick, levelColor })
     };
 
     const medalColor = isCompleted ? getMedalColor(unit.score) : levelColor;
-    const finalBorderColor = isCompleted ? medalColor : isActive ? levelColor : 'transparent';
-    const finalShadowColor = isCompleted ? medalColor : levelColor;
 
-    // Dynamic styles based on level color or medal color
-    const containerStyle: React.CSSProperties = isCompleted
-        ? {
-            borderColor: finalBorderColor,
-            boxShadow: `0 0 0 1px ${finalBorderColor}`,
-            backgroundColor: hexToRgba(finalBorderColor, 0.1)
-        }
-        : isActive
-            ? {
-                borderColor: levelColor,
-                backgroundColor: hexToRgba(levelColor, 0.05)
-            }
-            : {};
+    // Use medalColor for completed state to show achievement (Gold/Silver/Bronze)
+    // Use levelColor for active state to show level identity
 
+    // Container Style: Border matches the status color
+    const containerStyle: React.CSSProperties = (isActive || isCompleted)
+        ? { borderColor: isCompleted ? medalColor : levelColor }
+        : {};
+
+    // Visual Circle Style:
+    // - Active: White bg, Level Color border/icon
+    // - Completed: Medal Color bg, White icon
     const visualStyle: React.CSSProperties = isCompleted
-        ? { backgroundColor: finalBorderColor }
+        ? { backgroundColor: medalColor, borderColor: medalColor, color: '#fff' }
         : isActive
-            ? { color: levelColor, backgroundColor: '#fff', border: `2px solid ${levelColor}` }
+            ? { color: levelColor, backgroundColor: '#fff', borderColor: levelColor }
             : {};
 
-    const btnStyle = { backgroundColor: levelColor }; // Button stays level color for consistency? Or medal? Let's keep level color for start button on active units.
+    const btnStyle = { backgroundColor: levelColor };
 
     return (
         <div
@@ -77,7 +64,7 @@ export const UnitNode: React.FC<UnitNodeProps> = ({ unit, onClick, levelColor })
             </div>
 
             <div className="unit-info">
-                <span className="unit-label" style={{ color: isActive || isCompleted ? levelColor : '#999' }}>UNIT {unit.order}</span>
+                <span className="unit-label" style={{ color: (isActive || isCompleted) ? levelColor : '#999' }}>UNIT {unit.order}</span>
                 <h4 className="unit-title">{unit.title}</h4>
                 <p className="unit-desc">{unit.description}</p>
 

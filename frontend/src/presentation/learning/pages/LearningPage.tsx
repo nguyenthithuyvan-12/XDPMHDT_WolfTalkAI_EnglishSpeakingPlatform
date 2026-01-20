@@ -13,16 +13,18 @@ import { PracticeView } from '../components/PracticeView';
 import { LearningPreparation } from '../components/LearningPreparation';
 import { SessionSummary } from '../components/SessionSummary';
 import { LearningPathDashboard } from '../components/LearningPath/LearningPathDashboard';
+import { CheckpointTestView } from '../components/LearningPath/CheckpointTestView';
 import { PlacementTestIntro } from '../components/Placement/PlacementTestIntro';
 import { PlacementTestView } from '../components/Placement/PlacementTestView';
 import { PlacementResult } from '../components/Placement/PlacementResult';
+import Sidebar from '../../../components/Sidebar';
 import '../styles/Learning.css';
 import type { Topic, ScenarioDetail } from '../../../domain/learning/entities/LearningMaterial';
 import type { Unit } from '../../../domain/learning/entities/Syllabus';
 import type { TestResult } from '../../../domain/learning/entities/PlacementTest';
 
 // Define the stages of the new learning flow
-type LearningStage = 'MODE_SELECTION' | 'TOPIC_SELECTION' | 'PATH_DASHBOARD' | 'PREPARATION' | 'SESSION' | 'SUMMARY' | 'PLACEMENT_INTRO' | 'PLACEMENT_TEST' | 'PLACEMENT_RESULT';
+type LearningStage = 'MODE_SELECTION' | 'TOPIC_SELECTION' | 'PATH_DASHBOARD' | 'PREPARATION' | 'SESSION' | 'SUMMARY' | 'PLACEMENT_INTRO' | 'PLACEMENT_TEST' | 'PLACEMENT_RESULT' | 'CHECKPOINT';
 type SessionStep = 'vocab' | 'grammar' | 'conversation' | 'practice';
 
 export const LearningPage: React.FC = () => {
@@ -226,6 +228,8 @@ export const LearningPage: React.FC = () => {
         );
     }
 
+
+
     const handleLevelChange = async (newLevel: string) => {
         setUserLevel(newLevel);
         if (selectedScenarioId) {
@@ -242,190 +246,220 @@ export const LearningPage: React.FC = () => {
         }
     };
 
+    const handleStartCheckpoint = () => {
+        setStage('CHECKPOINT');
+    };
+
+    const handleCheckpointComplete = async (result: any) => {
+        console.log('Checkpoint complete:', result);
+        if (result.isPassed) {
+            // Unlock next level logic here (mock)
+            const { syllabusService } = await import('../../../application/learning/services/MockSyllabusService');
+            // Assuming next level is A2 for now, logic could be dynamic
+            await syllabusService.unlockLevel('A2');
+            alert("Chúc mừng! Bạn đã hoàn thành cấp độ A1 và mở khóa A2.");
+            setUserLevel('A2'); // Auto switch to new level view?
+        }
+        setStage('PATH_DASHBOARD');
+    };
+
     return (
-        <div className="learning-container">
-            {/* Header/Navigation could go here */}
+        <div className="learning-page-layout">
+            <Sidebar />
+            <div className="learning-main-content">
+                {/* Stage: Mode Selection */}
+                {stage === 'MODE_SELECTION' && (
+                    <LearningModeSelector onSelectMode={handleSelectMode} />
+                )}
 
-            {/* Stage: Mode Selection */}
-            {stage === 'MODE_SELECTION' && (
-                <LearningModeSelector onSelectMode={handleSelectMode} />
-            )}
-
-            {/* Stage: Placement Test Flow */}
-            {stage === 'PLACEMENT_INTRO' && (
-                <PlacementTestIntro
-                    onStartTest={() => setStage('PLACEMENT_TEST')}
-                    onSkipTest={() => {
-                        setUserLevel('A1');
-                        setStage('PATH_DASHBOARD');
-                    }}
-                />
-            )}
-
-            {stage === 'PLACEMENT_TEST' && (
-                <PlacementTestView
-                    onComplete={(result) => {
-                        setPlacementResult(result);
-                        setStage('PLACEMENT_RESULT');
-                    }}
-                />
-            )}
-
-            {stage === 'PLACEMENT_RESULT' && placementResult && (
-                <PlacementResult
-                    result={placementResult}
-                    onStartCourse={() => {
-                        setUserLevel(placementResult.recommendedLevel);
-                        setStage('PATH_DASHBOARD');
-                    }}
-                />
-            )}
-
-            {/* Stage: Learning Path Dashboard (Structured) */}
-            {stage === 'PATH_DASHBOARD' && (
-                <div>
-                    <button className="back-btn" onClick={handleBackToMode} style={{ margin: '1rem' }}>&larr; Về trang chủ</button>
-                    <LearningPathDashboard onSelectUnit={handleSelectUnit} />
-                </div>
-            )}
-
-            {/* Stage: Topic Selection (Free) */}
-            {stage === 'TOPIC_SELECTION' && (
-                <TopicSelector
-                    topics={topics}
-                    selectedTopic={selectedTopic}
-                    scenarios={scenarios}
-                    selectedScenario={selectedScenarioId}
-                    onSelectTopic={handleSelectTopic}
-                    onSelectScenario={handleSelectScenario}
-                    onBack={handleBackToMode}
-                />
-            )}
-
-            {/* Stage: Preparation */}
-            {stage === 'PREPARATION' && (
-                isLoading ? (
-                    <div className="learning-container loading">Đang tải nội dung bài học...</div>
-                ) : scenarioDetail ? (
-                    <LearningPreparation
-                        scenario={scenarioDetail}
-                        userLevel={userLevel}
-                        onLevelChange={handleLevelChange}
-                        onStart={handleStartSession}
-                        onBack={handleBackToTopics}
+                {/* Stage: Placement Test Flow */}
+                {stage === 'PLACEMENT_INTRO' && (
+                    <PlacementTestIntro
+                        onStartTest={() => setStage('PLACEMENT_TEST')}
+                        onSkipTest={() => {
+                            setUserLevel('A1');
+                            setStage('PATH_DASHBOARD');
+                        }}
                     />
-                ) : (
-                    <div className="state-empty">
-                        <p>Không tìm thấy dữ liệu cho bài học này.</p>
-                        <button onClick={handleBackToTopics} className="secondary-btn">Quay lại</button>
+                )}
+
+                {stage === 'PLACEMENT_TEST' && (
+                    <PlacementTestView
+                        onComplete={(result) => {
+                            setPlacementResult(result);
+                            setStage('PLACEMENT_RESULT');
+                        }}
+                    />
+                )}
+
+                {stage === 'PLACEMENT_RESULT' && placementResult && (
+                    <PlacementResult
+                        result={placementResult}
+                        onStartCourse={() => {
+                            setUserLevel(placementResult.recommendedLevel);
+                            setStage('PATH_DASHBOARD');
+                        }}
+                    />
+                )}
+
+                {stage === 'CHECKPOINT' && (
+                    <CheckpointTestView
+                        levelId={userLevel}
+                        onComplete={handleCheckpointComplete}
+                        onCancel={() => setStage('PATH_DASHBOARD')}
+                    />
+                )}
+
+                {/* Stage: Learning Path Dashboard (Structured) */}
+                {stage === 'PATH_DASHBOARD' && (
+                    <div>
+                        <LearningPathDashboard
+                            onSelectUnit={handleSelectUnit}
+                            onStartCheckpoint={handleStartCheckpoint}
+                            onBack={handleBackToMode}
+                            userLevel={userLevel}
+                        />
                     </div>
-                )
-            )}
+                )}
 
-            {/* Stage: Learning Session */}
-            {stage === 'SESSION' && scenarioDetail && (
-                <div className="learning-session">
-                    <div className="session-progress">
-                        <button
-                            className={`step-btn ${sessionStep === 'vocab' ? 'active' : ''}`}
-                            onClick={() => setSessionStep('vocab')}
-                        >
-                            Từ vựng
-                        </button>
-                        <button
-                            className={`step-btn ${sessionStep === 'grammar' ? 'active' : ''}`}
-                            onClick={() => setSessionStep('grammar')}
-                        >
-                            Ngữ pháp
-                        </button>
-                        <button
-                            className={`step-btn ${sessionStep === 'conversation' ? 'active' : ''}`}
-                            onClick={() => setSessionStep('conversation')}
-                        >
-                            Hội thoại
-                        </button>
-                    </div>
+                {/* Stage: Topic Selection (Free) */}
+                {stage === 'TOPIC_SELECTION' && (
+                    <TopicSelector
+                        topics={topics}
+                        selectedTopic={selectedTopic}
+                        scenarios={scenarios}
+                        selectedScenario={selectedScenarioId}
+                        onSelectTopic={handleSelectTopic}
+                        onSelectScenario={handleSelectScenario}
+                        onBack={handleBackToMode}
+                    />
+                )}
 
-                    <div className="session-content">
-                        {sessionStep === 'vocab' && (
-                            <div className="vocab-list">
-                                {scenarioDetail.vocabulary.length > 0 ? (
-                                    scenarioDetail.vocabulary.map((vocab, idx) => (
-                                        <VocabularyCard key={idx} vocab={vocab} index={idx} />
-                                    ))
-                                ) : (
-                                    <p className="empty-msg">Chưa có từ vựng cho bài này.</p>
-                                )}
-                                <div className="nav-actions">
-                                    <button className="next-btn" onClick={() => setSessionStep('grammar')}>Tiếp theo: Ngữ pháp</button>
-                                </div>
-                            </div>
-                        )}
+                {/* Stage: Preparation */}
+                {stage === 'PREPARATION' && (
+                    isLoading ? (
+                        <div className="learning-container loading">Đang tải nội dung bài học...</div>
+                    ) : scenarioDetail ? (
+                        <LearningPreparation
+                            scenario={scenarioDetail}
+                            userLevel={userLevel}
+                            onLevelChange={handleLevelChange}
+                            onStart={handleStartSession}
+                            onBack={handleBackToTopics}
+                        />
+                    ) : (
+                        <div className="state-empty">
+                            <p>Không tìm thấy dữ liệu cho bài học này.</p>
+                            <button onClick={handleBackToTopics} className="secondary-btn">Quay lại</button>
+                        </div>
+                    )
+                )}
 
-                        {sessionStep === 'grammar' && (
-                            <div className="grammar-list">
-                                {scenarioDetail.grammar.length > 0 ? (
-                                    scenarioDetail.grammar.map((grammar, idx) => (
-                                        <GrammarCard key={idx} grammar={grammar} index={idx} />
-                                    ))
-                                ) : (
-                                    <p className="empty-msg">Chưa có ngữ pháp cho bài này.</p>
-                                )}
-                                <div className="nav-actions">
-                                    <button className="prev-btn" onClick={() => setSessionStep('vocab')}>Quay lại</button>
-                                    <button className="next-btn" onClick={() => setSessionStep('conversation')}>Tiếp theo: Hội thoại</button>
-                                </div>
-                            </div>
-                        )}
+                {/* Stage: Learning Session */}
+                {stage === 'SESSION' && scenarioDetail && (
+                    <div className="learning-session">
+                        <div className="session-progress">
+                            <button
+                                className={`step-btn ${sessionStep === 'vocab' ? 'active' : ''}`}
+                                onClick={() => setSessionStep('vocab')}
+                            >
+                                Từ vựng
+                            </button>
+                            <button
+                                className={`step-btn ${sessionStep === 'grammar' ? 'active' : ''}`}
+                                onClick={() => setSessionStep('grammar')}
+                            >
+                                Ngữ pháp
+                            </button>
+                            <button
+                                className={`step-btn ${sessionStep === 'conversation' ? 'active' : ''}`}
+                                onClick={() => setSessionStep('conversation')}
+                            >
+                                Hội thoại
+                            </button>
+                        </div>
 
-
-                        {sessionStep === 'conversation' && (
-                            <div className="conversation-section">
-                                {scenarioDetail.conversation.length > 0 ? (
-                                    <ConversationView turns={scenarioDetail.conversation} />
-                                ) : (
-                                    <p className="empty-msg">Chưa có hội thoại mẫu cho bài này.</p>
-                                )}
-                                <div className="nav-actions">
-                                    <button className="prev-btn" onClick={() => setSessionStep('grammar')}>Quay lại</button>
-                                    <button className="next-btn" onClick={() => setSessionStep('practice')}>Tiếp theo: Luyện tập</button>
-                                </div>
-                            </div>
-                        )}
-
-                        {sessionStep === 'practice' && (
-                            <div className="practice-section">
-                                {scenarioDetail.practice && scenarioDetail.practice.questions.length > 0 ? (
-                                    <PracticeView
-                                        exercise={scenarioDetail.practice}
-                                        onBack={() => setSessionStep('conversation')}
-                                        onComplete={(score) => handleCompleteSession(score)}
-                                    />
-                                ) : (
-                                    <div className="empty-state">
-                                        <p className="empty-msg">Chưa có bài tập cho phần này.</p>
-                                        <button className="finish-btn" onClick={() => handleCompleteSession(0)}>Hoàn thành bài học</button>
+                        <div className="session-content">
+                            {sessionStep === 'vocab' && (
+                                <div className="vocab-list">
+                                    {scenarioDetail.vocabulary.length > 0 ? (
+                                        scenarioDetail.vocabulary.map((vocab, idx) => (
+                                            <VocabularyCard key={idx} vocab={vocab} index={idx} />
+                                        ))
+                                    ) : (
+                                        <p className="empty-msg">Chưa có từ vựng cho bài này.</p>
+                                    )}
+                                    <div className="nav-actions">
+                                        <button className="next-btn" onClick={() => setSessionStep('grammar')}>Tiếp theo: Ngữ pháp</button>
                                     </div>
-                                )}
-                            </div>
-                        )}
+                                </div>
+                            )}
+
+                            {sessionStep === 'grammar' && (
+                                <div className="grammar-list">
+                                    {scenarioDetail.grammar.length > 0 ? (
+                                        scenarioDetail.grammar.map((grammar, idx) => (
+                                            <GrammarCard key={idx} grammar={grammar} index={idx} />
+                                        ))
+                                    ) : (
+                                        <p className="empty-msg">Chưa có ngữ pháp cho bài này.</p>
+                                    )}
+                                    <div className="nav-actions">
+                                        <button className="prev-btn" onClick={() => setSessionStep('vocab')}>Quay lại</button>
+                                        <button className="next-btn" onClick={() => setSessionStep('conversation')}>Tiếp theo: Hội thoại</button>
+                                    </div>
+                                </div>
+                            )}
+
+
+                            {sessionStep === 'conversation' && (
+                                <div className="conversation-section">
+                                    {scenarioDetail.conversation.length > 0 ? (
+                                        <ConversationView turns={scenarioDetail.conversation} />
+                                    ) : (
+                                        <p className="empty-msg">Chưa có hội thoại mẫu cho bài này.</p>
+                                    )}
+                                    <div className="nav-actions">
+                                        <button className="prev-btn" onClick={() => setSessionStep('grammar')}>Quay lại</button>
+                                        <button className="next-btn" onClick={() => setSessionStep('practice')}>Tiếp theo: Luyện tập</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {sessionStep === 'practice' && (
+                                <div className="practice-section">
+                                    {scenarioDetail.practice && scenarioDetail.practice.questions.length > 0 ? (
+                                        <PracticeView
+                                            exercise={scenarioDetail.practice}
+                                            onBack={() => setSessionStep('conversation')}
+                                            onComplete={(score) => handleCompleteSession(score)}
+                                        />
+                                    ) : (
+                                        <div className="empty-state">
+                                            <p className="empty-msg">Chưa có bài tập cho phần này.</p>
+                                            <button className="finish-btn" onClick={() => handleCompleteSession(0)}>Hoàn thành bài học</button>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
 
 
-            {/* Stage: Summary */}
-            {stage === 'SUMMARY' && scenarioDetail && (
-                <SessionSummary
-                    scenarioName={scenarioDetail.scenarioName}
-                    vocabCount={scenarioDetail.vocabulary.length}
-                    grammarCount={scenarioDetail.grammar.length}
-                    score={practiceScore}
-                    maxScore={scenarioDetail.practice?.questions.length ? scenarioDetail.practice.questions.length * 10 : 0}
-                    onHome={handleBackToTopics} // Return to Path or Topic
-                    onRetry={() => handleSelectScenario(scenarioDetail.scenarioName)}
-                />
-            )}
+                {/* Stage: Summary */}
+                {stage === 'SUMMARY' && scenarioDetail && (
+                    <SessionSummary
+                        scenarioName={scenarioDetail.scenarioName}
+                        vocabCount={scenarioDetail.vocabulary.length}
+                        grammarCount={scenarioDetail.grammar.length}
+                        score={practiceScore}
+                        maxScore={scenarioDetail.practice?.questions.length ? scenarioDetail.practice.questions.length * 10 : 0}
+                        onHome={handleBackToTopics} // Return to Path or Topic
+                        onRetry={() => handleSelectScenario(scenarioDetail.scenarioName)}
+                    />
+                )}
+            </div>
         </div>
     );
 };

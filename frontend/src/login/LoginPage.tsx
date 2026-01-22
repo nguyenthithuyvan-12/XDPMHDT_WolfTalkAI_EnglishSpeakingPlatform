@@ -111,11 +111,27 @@ const LoginPage: React.FC<LoginPageProps> = ({
   };
 
   const handleGoogleLogin = () => {
-    console.log("Google login clicked");
+    const url2 = "/dashboard"; // URL sau khi login thành công
+    const googleAuthUrl =
+      "https://accounts.google.com/o/oauth2/v2/auth" +
+      "?scope=email%20profile%20openid" +
+      `&redirect_uri=${window.location.origin}${url2}` +
+      "&response_type=code" +
+      "&client_id=105737070633-e5po00frvcelb1oj88jis6lfd1q7coqj.apps.googleusercontent.com" +
+      "&prompt=consent";
+    window.location.href = googleAuthUrl;
   };
 
   const handleFacebookLogin = () => {
-    console.log("Facebook login clicked");
+    const fbClientId = "YOUR_FACEBOOK_APP_ID";
+    const url2 = "/dashboard"; // URL sau khi login thành công
+    const facebookAuthUrl =
+      "https://www.facebook.com/v18.0/dialog/oauth" +
+      `?client_id=${fbClientId}` +
+      `&redirect_uri=${window.location.origin}${url2}` +
+      "&scope=email,public_profile" +
+      "&response_type=code";
+    window.location.href = facebookAuthUrl;
   };
 
   return (

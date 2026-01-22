@@ -33,7 +33,10 @@ public class User {
 
     private String lastName;
 
+
     private String roles; // comma separated roles
+
+    private String avatar; // link ảnh đại diện
 
     private String learningLanguage; // en, ja, zh
 

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  type ReactNode,
-} from "react";
-=======
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { storageService } from '../../infrastructure/services/StorageService'; // Correctly points to the file I made/verified
@@ -27,7 +18,6 @@ export interface LoginDTO {
   token?: string;
   provider?: string;
 }
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)
 
 interface AuthContextType {
   user: any | null;
@@ -40,15 +30,6 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-<<<<<<< HEAD
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [user, setUser] = useState<any | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-=======
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<UserDTO | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -74,7 +55,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } else {
       setUser(null);
     }
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)
     setIsLoading(false);
   };
 
@@ -82,38 +62,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     checkAuth();
   }, []);
 
-<<<<<<< HEAD
-  const login = async (credentials: any): Promise<any> => {
-    try {
-      console.log("AuthContext: Attempting login with", credentials);
-
-      // Call backend API
-      const response = await fetch("http://localhost:8080/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || "Login failed");
-      }
-
-      const data = await response.json();
-      console.log("AuthContext: Login successful", data);
-
-      // Store token & user info
-      if (data.token) {
-        localStorage.setItem("accessToken", data.token);
-      }
-
-      setUser(data.user);
-      return data.user;
-    } catch (error) {
-      console.error("AuthContext: Login failed with error", error);
-=======
   const login = async (credentials: LoginDTO): Promise<UserDTO> => {
     try {
       // If login with credentials
@@ -126,17 +74,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       throw new Error('No token returned');
     } catch (error) {
       console.error('AuthContext: Login failed with error', error);
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)
       throw error;
     }
   };
 
   const logout = (): void => {
-<<<<<<< HEAD
-=======
     storageService.removeAccessToken();
     storageService.removeUser();
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)
     setUser(null);
     window.location.href = '/login';
   };

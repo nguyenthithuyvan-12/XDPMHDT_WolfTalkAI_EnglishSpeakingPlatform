@@ -33,20 +33,12 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(java.util.Arrays.asList(
-<<<<<<< HEAD
-            "http://localhost:5173",
-            "http://localhost:3000",
-            "http://localhost:3001",
-            "http://127.0.0.1:5173",
-            "http://127.0.0.1:3000",
-            "http://127.0.0.1:3001"
-        ));
-=======
                 "http://localhost:5173",
                 "http://localhost:3000",
+                "http://localhost:3001",
                 "http://127.0.0.1:5173",
-                "http://127.0.0.1:3000"));
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)
+                "http://127.0.0.1:3000",
+                "http://127.0.0.1:3001"));
         configuration.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(java.util.Arrays.asList("*"));
         configuration.setExposedHeaders(java.util.Arrays.asList("Authorization", "Content-Type"));
@@ -67,29 +59,17 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-<<<<<<< HEAD
-                    .requestMatchers("/api/auth/**").permitAll()
-                    .requestMatchers("/api/audio/**").permitAll() // Allow audio generation for learning
-                    // Allow public access to package listings (GET)
-                    .requestMatchers(HttpMethod.GET, "/api/packages/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-                    // Admin endpoints - require ROLE_ADMIN
-                    .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                    .anyRequest().authenticated()
-                );
-=======
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/audio/**").permitAll() // Allow audio generation for learning
                         .requestMatchers("/oauth2/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
-                        // Allow public access to package listings (GET)
-                        // Allow public access to package listings (GET)
                         .requestMatchers(HttpMethod.GET, "/api/packages/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+                        // Admin endpoints - require ROLE_ADMIN
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(oAuth2LoginSuccessHandler));
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)
         // Add JWT filter to validate tokens and set SecurityContext
         http.addFilterBefore(new JwtAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 

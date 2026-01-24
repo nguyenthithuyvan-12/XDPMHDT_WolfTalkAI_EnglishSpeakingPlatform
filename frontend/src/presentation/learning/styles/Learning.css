@@ -712,6 +712,7 @@ body {
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -911,8 +912,6 @@ body {
   /* Legacy buttons if still used */
   cursor: pointer;
 }
-<<<<<<< HEAD
-=======
 
 /* --- Session Header & Progress --- */
 .session-header {
@@ -1067,4 +1066,3 @@ body {
   transform: translateY(2px);
   box-shadow: none;
 }
->>>>>>> cc38da3 (sửa database , login , thêm thời gian thực dashboard)

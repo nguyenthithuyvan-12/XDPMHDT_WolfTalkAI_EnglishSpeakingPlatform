@@ -32,25 +32,31 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
 
-        // Extract email and name
-        String email = oAuth2User.getAttribute("email");
-        String name = oAuth2User.getAttribute("name"); // Google uses "name", Facebook also tends to use "name" or
-                                                       // "first_name" + "last_name"
+        // Better way to get provider info
+        String provider = "oauth2";
+        if (authentication instanceof org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken) {
+            provider = ((org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken) authentication)
+                    .getAuthorizedClientRegistrationId();
+        }
 
-        // Determine provider (rudimentary check, can be improved by checking
-        // AuthorizedClientService)
-        // For simplicity, we assume the provider based on current request or
-        // attributes?
-        // A better way is to pass the provider in the authorization request or infer
-        // from the issuer.
-        // For now, let's treat it generically or check attributes.
-        // Google usually has "sub", "email", "name". Facebook has "id", "email",
-        // "name".
+        // Extract attributes
+        String email = oAuth2User.getAttribute("email");
+        String name = oAuth2User.getAttribute("name");
+        String picture = null;
+        String providerId = oAuth2User.getAttribute("sub"); // Google
+
+        if (provider.equals("google")) {
+            picture = oAuth2User.getAttribute("picture");
+        } else if (provider.equals("facebook")) {
+            providerId = oAuth2User.getAttribute("id");
+            // Facebook picture is usually nested, but let's try to get simple one or skip
+            // for now
+            // Detailed FB picture extraction needs more complex mapping
+        }
 
         if (email == null) {
-            // Fallback or error
-            // Try to get "sub" or "id" as identifier if email is missing
-            System.err.println("OAuth2 Login: Email is null for provider. Attributes: " + oAuth2User.getAttributes());
+            System.err.println(
+                    "OAuth2 Login: Email is null for " + provider + ". Attributes: " + oAuth2User.getAttributes());
             getRedirectStrategy().sendRedirect(request, response, "http://localhost:5173/login?error=no_email");
             return;
         }
@@ -58,18 +64,30 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
         // Check if user exists
         Optional<User> userOptional = userRepository.findByEmailIgnoreCase(email);
         User user;
+        boolean isBrandNew = false;
 
         if (userOptional.isPresent()) {
             user = userOptional.get();
-            // Update existing user info if needed
-            if (user.getProvider() == null) {
-                user.setProvider("oauth2");
-                userRepository.save(user); // Save update
+            // Update provider info if not set
+            if (user.getProvider() == null || user.getProvider().equals("oauth2")) {
+                user.setProvider(provider);
             }
+            if (user.getProviderId() == null) {
+                user.setProviderId(providerId);
+            }
+            if (user.getAvatar() == null && picture != null) {
+                user.setAvatar(picture);
+            }
+            userRepository.save(user);
         } else {
             // Create new user
+            isBrandNew = true;
             user = new User();
             user.setEmail(email);
+            user.setProvider(provider);
+            user.setProviderId(providerId);
+            user.setAvatar(picture);
+
             if (name != null) {
                 String[] parts = name.split(" ");
                 if (parts.length > 0)
@@ -79,12 +97,11 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
             } else {
                 user.setFirstName("User");
             }
-            user.setProvider("oauth2");
-            // Set dummy password to satisfy potential NOT NULL constraint in DB schema
-            // if ddl-auto didn't update the column helper.
-            user.setPassword("OAUTH2_SOCIAL_LOGIN_placeholder");
-            user.setRoles("Learner"); // Default role
+
+            user.setPassword("OAUTH2_SOCIAL_LOGIN_" + java.util.UUID.randomUUID().toString());
+            user.setRoles("ROLE_USER,Learner");
             user.setHasCompletedPlacementTest(false);
+            user.setIsFirstLogin(true);
             userRepository.save(user);
         }
 
@@ -94,6 +111,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
         // Redirect to frontend with token
         String targetUrl = UriComponentsBuilder.fromUriString("http://localhost:5173/auth/callback")
                 .queryParam("token", token)
+                .queryParam("isNewUser", isBrandNew)
                 .build().toUriString();
 
         getRedirectStrategy().sendRedirect(request, response, targetUrl);

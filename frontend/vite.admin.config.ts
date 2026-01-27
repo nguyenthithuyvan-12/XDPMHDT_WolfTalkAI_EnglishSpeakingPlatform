@@ -8,6 +8,9 @@ import path from "path";
 // Admin app configuration - runs on admin.localhost:3001
 export default defineConfig({
   plugins: [react()],
+  define: {
+    global: "window",
+  },
   server: {
     port: 3001,
     host: "127.0.0.1",

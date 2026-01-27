@@ -26,6 +26,7 @@ import LearningPage from "./presentation/learning/pages/LearningPage";
 import PackageSelectionPage from "./pages/PackageSelectionPage";
 
 import SubscriptionPage from "./pages/SubscriptionPage";
+import ChatPage from "./pages/ChatPage";
 import { OAuthCallback } from "./presentation/pages/auth/OAuthCallback";
 import { LoginPage } from "./presentation/pages/auth/LoginPage/LoginPage";
 
@@ -158,6 +159,19 @@ function App() {
                     <Sidebar />
                     <main className="main-content">
                       <ProgressPage />
+                    </main>
+                  </div>
+                </RequirePlacementTest>
+              }
+            />
+            <Route
+              path="/chat"
+              element={
+                <RequirePlacementTest>
+                  <div className="app-layout">
+                    <Sidebar />
+                    <main className="main-content">
+                      <ChatPage />
                     </main>
                   </div>
                 </RequirePlacementTest>
